@@ -1,0 +1,64 @@
+{
+  "experiment": "exp3_rubric_sensitivity",
+  "description": "Rubric sensitivity analysis: measures how scoring TYPE affects inter-judge agreement. Controlled PEMAT pair (rubric1 BINARY vs rubric5 LIKERT) isolates scale effect. 50 questions x 5 rubrics x 3 variants = 750 rows (~46 min on HPC).",
+  "max_questions": 50,
+  "scoring_sensitivity_design": {
+    "controlled_pair": {
+      "rubric_binary": "rubrics/rubric1_pemat.json",
+      "rubric_likert": "rubrics/rubric5_pemat_likert.json",
+      "what_is_held_constant": "All 5 PEMAT item criteria are identical word-for-word",
+      "what_varies": "Scoring scale \u2014 BINARY (0/1) vs LIKERT (1-5)",
+      "research_question": "Does a BINARY scorer produce higher inter-judge agreement than a LIKERT scorer on identical medical evaluation criteria?"
+    },
+    "cross_rubric_variants": {
+      "description": "All 5 rubrics re-run under 3 forced scoring variants to test scoring sensitivity across different rubric types",
+      "variants": [
+        "BINARY",
+        "LIKERT_1_5",
+        "SCALED_0_10"
+      ]
+    }
+  },
+  "judges": [
+    {
+      "id": "medgemma",
+      "model": "google/medgemma-4b-it",
+      "url": "http://localhost:8001"
+    },
+    {
+      "id": "biomistral",
+      "model": "BioMistral/BioMistral-7B",
+      "url": "http://localhost:8002"
+    },
+    {
+      "id": "meditron",
+      "model": "epfl-llm/meditron-7b",
+      "url": "http://localhost:8003"
+    },
+    {
+      "id": "medalpaca",
+      "model": "medalpaca/medalpaca-7b",
+      "url": "http://localhost:8004"
+    }
+  ],
+  "rubrics": [
+    "rubrics/rubric1_pemat.json",
+    "rubrics/rubric2_healthbench.json",
+    "rubrics/rubric3_clinical_eval.json",
+    "rubrics/rubric4_prometheus.json",
+    "rubrics/rubric5_pemat_likert.json"
+  ],
+  "scoring_variants": [
+    "BINARY",
+    "LIKERT_1_5",
+    "SCALED_0_10"
+  ],
+  "agreement_threshold": 80.0,
+  "temperature": 0.0,
+  "max_tokens": 1024,
+  "timeout_seconds": 120,
+  "output_files": {
+    "results_json": "results/exp3_sensitivity_results.json",
+    "figure_dir": "results/figures"
+  }
+}

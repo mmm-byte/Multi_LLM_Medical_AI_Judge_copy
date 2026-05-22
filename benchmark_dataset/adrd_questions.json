@@ -1,0 +1,285 @@
+{
+  "metadata": {
+    "domains": [
+      "Cardiology",
+      "Pharmacology",
+      "Neurology",
+      "Pediatrics",
+      "Emergency"
+    ],
+    "domain_summaries": {
+      "Cardiology": "STEMI management, 65-year-old, inferior ST elevation",
+      "Pharmacology": "Metformin contraindications and renal safety criteria",
+      "Neurology": "Thunderclap headache workup, SAH rule-out protocol",
+      "Pediatrics": "2-month vaccination schedule, US CDC ACIP guidelines",
+      "Emergency": "BLS protocol, unresponsive non-breathing patient"
+    },
+    "domain_examples": {
+      "Cardiology": "A 65-year-old presents with inferior ST elevation. What is the management?",
+      "Pharmacology": "What are the contraindications for metformin use in patients with renal impairment?",
+      "Neurology": "A patient presents with a thunderclap headache. How do you rule out subarachnoid hemorrhage?",
+      "Pediatrics": "What vaccines are recommended at the 2-month well-child visit per CDC ACIP guidelines?",
+      "Emergency": "What are the steps for BLS in an unresponsive, non-breathing adult?"
+    },
+    "sources": [
+      "MedQuAD",
+      "MedDialog",
+      "MedicalMeadow"
+    ],
+    "origin_repo": "https://github.com/m22oct2000/Multi-LLMs-as-Judge",
+    "total_questions": 25,
+    "per_domain_target": 20
+  },
+  "questions": [
+    {
+      "id": "q_0000",
+      "text": "A 65-year-old presents with inferior ST elevation. What is the management?",
+      "domain": "Cardiology",
+      "category": "cardiology",
+      "source": "placeholder",
+      "reference_answer": "Activate STEMI protocol. Aspirin 325mg, P2Y12 inhibitor. Primary PCI within 90 min.",
+      "domain_summary": "STEMI management, 65-year-old, inferior ST elevation",
+      "domain_example": "A 65-year-old presents with inferior ST elevation. What is the management?"
+    },
+    {
+      "id": "q_0001",
+      "text": "What are the indications for primary PCI in STEMI?",
+      "domain": "Cardiology",
+      "category": "cardiology",
+      "source": "placeholder",
+      "reference_answer": "STEMI within 12 hours, cardiogenic shock, failed thrombolysis.",
+      "domain_summary": "STEMI management, 65-year-old, inferior ST elevation",
+      "domain_example": "A 65-year-old presents with inferior ST elevation. What is the management?"
+    },
+    {
+      "id": "q_0002",
+      "text": "How do you manage acute atrial fibrillation with rapid ventricular response?",
+      "domain": "Cardiology",
+      "category": "cardiology",
+      "source": "placeholder",
+      "reference_answer": "Rate control with beta-blocker or calcium channel blocker. Anticoagulation if >48h.",
+      "domain_summary": "STEMI management, 65-year-old, inferior ST elevation",
+      "domain_example": "A 65-year-old presents with inferior ST elevation. What is the management?"
+    },
+    {
+      "id": "q_0003",
+      "text": "What troponin levels indicate myocardial injury?",
+      "domain": "Cardiology",
+      "category": "cardiology",
+      "source": "placeholder",
+      "reference_answer": "High-sensitivity troponin above 99th percentile URL indicates myocardial injury.",
+      "domain_summary": "STEMI management, 65-year-old, inferior ST elevation",
+      "domain_example": "A 65-year-old presents with inferior ST elevation. What is the management?"
+    },
+    {
+      "id": "q_0004",
+      "text": "When is thrombolysis preferred over PCI in STEMI?",
+      "domain": "Cardiology",
+      "category": "cardiology",
+      "source": "placeholder",
+      "reference_answer": "When PCI-capable facility cannot be reached within 120 minutes of first medical contact.",
+      "domain_summary": "STEMI management, 65-year-old, inferior ST elevation",
+      "domain_example": "A 65-year-old presents with inferior ST elevation. What is the management?"
+    },
+    {
+      "id": "q_0005",
+      "text": "What are the contraindications for metformin use in patients with renal impairment?",
+      "domain": "Pharmacology",
+      "category": "pharmacology",
+      "source": "placeholder",
+      "reference_answer": "eGFR <30 mL/min/1.73m2 is contraindicated. Use with caution if eGFR 30-45.",
+      "domain_summary": "Metformin contraindications and renal safety criteria",
+      "domain_example": "What are the contraindications for metformin use in patients with renal impairment?"
+    },
+    {
+      "id": "q_0006",
+      "text": "What are the major drug interactions with warfarin?",
+      "domain": "Pharmacology",
+      "category": "pharmacology",
+      "source": "placeholder",
+      "reference_answer": "Amiodarone, fluconazole, NSAIDs, broad-spectrum antibiotics increase INR.",
+      "domain_summary": "Metformin contraindications and renal safety criteria",
+      "domain_example": "What are the contraindications for metformin use in patients with renal impairment?"
+    },
+    {
+      "id": "q_0007",
+      "text": "What class of antibiotics is avoided in children under 8 due to teeth discoloration?",
+      "domain": "Pharmacology",
+      "category": "pharmacology",
+      "source": "placeholder",
+      "reference_answer": "Tetracyclines are contraindicated in children under 8 years of age.",
+      "domain_summary": "Metformin contraindications and renal safety criteria",
+      "domain_example": "What are the contraindications for metformin use in patients with renal impairment?"
+    },
+    {
+      "id": "q_0008",
+      "text": "How does renal impairment affect aminoglycoside dosing?",
+      "domain": "Pharmacology",
+      "category": "pharmacology",
+      "source": "placeholder",
+      "reference_answer": "Extend dosing intervals and monitor trough levels closely.",
+      "domain_summary": "Metformin contraindications and renal safety criteria",
+      "domain_example": "What are the contraindications for metformin use in patients with renal impairment?"
+    },
+    {
+      "id": "q_0009",
+      "text": "What is serotonin syndrome and which drug combinations cause it?",
+      "domain": "Pharmacology",
+      "category": "pharmacology",
+      "source": "placeholder",
+      "reference_answer": "Life-threatening excess serotonin. Caused by SSRIs + MAOIs, linezolid, tramadol.",
+      "domain_summary": "Metformin contraindications and renal safety criteria",
+      "domain_example": "What are the contraindications for metformin use in patients with renal impairment?"
+    },
+    {
+      "id": "q_0010",
+      "text": "A patient presents with a thunderclap headache. How do you rule out SAH?",
+      "domain": "Neurology",
+      "category": "neurology",
+      "source": "placeholder",
+      "reference_answer": "Non-contrast CT head first. If negative within 6h, LP for xanthochromia.",
+      "domain_summary": "Thunderclap headache workup, SAH rule-out protocol",
+      "domain_example": "A patient presents with a thunderclap headache. How do you rule out subarachnoid hemorrhage?"
+    },
+    {
+      "id": "q_0011",
+      "text": "What is the initial management of status epilepticus?",
+      "domain": "Neurology",
+      "category": "neurology",
+      "source": "placeholder",
+      "reference_answer": "Lorazepam IV first-line. Fosphenytoin if benzodiazepine fails. Protect airway.",
+      "domain_summary": "Thunderclap headache workup, SAH rule-out protocol",
+      "domain_example": "A patient presents with a thunderclap headache. How do you rule out subarachnoid hemorrhage?"
+    },
+    {
+      "id": "q_0012",
+      "text": "How do you differentiate ischemic stroke from hemorrhagic stroke?",
+      "domain": "Neurology",
+      "category": "neurology",
+      "source": "placeholder",
+      "reference_answer": "Non-contrast CT head. Hemorrhagic shows hyperdensity. Ischemic may be normal early.",
+      "domain_summary": "Thunderclap headache workup, SAH rule-out protocol",
+      "domain_example": "A patient presents with a thunderclap headache. How do you rule out subarachnoid hemorrhage?"
+    },
+    {
+      "id": "q_0013",
+      "text": "What are the diagnostic criteria for multiple sclerosis?",
+      "domain": "Neurology",
+      "category": "neurology",
+      "source": "placeholder",
+      "reference_answer": "McDonald criteria: dissemination in space and time on MRI or clinical presentation.",
+      "domain_summary": "Thunderclap headache workup, SAH rule-out protocol",
+      "domain_example": "A patient presents with a thunderclap headache. How do you rule out subarachnoid hemorrhage?"
+    },
+    {
+      "id": "q_0014",
+      "text": "When is lumbar puncture indicated in bacterial meningitis workup?",
+      "domain": "Neurology",
+      "category": "neurology",
+      "source": "placeholder",
+      "reference_answer": "After CT rules out raised ICP. Blood cultures first to avoid treatment delay.",
+      "domain_summary": "Thunderclap headache workup, SAH rule-out protocol",
+      "domain_example": "A patient presents with a thunderclap headache. How do you rule out subarachnoid hemorrhage?"
+    },
+    {
+      "id": "q_0015",
+      "text": "What vaccines are recommended at the 2-month well-child visit per CDC ACIP?",
+      "domain": "Pediatrics",
+      "category": "pediatrics",
+      "source": "placeholder",
+      "reference_answer": "DTaP, Hib, IPV, PCV15/20, RV, HepB (2nd dose).",
+      "domain_summary": "2-month vaccination schedule, US CDC ACIP guidelines",
+      "domain_example": "What vaccines are recommended at the 2-month well-child visit per CDC ACIP guidelines?"
+    },
+    {
+      "id": "q_0016",
+      "text": "What are the signs of Kawasaki disease in a 3-year-old?",
+      "domain": "Pediatrics",
+      "category": "pediatrics",
+      "source": "placeholder",
+      "reference_answer": "Fever >5 days plus 4 of 5: rash, conjunctivitis, mouth changes, hand changes, lymphadenopathy.",
+      "domain_summary": "2-month vaccination schedule, US CDC ACIP guidelines",
+      "domain_example": "What vaccines are recommended at the 2-month well-child visit per CDC ACIP guidelines?"
+    },
+    {
+      "id": "q_0017",
+      "text": "How do you manage febrile seizures in a 2-year-old?",
+      "domain": "Pediatrics",
+      "category": "pediatrics",
+      "source": "placeholder",
+      "reference_answer": "Most are simple and self-limiting. Antipyretics, reassure parents. Recurrence risk ~30%.",
+      "domain_summary": "2-month vaccination schedule, US CDC ACIP guidelines",
+      "domain_example": "What vaccines are recommended at the 2-month well-child visit per CDC ACIP guidelines?"
+    },
+    {
+      "id": "q_0018",
+      "text": "What is the dosing of paracetamol in a 15 kg child?",
+      "domain": "Pediatrics",
+      "category": "pediatrics",
+      "source": "placeholder",
+      "reference_answer": "10-15 mg/kg per dose every 4-6 hours. Max 75 mg/kg/day.",
+      "domain_summary": "2-month vaccination schedule, US CDC ACIP guidelines",
+      "domain_example": "What vaccines are recommended at the 2-month well-child visit per CDC ACIP guidelines?"
+    },
+    {
+      "id": "q_0019",
+      "text": "When is RSV prophylaxis with palivizumab indicated?",
+      "domain": "Pediatrics",
+      "category": "pediatrics",
+      "source": "placeholder",
+      "reference_answer": "Premature infants <29 weeks, infants with CHD or CLD in first RSV season.",
+      "domain_summary": "2-month vaccination schedule, US CDC ACIP guidelines",
+      "domain_example": "What vaccines are recommended at the 2-month well-child visit per CDC ACIP guidelines?"
+    },
+    {
+      "id": "q_0020",
+      "text": "What are the steps for BLS in an unresponsive, non-breathing adult?",
+      "domain": "Emergency",
+      "category": "emergency",
+      "source": "placeholder",
+      "reference_answer": "Call 911, 30 chest compressions : 2 breaths, use AED as soon as available.",
+      "domain_summary": "BLS protocol, unresponsive non-breathing patient",
+      "domain_example": "What are the steps for BLS in an unresponsive, non-breathing adult?"
+    },
+    {
+      "id": "q_0021",
+      "text": "How do you manage anaphylaxis in the emergency department?",
+      "domain": "Emergency",
+      "category": "emergency",
+      "source": "placeholder",
+      "reference_answer": "IM epinephrine 0.3-0.5mg in lateral thigh. IV fluids, diphenhydramine, steroids.",
+      "domain_summary": "BLS protocol, unresponsive non-breathing patient",
+      "domain_example": "What are the steps for BLS in an unresponsive, non-breathing adult?"
+    },
+    {
+      "id": "q_0022",
+      "text": "What is the initial approach to a trauma patient (primary survey)?",
+      "domain": "Emergency",
+      "category": "emergency",
+      "source": "placeholder",
+      "reference_answer": "ABCDE: Airway, Breathing, Circulation, Disability (neuro), Exposure.",
+      "domain_summary": "BLS protocol, unresponsive non-breathing patient",
+      "domain_example": "What are the steps for BLS in an unresponsive, non-breathing adult?"
+    },
+    {
+      "id": "q_0023",
+      "text": "How do you manage a tension pneumothorax?",
+      "domain": "Emergency",
+      "category": "emergency",
+      "source": "placeholder",
+      "reference_answer": "Immediate needle decompression 2nd ICS MCL. Definitive chest tube.",
+      "domain_summary": "BLS protocol, unresponsive non-breathing patient",
+      "domain_example": "What are the steps for BLS in an unresponsive, non-breathing adult?"
+    },
+    {
+      "id": "q_0024",
+      "text": "What is the Heimlich maneuver and when is it used?",
+      "domain": "Emergency",
+      "category": "emergency",
+      "source": "placeholder",
+      "reference_answer": "Abdominal thrusts for conscious choking adult. Alternate with back blows.",
+      "domain_summary": "BLS protocol, unresponsive non-breathing patient",
+      "domain_example": "What are the steps for BLS in an unresponsive, non-breathing adult?"
+    }
+  ]
+}

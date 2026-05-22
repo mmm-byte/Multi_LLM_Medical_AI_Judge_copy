@@ -1,0 +1,6 @@
+rubric,n,mean_pw_%,fully_%,majority_%,split_%,full_disagree_%
+PEMAT,25,76.8,8.0,68.0,24.0,0.0
+HealthBench,25,79.8,0.0,72.0,24.0,4.0
+Clinical LLM Evaluation by Expert Review,25,83.1,12.0,56.0,32.0,0.0
+Prometheus,25,81.6,20.0,68.0,12.0,0.0
+PEMAT-Likert,25,79.3,16.0,52.0,32.0,0.0

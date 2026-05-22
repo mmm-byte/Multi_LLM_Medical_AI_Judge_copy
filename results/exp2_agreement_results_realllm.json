@@ -1,0 +1,2960 @@
+[
+  {
+    "rubric_id": "rubric1_pemat",
+    "rubric_name": "PEMAT \u2014 Patient Education Materials Assessment Tool",
+    "source_paper": "Shoemaker SJ, Wolf MS, Brach C. Development of the Patient Education Materials Assessment Tool (PEMAT): A new measure of understandability and actionability for print and audiovisual patient information. Patient Education and Counseling. 2014;96(3):395-403. PMID: 24973195.",
+    "results": [
+      {
+        "question_id": "FU_00000",
+        "question_text": "What is the first-line treatment for a STEMI?",
+        "question_category": "Cardiology",
+        "rubric_id": "rubric1_pemat",
+        "rubric_name": "PEMAT \u2014 Patient Education Materials Assessment Tool",
+        "rubric_source_paper": "Shoemaker SJ, Wolf MS, Brach C. Development of the Patient Education Materials Assessment Tool (PEMAT): A new measure of understandability and actionability for print and audiovisual patient information. Patient Education and Counseling. 2014;96(3):395-403. PMID: 24973195.",
+        "judge_results": [
+          {
+            "judge_id": "medgemma",
+            "aggregate_score": 100.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "1",
+                "rationale": "information is organized logically reason here."
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason here."
+              },
+              {
+                "item_id": "A1",
+                "score": "1",
+                "rationale": "provides specific, actionable steps reason here."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason here."
+              }
+            ],
+            "raw_response": "U1: 1 | uses plain, everyday language reason here.\nU2: 1 | information is organized logically reason here.\nU3: 1 | focuses only on key messages without clutter reason here.\nA1: 1 | provides specific, actionable steps reason here.\nA2: 1 | addresses barriers to action reason here.",
+            "latency_ms": 25428.476810455322
+          },
+          {
+            "judge_id": "biomistral",
+            "aggregate_score": 20.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "0",
+                "rationale": "uses plain, everyday language reason: The answer uses common medical terminology and is presented in a straightforward manner, which aligns with the \"U1\" rubric criteria."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason: The answer follows a logical sequence of steps, starting with activating the STEMI protocol, followed by administering aspirin, then calling the cath lab for"
+              },
+              {
+                "item_id": "U3",
+                "score": "0",
+                "rationale": "focuses only on key messages without clutter reason: The answer contains all necessary information but lacks additional details that would make it more comprehensive or useful."
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason: While the answer provides a general guideline, it does not explicitly state what to do if there are no available resources (e.g., call the cath lab)."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason: The answer acknowledges the need to have access to a catheterization laboratory within 90 minutes, which is an essential step in STEMI management. However, it does"
+              }
+            ],
+            "raw_response": "U1: 0 | uses plain, everyday language reason: The answer uses common medical terminology and is presented in a straightforward manner, which aligns with the \"U1\" rubric criteria.\nU2: 0 | information is organized logically reason: The answer follows a logical sequence of steps, starting with activating the STEMI protocol, followed by administering aspirin, then calling the cath lab for primary PCI, and finally monitoring ECG and blood pressure.\nU3: 0 | focuses only on key messages without clutter reason: The answer contains all necessary information but lacks additional details that would make it more comprehensive or useful.\nA1: 0 | provides specific, actionable steps reason: While the answer provides a general guideline, it does not explicitly state what to do if there are no available resources (e.g., call the cath lab).\nA2: 1 | addresses barriers to action reason: The answer acknowledges the need to have access to a catheterization laboratory within 90 minutes, which is an essential step in STEMI management. However, it does not provide any alternative actions or strategies to address this barrier.",
+            "latency_ms": 27742.092609405518
+          },
+          {
+            "judge_id": "medicine_chat",
+            "aggregate_score": 80.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized"
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "A1",
+                "score": "1",
+                "rationale": "(extracted)"
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "(item-leading)"
+              }
+            ],
+            "raw_response": "\n[SYS]\n\nRUBRIC ITEMS:\n  U1 [1/0/NA] Uses plain, everyday language: The answer uses words caregivers use in everyday conversation\n  U2 [1/0/NA] Information is organized logically: The answer presents information in a logical order \u2014 most important information first, sequences are in correct order, and related ideas are grouped together\n  U3 [1/0/NA] Focuses only on key messages without clutter: The answer stays on topic, avoids unnecessary tangents, and presents no more than 4-5 key points\n  A1 [1/0/NA] Provides specific, actionable steps: The answer tells the caregiver exactly what to DO, not just what is known\n  A2 [1/0/NA] Addresses barriers to action: The answer acknowledges real-world difficulties the caregiver may face when following the advice, and provides workarounds or alternatives\n\nFORMAT EXAMPLE (do NOT copy the rationale text):\nU1: 1 | uses plain, everyday language reason here.\nU2: 0 | information is organized",
+            "latency_ms": 53776.86333656311
+          },
+          {
+            "judge_id": "biomistral_base",
+            "aggregate_score": 60.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason here."
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason here."
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason here."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason here."
+              }
+            ],
+            "raw_response": "U1: 1 | uses plain, everyday language reason here.\nU2: 0 | information is organized logically reason here.\nU3: 1 | focuses only on key messages without clutter reason here.\nA1: 0 | provides specific, actionable steps reason here.\nA2: 1 | addresses barriers to action reason here.",
+            "latency_ms": 8107.924461364746
+          }
+        ],
+        "agreement_summary": {
+          "agreement_class": "majority_agree",
+          "outlier_judge": "biomistral",
+          "pairwise_scores": [
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral",
+              "score": 20.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "medicine_chat",
+              "score": 80.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral_base",
+              "score": 60.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "medicine_chat",
+              "score": 40.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "biomistral_base",
+              "score": 60.0
+            },
+            {
+              "judge_a": "medicine_chat",
+              "judge_b": "biomistral_base",
+              "score": 80.0
+            }
+          ],
+          "mean_pairwise_agreement": 56.67
+        },
+        "agreement_class": "majority_agree",
+        "outlier_judge": "biomistral",
+        "mean_pairwise_agreement": 56.67,
+        "events_jsonl": "{\"id\": \"evt_63e6510bf14f4c69b130606b19375260\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FU_00000\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"medgemma\", \"score_ids\": [\"sc_a60a88fe6451403d877fc9d7aae34dab\", \"sc_58cc0cb1df5a46d9a14203137dfb88a9\", \"sc_5c04437527d14e469655b4ec8a58fea4\", \"sc_86e5e2ec1dc549bd94a3215e50fc55fa\", \"sc_53679f1b31e246148b941ebb60b91d97\"]}, \"created_at\": \"2026-05-18T21:41:44.667531+00:00\"}\n{\"id\": \"evt_2ac9011fb1ab418390f3dd9b0fd4d00d\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FU_00000\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"biomistral\", \"score_ids\": [\"sc_1f6187efa17f4268bb01367798f94b67\", \"sc_7ca5d15b9e264e54a120d50e1828f6aa\", \"sc_285a35d52d874b1794d5f6707ef9a906\", \"sc_cba707058bb848ea834e04094a076e95\", \"sc_721796d1d291432381316fe5803826c4\"]}, \"created_at\": \"2026-05-18T21:41:44.667695+00:00\"}\n{\"id\": \"evt_54d1ce2ec4e0498aa86b87740efb7826\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FU_00000\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"medicine_chat\", \"score_ids\": [\"sc_f6976fb186cb4293983b4e1ccd8f5bc6\", \"sc_e5c1bdccacf749418ebcc39c76ec7531\", \"sc_7e10907304c94b2296904f4d3d4b7bc2\", \"sc_212d9dabfe7d4fd5a9368ec8f477593c\", \"sc_afa3bd646b6747da92d4b32f4f1d4c0f\"]}, \"created_at\": \"2026-05-18T21:41:44.667758+00:00\"}\n{\"id\": \"evt_5bcfee2254c04da9b95e81081e5e79d6\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FU_00000\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"biomistral_base\", \"score_ids\": [\"sc_f29e610447c24d829d1d7e76223c1635\", \"sc_3203af34ee8a40729da153af4e05dd7e\", \"sc_4b93696ced424aa19d2cc1ca20299557\", \"sc_75ca9761d34f401fa458a4c9fedc5650\", \"sc_d192e5ca8fe04016a715cd1f17c081a8\"]}, \"created_at\": \"2026-05-18T21:41:44.667802+00:00\"}\n{\"id\": \"evt_a464f6fd8f704ff482f7a84159d77c3b\", \"type\": \"AgreementClassified\", \"data\": {\"question_id\": \"FU_00000\", \"rubric_id\": \"rubric1_pemat\", \"agreement_class\": \"majority_agree\", \"outlier_judge\": \"biomistral\", \"mean_pairwise_agreement\": 56.67}, \"created_at\": \"2026-05-18T21:41:44.667947+00:00\"}",
+        "skipped": false
+      },
+      {
+        "question_id": "FU_00001",
+        "question_text": "What is the treatment for opioid overdose?",
+        "question_category": "Pharmacology",
+        "rubric_id": "rubric1_pemat",
+        "rubric_name": "PEMAT \u2014 Patient Education Materials Assessment Tool",
+        "rubric_source_paper": "Shoemaker SJ, Wolf MS, Brach C. Development of the Patient Education Materials Assessment Tool (PEMAT): A new measure of understandability and actionability for print and audiovisual patient information. Patient Education and Counseling. 2014;96(3):395-403. PMID: 24973195.",
+        "judge_results": [
+          {
+            "judge_id": "medgemma",
+            "aggregate_score": 100.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "1",
+                "rationale": "information is organized logically reason here."
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason here."
+              },
+              {
+                "item_id": "A1",
+                "score": "1",
+                "rationale": "provides specific, actionable steps reason here."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason here."
+              }
+            ],
+            "raw_response": "U1: 1 | uses plain, everyday language reason here.\nU2: 1 | information is organized logically reason here.\nU3: 1 | focuses only on key messages without clutter reason here.\nA1: 1 | provides specific, actionable steps reason here.\nA2: 1 | addresses barriers to action reason here.",
+            "latency_ms": 25497.639894485474
+          },
+          {
+            "judge_id": "biomistral",
+            "aggregate_score": 40.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "0",
+                "rationale": "uses plain, everyday language reason: The answer uses common terms like \"naloxone\" and \"breathing,\" which are familiar to caregivers."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason: The answer follows a logical sequence of actions: call 911 first, then give naloxone, repeat every 2 to 3 minutes if breathing doesn't improve, and monitor b"
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason: While the answer mentions calling 911 and giving naloxone, it also includes additional steps like repeating every 2 to 3 minutes if breathing doesn"
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason: The answer clearly states that the caregiver should call 911, give naloxone, and monitor breathing until help arrives."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason: The answer acknowledges that providing immediate care can be challenging, but it emphasizes the importance of these steps in an emergency situation."
+              }
+            ],
+            "raw_response": "U1: 0 | uses plain, everyday language reason: The answer uses common terms like \"naloxone\" and \"breathing,\" which are familiar to caregivers.\nU2: 0 | information is organized logically reason: The answer follows a logical sequence of actions: call 911 first, then give naloxone, repeat every 2 to 3 minutes if breathing doesn't improve, and monitor breathing until help arrives.\nU3: 1 | focuses only on key messages without clutter reason: While the answer mentions calling 911 and giving naloxone, it also includes additional steps like repeating every 2 to 3 minutes if breathing doesn't improve and monitoring breathing until help arrives.\nA1: 0 | provides specific, actionable steps reason: The answer clearly states that the caregiver should call 911, give naloxone, and monitor breathing until help arrives.\nA2: 1 | addresses barriers to action reason: The answer acknowledges that providing immediate care can be challenging, but it emphasizes the importance of these steps in an emergency situation.",
+            "latency_ms": 26944.916248321533
+          },
+          {
+            "judge_id": "medicine_chat",
+            "aggregate_score": 80.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized"
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "A1",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "(item-leading)"
+              }
+            ],
+            "raw_response": "\n[SYS]\n\nRUBRIC ITEMS:\n  U1 [1/0/NA] Uses plain, everyday language: The answer uses words caregivers use in everyday conversation\n  U2 [1/0/NA] Information is organized logically: The answer presents information in a logical order \u2014 most important information first, sequences are in correct order, and related ideas are grouped together\n  U3 [1/0/NA] Focuses only on key messages without clutter: The answer stays on topic, avoids unnecessary tangents, and presents no more than 4-5 key points\n  A1 [1/0/NA] Provides specific, actionable steps: The answer tells the caregiver exactly what to DO, not just what is known\n  A2 [1/0/NA] Addresses barriers to action: The answer acknowledges real-world difficulties the caregiver may face when following the advice, and provides workarounds or alternatives\n\nFORMAT EXAMPLE (do NOT copy the rationale text):\nU1: 1 | uses plain, everyday language reason here.\nU2: 0 | information is organized",
+            "latency_ms": 52787.14990615845
+          },
+          {
+            "judge_id": "biomistral_base",
+            "aggregate_score": 60.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason here."
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason here."
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason here."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason here."
+              }
+            ],
+            "raw_response": "U1: 1 | uses plain, everyday language reason here.\nU2: 0 | information is organized logically reason here.\nU3: 1 | focuses only on key messages without clutter reason here.\nA1: 0 | provides specific, actionable steps reason here.\nA2: 1 | addresses barriers to action reason here.",
+            "latency_ms": 8405.006170272827
+          }
+        ],
+        "agreement_summary": {
+          "agreement_class": "split",
+          "outlier_judge": null,
+          "pairwise_scores": [
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral",
+              "score": 40.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "medicine_chat",
+              "score": 80.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral_base",
+              "score": 60.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "medicine_chat",
+              "score": 60.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "biomistral_base",
+              "score": 80.0
+            },
+            {
+              "judge_a": "medicine_chat",
+              "judge_b": "biomistral_base",
+              "score": 80.0
+            }
+          ],
+          "mean_pairwise_agreement": 66.67
+        },
+        "agreement_class": "split",
+        "outlier_judge": null,
+        "mean_pairwise_agreement": 66.67,
+        "events_jsonl": "{\"id\": \"evt_f1785d8267d242c5b99bead6dccd7b96\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FU_00001\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"medgemma\", \"score_ids\": [\"sc_882f0296ee914d9db766fc43a4bc9211\", \"sc_9dbe2ba4d21248eab149082ab06b2785\", \"sc_73212dd8c0db45119d81dabdffb7669f\", \"sc_98a7b41217894d088847c19f7f3b8ab4\", \"sc_282a8295ae054127b588cf9752b8d2e9\"]}, \"created_at\": \"2026-05-18T21:42:50.839489+00:00\"}\n{\"id\": \"evt_5c3b45d56f4146b0812ec5d0ef3852dd\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FU_00001\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"biomistral\", \"score_ids\": [\"sc_89dd87902faa476292f35057ba4f43c9\", \"sc_0bc69ee1b62f46748026eebb0f4d97e0\", \"sc_13e8cc68efae497e96fd26b37406c19d\", \"sc_62bc7e85025748e19e1b11d12873d3ec\", \"sc_1485f34fc973478a94fba9c30529cc7c\"]}, \"created_at\": \"2026-05-18T21:42:50.839634+00:00\"}\n{\"id\": \"evt_0bb5bd58bc734d7c97c0dcf37fb32565\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FU_00001\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"medicine_chat\", \"score_ids\": [\"sc_fb6132a2a8e84fa2aa5562bd9132f265\", \"sc_91b51de094db4aff9ff58db77d24bd77\", \"sc_629830626eec420fa74575b2c149e0e1\", \"sc_0a1b55489a1b4c039047915f93a35b58\", \"sc_f15b348671e54ccc9d7a3f5e94f85344\"]}, \"created_at\": \"2026-05-18T21:42:50.839683+00:00\"}\n{\"id\": \"evt_2094f593d2e0433dbb2fba177cda1b4b\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FU_00001\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"biomistral_base\", \"score_ids\": [\"sc_acfe86fb64534b7497010b780f84b96b\", \"sc_4729de2fba5a4e76944893e2a039a8f5\", \"sc_e7e9a0dbc2ef4b609618fb7634722336\", \"sc_1c08dd707d2248c6b7211f047eee9e16\", \"sc_39c088ef71d9412fa8394a19101c575c\"]}, \"created_at\": \"2026-05-18T21:42:50.839753+00:00\"}\n{\"id\": \"evt_9b7c85ea62284f319877bd49bdc5e092\", \"type\": \"AgreementClassified\", \"data\": {\"question_id\": \"FU_00001\", \"rubric_id\": \"rubric1_pemat\", \"agreement_class\": \"split\", \"outlier_judge\": null, \"mean_pairwise_agreement\": 66.67}, \"created_at\": \"2026-05-18T21:42:50.839883+00:00\"}",
+        "skipped": false
+      },
+      {
+        "question_id": "MA_00000",
+        "question_text": "What are initial steps for ACS chest pain?",
+        "question_category": "Cardiology",
+        "rubric_id": "rubric1_pemat",
+        "rubric_name": "PEMAT \u2014 Patient Education Materials Assessment Tool",
+        "rubric_source_paper": "Shoemaker SJ, Wolf MS, Brach C. Development of the Patient Education Materials Assessment Tool (PEMAT): A new measure of understandability and actionability for print and audiovisual patient information. Patient Education and Counseling. 2014;96(3):395-403. PMID: 24973195.",
+        "judge_results": [
+          {
+            "judge_id": "medgemma",
+            "aggregate_score": 100.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "1",
+                "rationale": "information is organized logically reason here."
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason here."
+              },
+              {
+                "item_id": "A1",
+                "score": "1",
+                "rationale": "provides specific, actionable steps reason here."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason here."
+              }
+            ],
+            "raw_response": "U1: 1 | uses plain, everyday language reason here.\nU2: 1 | information is organized logically reason here.\nU3: 1 | focuses only on key messages without clutter reason here.\nA1: 1 | provides specific, actionable steps reason here.\nA2: 1 | addresses barriers to action reason here.",
+            "latency_ms": 24767.658472061157
+          },
+          {
+            "judge_id": "biomistral",
+            "aggregate_score": 40.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "0",
+                "rationale": "uses plain, everyday language reason: The answer uses common medical terminology and is presented in a straightforward manner, which aligns with the \"U1\" rubric criteria."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason: The answer presents information in a logical sequence of steps, starting with obtaining an ECG and troponin, followed by giving aspirin, and concluding with "
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason: While the answer mentions getting an ECG and aspirin, it also includes considerations for oxygenation, which can be considered as additional key me"
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason: Although the answer lists the steps (getting an ECG and aspirin), it does not explicitly provide any specific actions or instructions for the reader to foll"
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason: The answer acknowledges potential barriers such as low blood pressure due to hypoxia, but it does not address these barriers directly. Instead, it suggests alterna"
+              }
+            ],
+            "raw_response": "U1: 0 | uses plain, everyday language reason: The answer uses common medical terminology and is presented in a straightforward manner, which aligns with the \"U1\" rubric criteria.\nU2: 0 | information is organized logically reason: The answer presents information in a logical sequence of steps, starting with obtaining an ECG and troponin, followed by giving aspirin, and concluding with considering oxygen if saturation is low. This organization follows standard medical guidelines and is coherent.\nU3: 1 | focuses only on key messages without clutter reason: While the answer mentions getting an ECG and aspirin, it also includes considerations for oxygenation, which can be considered as additional key messages rather than being a separate focus point.\nA1: 0 | provides specific, actionable steps reason: Although the answer lists the steps (getting an ECG and aspirin), it does not explicitly provide any specific actions or instructions for the reader to follow. It could benefit from this detail to ensure that the reader understands how to proceed.\nA2: 1 | addresses barriers to action reason: The answer acknowledges potential barriers such as low blood pressure due to hypoxia, but it does not address these barriers directly. Instead, it suggests alternative measures like oxygen",
+            "latency_ms": 30436.615705490112
+          },
+          {
+            "judge_id": "medicine_chat",
+            "aggregate_score": 80.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized"
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "A1",
+                "score": "1",
+                "rationale": "(extracted)"
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "A2: 1"
+              }
+            ],
+            "raw_response": "\n[SYS]\n\nRUBRIC ITEMS:\n  U1 [1/0/NA] Uses plain, everyday language: The answer uses words caregivers use in everyday conversation\n  U2 [1/0/NA] Information is organized logically: The answer presents information in a logical order \u2014 most important information first, sequences are in correct order, and related ideas are grouped together\n  U3 [1/0/NA] Focuses only on key messages without clutter: The answer stays on topic, avoids unnecessary tangents, and presents no more than 4-5 key points\n  A1 [1/0/NA] Provides specific, actionable steps: The answer tells the caregiver exactly what to DO, not just what is known\n  A2 [1/0/NA] Addresses barriers to action: The answer acknowledges real-world difficulties the caregiver may face when following the advice, and provides workarounds or alternatives\n\nFORMAT EXAMPLE (do NOT copy the rationale text):\nU1: 1 | uses plain, everyday language reason here.\nU2: 0 | information is organized",
+            "latency_ms": 52341.85028076172
+          },
+          {
+            "judge_id": "biomistral_base",
+            "aggregate_score": 60.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason here."
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason here."
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason here."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason here."
+              }
+            ],
+            "raw_response": "U1: 1 | uses plain, everyday language reason here.\nU2: 0 | information is organized logically reason here.\nU3: 1 | focuses only on key messages without clutter reason here.\nA1: 0 | provides specific, actionable steps reason here.\nA2: 1 | addresses barriers to action reason here.",
+            "latency_ms": 8047.452926635742
+          }
+        ],
+        "agreement_summary": {
+          "agreement_class": "split",
+          "outlier_judge": null,
+          "pairwise_scores": [
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral",
+              "score": 40.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "medicine_chat",
+              "score": 80.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral_base",
+              "score": 60.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "medicine_chat",
+              "score": 60.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "biomistral_base",
+              "score": 80.0
+            },
+            {
+              "judge_a": "medicine_chat",
+              "judge_b": "biomistral_base",
+              "score": 80.0
+            }
+          ],
+          "mean_pairwise_agreement": 66.67
+        },
+        "agreement_class": "split",
+        "outlier_judge": null,
+        "mean_pairwise_agreement": 66.67,
+        "events_jsonl": "{\"id\": \"evt_efdddec00f804b96aef8ce1e00d97b97\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"MA_00000\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"medgemma\", \"score_ids\": [\"sc_b9a484c7747645eca96e4dba7665b08c\", \"sc_f3176c3b3ecc45b0a61b757eac22c2ae\", \"sc_6d517ce6f12445b99605a8d4ff8b61d1\", \"sc_39be8225bc054cc3b4e47937c005eade\", \"sc_50ecff08782e4ef0bd367341cc47e30b\"]}, \"created_at\": \"2026-05-18T21:43:56.144232+00:00\"}\n{\"id\": \"evt_70da507fcb6d41d78c172d8d290d12ec\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"MA_00000\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"biomistral\", \"score_ids\": [\"sc_6f539ac6be464b73ae25d99dd787c140\", \"sc_2642c91dca26482398a93c0508a2c1ca\", \"sc_f1d4db7143de4776bffc5df7b3a02b29\", \"sc_8d28c95722564a14a57c36bd7d203b75\", \"sc_5d4190096a9c4d3ba698a9ea9ea5374d\"]}, \"created_at\": \"2026-05-18T21:43:56.144421+00:00\"}\n{\"id\": \"evt_e36928b0a1564b79ae70cdf89fcaabe8\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"MA_00000\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"medicine_chat\", \"score_ids\": [\"sc_55efce6eb86c435da58abf6565de0f00\", \"sc_8a5f594aa4164bc9af0d4c51aefda746\", \"sc_54e76e1dd58f415691b806593a7f4065\", \"sc_926ff044ce1a43e89a394c9fcb01f7cd\", \"sc_fa442d7929294ae68f4d33c52a00ce32\"]}, \"created_at\": \"2026-05-18T21:43:56.144487+00:00\"}\n{\"id\": \"evt_3909e3d1476a4b63b15aa47b010ab408\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"MA_00000\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"biomistral_base\", \"score_ids\": [\"sc_04e9257cec8a4826bd9672f8a9155e62\", \"sc_a6e6b9d4b25e40a48c82c9fa09be6768\", \"sc_1d45c5840fe3473ab5d48b991564cd8f\", \"sc_d4282f917b2444058f9e5d54b7982e99\", \"sc_8857090142944e5fadfc2d337a9a5f45\"]}, \"created_at\": \"2026-05-18T21:43:56.144545+00:00\"}\n{\"id\": \"evt_ad36ee7a04264f388195cddab17c1642\", \"type\": \"AgreementClassified\", \"data\": {\"question_id\": \"MA_00000\", \"rubric_id\": \"rubric1_pemat\", \"agreement_class\": \"split\", \"outlier_judge\": null, \"mean_pairwise_agreement\": 66.67}, \"created_at\": \"2026-05-18T21:43:56.144681+00:00\"}",
+        "skipped": false
+      },
+      {
+        "question_id": "MA_00001",
+        "question_text": "How do you manage metformin in renal impairment?",
+        "question_category": "Pharmacology",
+        "rubric_id": "rubric1_pemat",
+        "rubric_name": "PEMAT \u2014 Patient Education Materials Assessment Tool",
+        "rubric_source_paper": "Shoemaker SJ, Wolf MS, Brach C. Development of the Patient Education Materials Assessment Tool (PEMAT): A new measure of understandability and actionability for print and audiovisual patient information. Patient Education and Counseling. 2014;96(3):395-403. PMID: 24973195.",
+        "judge_results": [
+          {
+            "judge_id": "medgemma",
+            "aggregate_score": 100.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "1",
+                "rationale": "information is organized logically reason here."
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason here."
+              },
+              {
+                "item_id": "A1",
+                "score": "1",
+                "rationale": "provides specific, actionable steps reason here."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason here."
+              }
+            ],
+            "raw_response": "U1: 1 | uses plain, everyday language reason here.\nU2: 1 | information is organized logically reason here.\nU3: 1 | focuses only on key messages without clutter reason here.\nA1: 1 | provides specific, actionable steps reason here.\nA2: 1 | addresses barriers to action reason here.",
+            "latency_ms": 25021.946668624878
+          },
+          {
+            "judge_id": "biomistral",
+            "aggregate_score": 20.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "0",
+                "rationale": "uses plain, everyday language reason: The answer uses common medical terminology and doesn't require specialized jargon for laypeople."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason: The answer follows a clear sequence of steps, starting with checking kidney function and ending with restarting metformin when renal function is severely red"
+              },
+              {
+                "item_id": "U3",
+                "score": "0",
+                "rationale": "focuses only on key messages without clutter reason: The answer contains only the essential information needed to follow the instructions."
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason: While the answer provides general guidelines, it lacks specific details about how to check kidney function and restart metformin when renal function is seve"
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason: Although the answer mentions that the caregiver should check kidney function before starting metformin, it also suggests restarting metformin if the condition impr"
+              }
+            ],
+            "raw_response": "U1: 0 | uses plain, everyday language reason: The answer uses common medical terminology and doesn't require specialized jargon for laypeople.\nU2: 0 | information is organized logically reason: The answer follows a clear sequence of steps, starting with checking kidney function and ending with restarting metformin when renal function is severely reduced.\nU3: 0 | focuses only on key messages without clutter reason: The answer contains only the essential information needed to follow the instructions.\nA1: 0 | provides specific, actionable steps reason: While the answer provides general guidelines, it lacks specific details about how to check kidney function and restart metformin when renal function is severely reduced.\nA2: 1 | addresses barriers to action reason: Although the answer mentions that the caregiver should check kidney function before starting metformin, it also suggests restarting metformin if the condition improves, which can be challenging given renal impairment. This approach could be seen as an alternative but not necessarily practical for all cases.",
+            "latency_ms": 24426.872968673706
+          },
+          {
+            "judge_id": "medicine_chat",
+            "aggregate_score": 80.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized"
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "A1",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "NA"
+              }
+            ],
+            "raw_response": "\n[SYS]\n\nRUBRIC ITEMS:\n  U1 [1/0/NA] Uses plain, everyday language: The answer uses words caregivers use in everyday conversation\n  U2 [1/0/NA] Information is organized logically: The answer presents information in a logical order \u2014 most important information first, sequences are in correct order, and related ideas are grouped together\n  U3 [1/0/NA] Focuses only on key messages without clutter: The answer stays on topic, avoids unnecessary tangents, and presents no more than 4-5 key points\n  A1 [1/0/NA] Provides specific, actionable steps: The answer tells the caregiver exactly what to DO, not just what is known\n  A2 [1/0/NA] Addresses barriers to action: The answer acknowledges real-world difficulties the caregiver may face when following the advice, and provides workarounds or alternatives\n\nFORMAT EXAMPLE (do NOT copy the rationale text):\nU1: 1 | uses plain, everyday language reason here.\nU2: 0 | information is organized",
+            "latency_ms": 52695.28865814209
+          },
+          {
+            "judge_id": "biomistral_base",
+            "aggregate_score": 60.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason here."
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason here."
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason here."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason here."
+              }
+            ],
+            "raw_response": "U1: 1 | uses plain, everyday language reason here.\nU2: 0 | information is organized logically reason here.\nU3: 1 | focuses only on key messages without clutter reason here.\nA1: 0 | provides specific, actionable steps reason here.\nA2: 1 | addresses barriers to action reason here.",
+            "latency_ms": 7990.517854690552
+          }
+        ],
+        "agreement_summary": {
+          "agreement_class": "majority_agree",
+          "outlier_judge": "biomistral",
+          "pairwise_scores": [
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral",
+              "score": 20.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "medicine_chat",
+              "score": 80.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral_base",
+              "score": 60.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "medicine_chat",
+              "score": 40.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "biomistral_base",
+              "score": 60.0
+            },
+            {
+              "judge_a": "medicine_chat",
+              "judge_b": "biomistral_base",
+              "score": 80.0
+            }
+          ],
+          "mean_pairwise_agreement": 56.67
+        },
+        "agreement_class": "majority_agree",
+        "outlier_judge": "biomistral",
+        "mean_pairwise_agreement": 56.67,
+        "events_jsonl": "{\"id\": \"evt_030bee5cf5964ee693770fbaaeaed823\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"MA_00001\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"medgemma\", \"score_ids\": [\"sc_da6c6f82850241ed95094d9d73087ad1\", \"sc_39d4e69690ff4651a90ecf8185b1f850\", \"sc_3deacc295400455c9acbdb5ffa9f2ecf\", \"sc_81c1d7c88f5b49718d10602522243565\", \"sc_b865a759a45646ddbcfc4212f6a4aeb4\"]}, \"created_at\": \"2026-05-18T21:45:01.535014+00:00\"}\n{\"id\": \"evt_19f17815ce5a42a7933992362a7fa086\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"MA_00001\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"biomistral\", \"score_ids\": [\"sc_9068c3cda9d944958fa4bfa435e80834\", \"sc_05301d68d2f2459b8d1dae00b64a18d8\", \"sc_60145ac1ad92464e992102cee0a4610a\", \"sc_6a5ca83c7adb4ff7b1aaef7915f174af\", \"sc_76468e991f0b406a87a94c38551749bb\"]}, \"created_at\": \"2026-05-18T21:45:01.535184+00:00\"}\n{\"id\": \"evt_55596a78eb22417597f4bf25f675da86\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"MA_00001\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"medicine_chat\", \"score_ids\": [\"sc_b9800bb738b249eba011966bc503a2c1\", \"sc_e721012dec304ce4987afb41934aa9cf\", \"sc_bde855e721c24fa38d096a09bbf5ff2a\", \"sc_1c35a089ae684a13826b2887891d6592\", \"sc_ad63d708e9d9490180eb4f2fbb5033e6\"]}, \"created_at\": \"2026-05-18T21:45:01.535240+00:00\"}\n{\"id\": \"evt_e31244f7d402400dba0e1ec8f87b6c93\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"MA_00001\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"biomistral_base\", \"score_ids\": [\"sc_8a5eef03421c4517ab659e24ef469f32\", \"sc_6f35f9f9c852497b8e7ffcf71607805e\", \"sc_5869dfd6f03f46008119899740d3f533\", \"sc_68592ab82fa741249fb64ba269807b83\", \"sc_32272063c0e04a3287b01ef6a33acd22\"]}, \"created_at\": \"2026-05-18T21:45:01.535321+00:00\"}\n{\"id\": \"evt_dca5bbe00e26452db7975964dfd592d0\", \"type\": \"AgreementClassified\", \"data\": {\"question_id\": \"MA_00001\", \"rubric_id\": \"rubric1_pemat\", \"agreement_class\": \"majority_agree\", \"outlier_judge\": \"biomistral\", \"mean_pairwise_agreement\": 56.67}, \"created_at\": \"2026-05-18T21:45:01.535453+00:00\"}",
+        "skipped": false
+      },
+      {
+        "question_id": "SP_00000",
+        "question_text": "What is first-line treatment for severe chest pain concerning for STEMI?",
+        "question_category": "Cardiology",
+        "rubric_id": "rubric1_pemat",
+        "rubric_name": "PEMAT \u2014 Patient Education Materials Assessment Tool",
+        "rubric_source_paper": "Shoemaker SJ, Wolf MS, Brach C. Development of the Patient Education Materials Assessment Tool (PEMAT): A new measure of understandability and actionability for print and audiovisual patient information. Patient Education and Counseling. 2014;96(3):395-403. PMID: 24973195.",
+        "judge_results": [
+          {
+            "judge_id": "medgemma",
+            "aggregate_score": 100.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "1",
+                "rationale": "information is organized logically reason here."
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason here."
+              },
+              {
+                "item_id": "A1",
+                "score": "1",
+                "rationale": "provides specific, actionable steps reason here."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason here."
+              }
+            ],
+            "raw_response": "U1: 1 | uses plain, everyday language reason here.\nU2: 1 | information is organized logically reason here.\nU3: 1 | focuses only on key messages without clutter reason here.\nA1: 1 | provides specific, actionable steps reason here.\nA2: 1 | addresses barriers to action reason here.",
+            "latency_ms": 24932.061433792114
+          },
+          {
+            "judge_id": "biomistral",
+            "aggregate_score": 20.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "0",
+                "rationale": "uses plain, everyday language reason: The answer uses common medical terminology and doesn't require specialized jargon."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason: The answer presents information in a clear, step-by-step format that follows a logical sequence of actions."
+              },
+              {
+                "item_id": "U3",
+                "score": "0",
+                "rationale": "focuses only on key messages without clutter reason: The answer contains too much information, with multiple sentences discussing different aspects of treating severe chest pain."
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason: The answer clearly states the first-line treatment for severe chest pain concerning for STEMI, which includes taking aspirin and checking an ECG."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason: The answer acknowledges the need for rest during the wait time for test results but does not provide any alternative measures to address the immediate issue of sev"
+              }
+            ],
+            "raw_response": "U1: 0 | uses plain, everyday language reason: The answer uses common medical terminology and doesn't require specialized jargon.\nU2: 0 | information is organized logically reason: The answer presents information in a clear, step-by-step format that follows a logical sequence of actions.\nU3: 0 | focuses only on key messages without clutter reason: The answer contains too much information, with multiple sentences discussing different aspects of treating severe chest pain.\nA1: 0 | provides specific, actionable steps reason: The answer clearly states the first-line treatment for severe chest pain concerning for STEMI, which includes taking aspirin and checking an ECG.\nA2: 1 | addresses barriers to action reason: The answer acknowledges the need for rest during the wait time for test results but does not provide any alternative measures to address the immediate issue of severe chest pain.\nThe output format provided above accurately reflects the evaluation criteria and scores for each rubric item based on the given answer.",
+            "latency_ms": 24288.379192352295
+          },
+          {
+            "judge_id": "medicine_chat",
+            "aggregate_score": 80.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized"
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "A1",
+                "score": "1",
+                "rationale": "(extracted)"
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "A2: 1"
+              }
+            ],
+            "raw_response": "\n[SYS]\n\nRUBRIC ITEMS:\n  U1 [1/0/NA] Uses plain, everyday language: The answer uses words caregivers use in everyday conversation\n  U2 [1/0/NA] Information is organized logically: The answer presents information in a logical order \u2014 most important information first, sequences are in correct order, and related ideas are grouped together\n  U3 [1/0/NA] Focuses only on key messages without clutter: The answer stays on topic, avoids unnecessary tangents, and presents no more than 4-5 key points\n  A1 [1/0/NA] Provides specific, actionable steps: The answer tells the caregiver exactly what to DO, not just what is known\n  A2 [1/0/NA] Addresses barriers to action: The answer acknowledges real-world difficulties the caregiver may face when following the advice, and provides workarounds or alternatives\n\nFORMAT EXAMPLE (do NOT copy the rationale text):\nU1: 1 | uses plain, everyday language reason here.\nU2: 0 | information is organized",
+            "latency_ms": 53089.80488777161
+          },
+          {
+            "judge_id": "biomistral_base",
+            "aggregate_score": 60.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason here."
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason here."
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason here."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason here."
+              }
+            ],
+            "raw_response": "U1: 1 | uses plain, everyday language reason here.\nU2: 0 | information is organized logically reason here.\nU3: 1 | focuses only on key messages without clutter reason here.\nA1: 0 | provides specific, actionable steps reason here.\nA2: 1 | addresses barriers to action reason here.",
+            "latency_ms": 8211.052894592285
+          }
+        ],
+        "agreement_summary": {
+          "agreement_class": "majority_agree",
+          "outlier_judge": "biomistral",
+          "pairwise_scores": [
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral",
+              "score": 20.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "medicine_chat",
+              "score": 80.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral_base",
+              "score": 60.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "medicine_chat",
+              "score": 40.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "biomistral_base",
+              "score": 60.0
+            },
+            {
+              "judge_a": "medicine_chat",
+              "judge_b": "biomistral_base",
+              "score": 80.0
+            }
+          ],
+          "mean_pairwise_agreement": 56.67
+        },
+        "agreement_class": "majority_agree",
+        "outlier_judge": "biomistral",
+        "mean_pairwise_agreement": 56.67,
+        "events_jsonl": "{\"id\": \"evt_ccb12e3428eb4450ac258a41fde35b1d\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"SP_00000\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"medgemma\", \"score_ids\": [\"sc_cda15032ed9a43ea8893f8ecb93b4b48\", \"sc_4a174709883e47ffb5daab8e4e508bb4\", \"sc_cc2ffdb41b544280a7baeb44af8506f2\", \"sc_7e42f117bde34c13bb5d30bbfc0f476e\", \"sc_80799d77376e44449042c3cc50b5b4d7\"]}, \"created_at\": \"2026-05-18T21:46:07.819123+00:00\"}\n{\"id\": \"evt_79c3b06d12234346bcb5f8797ac0153b\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"SP_00000\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"biomistral\", \"score_ids\": [\"sc_96abe3b68ed64154a9b5de4a7eead647\", \"sc_e62fe712e81f48d3b00ed7b29d4fa9af\", \"sc_97ab332b980f490ca17afbcde864851b\", \"sc_73d5c1a569144ab4b4ca277a386c51d8\", \"sc_b7831885bebe4328bf153b7799ed7d82\"]}, \"created_at\": \"2026-05-18T21:46:07.819334+00:00\"}\n{\"id\": \"evt_2d10d26f9f3e4850b886b79f0b2cfaf2\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"SP_00000\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"medicine_chat\", \"score_ids\": [\"sc_84ef23084a6a449fbaafdc9c25c263ac\", \"sc_57feea7d7bbc45f2ab4b8196cee69e9a\", \"sc_7218bc9dbe4d460aa9c27eb58b0dce6a\", \"sc_3e8d48210e36436ea4c4243fcf41e456\", \"sc_134631827f2d4075827bfea3577a39b7\"]}, \"created_at\": \"2026-05-18T21:46:07.819427+00:00\"}\n{\"id\": \"evt_620679ab951747f2ace02bd0b79180ea\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"SP_00000\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"biomistral_base\", \"score_ids\": [\"sc_0a301e5b369140f2bd780ac3a2d63067\", \"sc_06bf37bae6f44215a6e30fe981fb90b0\", \"sc_c6efb173dbcf4d94b4fe34a2b75fea74\", \"sc_bd12a073ea18413e9b9cad875a7a8a8f\", \"sc_3d1ffda8b07344dfbbaf72c1c14294d8\"]}, \"created_at\": \"2026-05-18T21:46:07.819495+00:00\"}\n{\"id\": \"evt_a08d86e6b5cf4854b0ce725bc3837d62\", \"type\": \"AgreementClassified\", \"data\": {\"question_id\": \"SP_00000\", \"rubric_id\": \"rubric1_pemat\", \"agreement_class\": \"majority_agree\", \"outlier_judge\": \"biomistral\", \"mean_pairwise_agreement\": 56.67}, \"created_at\": \"2026-05-18T21:46:07.819641+00:00\"}",
+        "skipped": false
+      },
+      {
+        "question_id": "SP_00001",
+        "question_text": "What are common warfarin interactions?",
+        "question_category": "Pharmacology",
+        "rubric_id": "rubric1_pemat",
+        "rubric_name": "PEMAT \u2014 Patient Education Materials Assessment Tool",
+        "rubric_source_paper": "Shoemaker SJ, Wolf MS, Brach C. Development of the Patient Education Materials Assessment Tool (PEMAT): A new measure of understandability and actionability for print and audiovisual patient information. Patient Education and Counseling. 2014;96(3):395-403. PMID: 24973195.",
+        "judge_results": [
+          {
+            "judge_id": "medgemma",
+            "aggregate_score": 80.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "1",
+                "rationale": "information is organized logically reason here."
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason here."
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason here."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason here."
+              }
+            ],
+            "raw_response": "U1: 1 | uses plain, everyday language reason here.\nU2: 1 | information is organized logically reason here.\nU3: 1 | focuses only on key messages without clutter reason here.\nA1: 0 | provides specific, actionable steps reason here.\nA2: 1 | addresses barriers to action reason here.",
+            "latency_ms": 25533.409118652344
+          },
+          {
+            "judge_id": "biomistral",
+            "aggregate_score": 40.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "0",
+                "rationale": "uses plain, everyday language reason: The answer uses everyday language that caregivers would understand, such as \"many drugs interact with warfarin.\""
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason: The answer presents information in a logical sequence, starting with general guidelines for drug interactions and then mentioning specific examples like anti"
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason: The answer stays focused on the main points of drug interactions with warfarin, avoiding unnecessary details."
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason: The answer explicitly states that it's important to be cautious with antibiotics and pain medicines when taking warfarin."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason: The answer acknowledges the potential challenges of managing multiple medications at once, suggesting alternative strategies like using warfarin in combination wit"
+              }
+            ],
+            "raw_response": "U1: 0 | uses plain, everyday language reason: The answer uses everyday language that caregivers would understand, such as \"many drugs interact with warfarin.\"\n\nU2: 0 | information is organized logically reason: The answer presents information in a logical sequence, starting with general guidelines for drug interactions and then mentioning specific examples like antibiotics and pain medications.\n\nU3: 1 | focuses only on key messages without clutter reason: The answer stays focused on the main points of drug interactions with warfarin, avoiding unnecessary details.\n\nA1: 0 | provides specific, actionable steps reason: The answer explicitly states that it's important to be cautious with antibiotics and pain medicines when taking warfarin.\n\nA2: 1 | addresses barriers to action reason: The answer acknowledges the potential challenges of managing multiple medications at once, suggesting alternative strategies like using warfarin in combination with other anticoagulants or adjusting dosages accordingly.",
+            "latency_ms": 23951.24650001526
+          },
+          {
+            "judge_id": "medicine_chat",
+            "aggregate_score": 80.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized"
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "A1",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "A2: 1"
+              }
+            ],
+            "raw_response": "\n[SYS]\n\nRUBRIC ITEMS:\n  U1 [1/0/NA] Uses plain, everyday language: The answer uses words caregivers use in everyday conversation\n  U2 [1/0/NA] Information is organized logically: The answer presents information in a logical order \u2014 most important information first, sequences are in correct order, and related ideas are grouped together\n  U3 [1/0/NA] Focuses only on key messages without clutter: The answer stays on topic, avoids unnecessary tangents, and presents no more than 4-5 key points\n  A1 [1/0/NA] Provides specific, actionable steps: The answer tells the caregiver exactly what to DO, not just what is known\n  A2 [1/0/NA] Addresses barriers to action: The answer acknowledges real-world difficulties the caregiver may face when following the advice, and provides workarounds or alternatives\n\nFORMAT EXAMPLE (do NOT copy the rationale text):\nU1: 1 | uses plain, everyday language reason here.\nU2: 0 | information is organized",
+            "latency_ms": 51724.318981170654
+          },
+          {
+            "judge_id": "biomistral_base",
+            "aggregate_score": 60.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason here."
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason here."
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason here."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason here."
+              }
+            ],
+            "raw_response": "U1: 1 | uses plain, everyday language reason here.\nU2: 0 | information is organized logically reason here.\nU3: 1 | focuses only on key messages without clutter reason here.\nA1: 0 | provides specific, actionable steps reason here.\nA2: 1 | addresses barriers to action reason here.",
+            "latency_ms": 8157.88459777832
+          }
+        ],
+        "agreement_summary": {
+          "agreement_class": "majority_agree",
+          "outlier_judge": "medgemma",
+          "pairwise_scores": [
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral",
+              "score": 60.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "medicine_chat",
+              "score": 60.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral_base",
+              "score": 80.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "medicine_chat",
+              "score": 60.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "biomistral_base",
+              "score": 80.0
+            },
+            {
+              "judge_a": "medicine_chat",
+              "judge_b": "biomistral_base",
+              "score": 80.0
+            }
+          ],
+          "mean_pairwise_agreement": 70.0
+        },
+        "agreement_class": "majority_agree",
+        "outlier_judge": "medgemma",
+        "mean_pairwise_agreement": 70.0,
+        "events_jsonl": "{\"id\": \"evt_947c423a19764dea9f7bf26cbd4ad344\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"SP_00001\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"medgemma\", \"score_ids\": [\"sc_1090912e68054103af96dc1f0d4f5591\", \"sc_9a43305f78ac45b29d8dd7dd3de26d86\", \"sc_6caedaac18cb4cfa834764198222b59c\", \"sc_5c37e7d6e3fa40929609de0236988fb6\", \"sc_c3b7b514eca946c581f787d21aaab8e1\"]}, \"created_at\": \"2026-05-18T21:47:12.577100+00:00\"}\n{\"id\": \"evt_3395e65ceb594b44a4c516d23a66c2c8\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"SP_00001\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"biomistral\", \"score_ids\": [\"sc_32edb0077010464ab1383af2b8c702d5\", \"sc_5a5ce2f0c94a4816ab29598f72965143\", \"sc_f195321256b849ceade832c255318dfe\", \"sc_c2e1418f6d0544e6b1d24991c29c7b76\", \"sc_61f53054b1034ce88d80e57d20d7328e\"]}, \"created_at\": \"2026-05-18T21:47:12.577267+00:00\"}\n{\"id\": \"evt_310bcbd1348545878c1ce996a19ae0ed\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"SP_00001\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"medicine_chat\", \"score_ids\": [\"sc_82aa1521060c453686ec4c45fa63d5b0\", \"sc_de216507d044489d95f43089a5efeada\", \"sc_28a6d598c3a145e2b0e296befdbe2b82\", \"sc_cb432668431e45b6ae162437d10aa9aa\", \"sc_7662d2309109448089b8c91e130ca619\"]}, \"created_at\": \"2026-05-18T21:47:12.577357+00:00\"}\n{\"id\": \"evt_c1690a79b69d4af5a7b00c43c5661147\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"SP_00001\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"biomistral_base\", \"score_ids\": [\"sc_875ff39090f3466daa94b04e09bd3c2e\", \"sc_9468650b0b434266a6e86924603e6293\", \"sc_0af5777f83dd470b920195c325d6d586\", \"sc_3c1b72dd808b412896370c9f79d04bd0\", \"sc_537f34bf138244dfbc0e4463d297fb04\"]}, \"created_at\": \"2026-05-18T21:47:12.577398+00:00\"}\n{\"id\": \"evt_1edb0c7253244ba486fbc6044f0aabac\", \"type\": \"AgreementClassified\", \"data\": {\"question_id\": \"SP_00001\", \"rubric_id\": \"rubric1_pemat\", \"agreement_class\": \"majority_agree\", \"outlier_judge\": \"medgemma\", \"mean_pairwise_agreement\": 70.0}, \"created_at\": \"2026-05-18T21:47:12.577516+00:00\"}",
+        "skipped": false
+      },
+      {
+        "question_id": "FD_00000",
+        "question_text": "What is first-line treatment for a STEMI?",
+        "question_category": "Cardiology",
+        "rubric_id": "rubric1_pemat",
+        "rubric_name": "PEMAT \u2014 Patient Education Materials Assessment Tool",
+        "rubric_source_paper": "Shoemaker SJ, Wolf MS, Brach C. Development of the Patient Education Materials Assessment Tool (PEMAT): A new measure of understandability and actionability for print and audiovisual patient information. Patient Education and Counseling. 2014;96(3):395-403. PMID: 24973195.",
+        "judge_results": [
+          {
+            "judge_id": "medgemma",
+            "aggregate_score": 0.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "0",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason here."
+              },
+              {
+                "item_id": "U3",
+                "score": "0",
+                "rationale": "focuses only on key messages without clutter reason here."
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason here."
+              },
+              {
+                "item_id": "A2",
+                "score": "0",
+                "rationale": "addresses barriers to action reason here."
+              }
+            ],
+            "raw_response": "U1: 0 | uses plain, everyday language reason here.\nU2: 0 | information is organized logically reason here.\nU3: 0 | focuses only on key messages without clutter reason here.\nA1: 0 | provides specific, actionable steps reason here.\nA2: 0 | addresses barriers to action reason here.",
+            "latency_ms": 24615.647077560425
+          },
+          {
+            "judge_id": "biomistral",
+            "aggregate_score": 40.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "0",
+                "rationale": "uses plain, everyday language reason: The answer uses common medical terminology and doesn't require specialized jargon that caregivers might find unfamiliar."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason: The answer lists the first-line treatment options in a straightforward chronological order, starting with \"Rest\" as the initial step."
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason: The answer emphasizes rest as the first-line treatment option, providing clear instructions without unnecessary details."
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason: While the answer mentions rest, it doesn't provide specific actions or guidance for the user."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason: The answer acknowledges that rest alone isn't sufficient for treating STEMI, suggesting other treatments like thrombolytic therapy or mechanical coronary artery by"
+              }
+            ],
+            "raw_response": "U1: 0 | uses plain, everyday language reason: The answer uses common medical terminology and doesn't require specialized jargon that caregivers might find unfamiliar.\nU2: 0 | information is organized logically reason: The answer lists the first-line treatment options in a straightforward chronological order, starting with \"Rest\" as the initial step.\nU3: 1 | focuses only on key messages without clutter reason: The answer emphasizes rest as the first-line treatment option, providing clear instructions without unnecessary details.\nA1: 0 | provides specific, actionable steps reason: While the answer mentions rest, it doesn't provide specific actions or guidance for the user.\nA2: 1 | addresses barriers to action reason: The answer acknowledges that rest alone isn't sufficient for treating STEMI, suggesting other treatments like thrombolytic therapy or mechanical coronary artery bypass grafting (MABG).",
+            "latency_ms": 21511.455535888672
+          },
+          {
+            "judge_id": "medicine_chat",
+            "aggregate_score": 80.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized"
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "A1",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "(item-leading)"
+              }
+            ],
+            "raw_response": "\n[SYS]\n\nRUBRIC ITEMS:\n  U1 [1/0/NA] Uses plain, everyday language: The answer uses words caregivers use in everyday conversation\n  U2 [1/0/NA] Information is organized logically: The answer presents information in a logical order \u2014 most important information first, sequences are in correct order, and related ideas are grouped together\n  U3 [1/0/NA] Focuses only on key messages without clutter: The answer stays on topic, avoids unnecessary tangents, and presents no more than 4-5 key points\n  A1 [1/0/NA] Provides specific, actionable steps: The answer tells the caregiver exactly what to DO, not just what is known\n  A2 [1/0/NA] Addresses barriers to action: The answer acknowledges real-world difficulties the caregiver may face when following the advice, and provides workarounds or alternatives\n\nFORMAT EXAMPLE (do NOT copy the rationale text):\nU1: 1 | uses plain, everyday language reason here.\nU2: 0 | information is organized",
+            "latency_ms": 50947.59702682495
+          },
+          {
+            "judge_id": "biomistral_base",
+            "aggregate_score": 60.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason here."
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason here."
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason here."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason here."
+              }
+            ],
+            "raw_response": "U1: 1 | uses plain, everyday language reason here.\nU2: 0 | information is organized logically reason here.\nU3: 1 | focuses only on key messages without clutter reason here.\nA1: 0 | provides specific, actionable steps reason here.\nA2: 1 | addresses barriers to action reason here.",
+            "latency_ms": 7674.0288734436035
+          }
+        ],
+        "agreement_summary": {
+          "agreement_class": "majority_agree",
+          "outlier_judge": "medgemma",
+          "pairwise_scores": [
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral",
+              "score": 60.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "medicine_chat",
+              "score": 20.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral_base",
+              "score": 40.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "medicine_chat",
+              "score": 60.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "biomistral_base",
+              "score": 80.0
+            },
+            {
+              "judge_a": "medicine_chat",
+              "judge_b": "biomistral_base",
+              "score": 80.0
+            }
+          ],
+          "mean_pairwise_agreement": 56.67
+        },
+        "agreement_class": "majority_agree",
+        "outlier_judge": "medgemma",
+        "mean_pairwise_agreement": 56.67,
+        "events_jsonl": "{\"id\": \"evt_307b059c4ce7428aaf62ae73d07142ae\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FD_00000\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"medgemma\", \"score_ids\": [\"sc_a473d1a0014a4ee5adc7f68416f9e612\", \"sc_a85f8f648bbd4256858efdccfe8451b0\", \"sc_228c7dc312234db49a1a2b7824d8e8d9\", \"sc_e5da68372a0242959f9ac83ef7eafecc\", \"sc_a003e85b45a3428abc521e06cd622ab5\"]}, \"created_at\": \"2026-05-18T21:48:16.021070+00:00\"}\n{\"id\": \"evt_abea2112c8f845b488f805b033eca013\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FD_00000\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"biomistral\", \"score_ids\": [\"sc_f0c558bf48a34af0bb5150316b15d723\", \"sc_0812a7b7567541ce87c3d3265db61f0c\", \"sc_1f7b81983b674460ba515980ead1dcbf\", \"sc_9a92f0b980984759bd62ca82ab89f292\", \"sc_da0763a690e14cc8878e34f4b4973fad\"]}, \"created_at\": \"2026-05-18T21:48:16.021207+00:00\"}\n{\"id\": \"evt_dd4a7768a4b64b018016b7470ea705e7\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FD_00000\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"medicine_chat\", \"score_ids\": [\"sc_9ca484e7317c439ba53941b6d1cda6aa\", \"sc_4dba183063644b828a8588e4af7f2d11\", \"sc_f4eb0778332c4bab9d62772d0ecc31be\", \"sc_ab9a8de0095448959a51649137e72b3d\", \"sc_81a5bb80687448a2b69297b63bf06bba\"]}, \"created_at\": \"2026-05-18T21:48:16.021263+00:00\"}\n{\"id\": \"evt_dd992b96d6f1415bbe09761ead232d0d\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FD_00000\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"biomistral_base\", \"score_ids\": [\"sc_96161419260b4b65902d7403faf42989\", \"sc_95c3d35ce7154fa582a8ee0b7f7286dd\", \"sc_0f323d14c63445cf8fd6243b499bfc63\", \"sc_ab3fc9d76a0442448bd11492b1102242\", \"sc_f8521b6ee96341afbc361a8aa1f59103\"]}, \"created_at\": \"2026-05-18T21:48:16.021308+00:00\"}\n{\"id\": \"evt_080eda69bed14d5d9d825d9946f9c63f\", \"type\": \"AgreementClassified\", \"data\": {\"question_id\": \"FD_00000\", \"rubric_id\": \"rubric1_pemat\", \"agreement_class\": \"majority_agree\", \"outlier_judge\": \"medgemma\", \"mean_pairwise_agreement\": 56.67}, \"created_at\": \"2026-05-18T21:48:16.021435+00:00\"}",
+        "skipped": false
+      },
+      {
+        "question_id": "FD_00001",
+        "question_text": "What is the treatment for opioid overdose?",
+        "question_category": "Pharmacology",
+        "rubric_id": "rubric1_pemat",
+        "rubric_name": "PEMAT \u2014 Patient Education Materials Assessment Tool",
+        "rubric_source_paper": "Shoemaker SJ, Wolf MS, Brach C. Development of the Patient Education Materials Assessment Tool (PEMAT): A new measure of understandability and actionability for print and audiovisual patient information. Patient Education and Counseling. 2014;96(3):395-403. PMID: 24973195.",
+        "judge_results": [
+          {
+            "judge_id": "medgemma",
+            "aggregate_score": 0.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "0",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason here."
+              },
+              {
+                "item_id": "U3",
+                "score": "0",
+                "rationale": "focuses only on key messages without clutter reason here."
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason here."
+              },
+              {
+                "item_id": "A2",
+                "score": "0",
+                "rationale": "addresses barriers to action reason here."
+              }
+            ],
+            "raw_response": "U1: 0 | uses plain, everyday language reason here.\nU2: 0 | information is organized logically reason here.\nU3: 0 | focuses only on key messages without clutter reason here.\nA1: 0 | provides specific, actionable steps reason here.\nA2: 0 | addresses barriers to action reason here.",
+            "latency_ms": 25432.31177330017
+          },
+          {
+            "judge_id": "biomistral",
+            "aggregate_score": 40.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "0",
+                "rationale": "uses plain, everyday language reason: The answer uses common terms like \"sleeping\" which is a daily activity that caregivers might already be familiar with."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason: The answer lists symptoms of opioid overdose (loss of consciousness, difficulty breathing) followed by instructions on how to treat them (let the patient sle"
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason: The answer emphasizes the importance of letting the patient sleep it off as a primary method of treating opioid overdose, avoiding unnecessary deta"
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason: The answer directly states the recommended step of letting the patient sleep it off, which is an explicit, actionable step."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason: The answer acknowledges that this is a complex situation involving opioids, but it also suggests that patients can take care of themselves by sleeping it off, whic"
+              }
+            ],
+            "raw_response": "U1: 0 | uses plain, everyday language reason: The answer uses common terms like \"sleeping\" which is a daily activity that caregivers might already be familiar with.\n\nU2: 0 | information is organized logically reason: The answer lists symptoms of opioid overdose (loss of consciousness, difficulty breathing) followed by instructions on how to treat them (let the patient sleep it off). This structure follows a logical sequence of actions.\n\nU3: 1 | focuses only on key messages without clutter reason: The answer emphasizes the importance of letting the patient sleep it off as a primary method of treating opioid overdose, avoiding unnecessary details about other treatments.\n\nA1: 0 | provides specific, actionable steps reason: The answer directly states the recommended step of letting the patient sleep it off, which is an explicit, actionable step.\n\nA2: 1 | addresses barriers to action reason: The answer acknowledges that this is a complex situation involving opioids, but it also suggests that patients can take care of themselves by sleeping it off, which is a practical solution that doesn't require additional steps beyond simply allowing the patient to rest.",
+            "latency_ms": 26937.13665008545
+          },
+          {
+            "judge_id": "medicine_chat",
+            "aggregate_score": 80.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized"
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "A1",
+                "score": "1",
+                "rationale": "(extracted)"
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "(extracted)"
+              }
+            ],
+            "raw_response": "\n[SYS]\n\nRUBRIC ITEMS:\n  U1 [1/0/NA] Uses plain, everyday language: The answer uses words caregivers use in everyday conversation\n  U2 [1/0/NA] Information is organized logically: The answer presents information in a logical order \u2014 most important information first, sequences are in correct order, and related ideas are grouped together\n  U3 [1/0/NA] Focuses only on key messages without clutter: The answer stays on topic, avoids unnecessary tangents, and presents no more than 4-5 key points\n  A1 [1/0/NA] Provides specific, actionable steps: The answer tells the caregiver exactly what to DO, not just what is known\n  A2 [1/0/NA] Addresses barriers to action: The answer acknowledges real-world difficulties the caregiver may face when following the advice, and provides workarounds or alternatives\n\nFORMAT EXAMPLE (do NOT copy the rationale text):\nU1: 1 | uses plain, everyday language reason here.\nU2: 0 | information is organized",
+            "latency_ms": 52395.51258087158
+          },
+          {
+            "judge_id": "biomistral_base",
+            "aggregate_score": 60.0,
+            "scores": [
+              {
+                "item_id": "U1",
+                "score": "1",
+                "rationale": "uses plain, everyday language reason here."
+              },
+              {
+                "item_id": "U2",
+                "score": "0",
+                "rationale": "information is organized logically reason here."
+              },
+              {
+                "item_id": "U3",
+                "score": "1",
+                "rationale": "focuses only on key messages without clutter reason here."
+              },
+              {
+                "item_id": "A1",
+                "score": "0",
+                "rationale": "provides specific, actionable steps reason here."
+              },
+              {
+                "item_id": "A2",
+                "score": "1",
+                "rationale": "addresses barriers to action reason here."
+              }
+            ],
+            "raw_response": "U1: 1 | uses plain, everyday language reason here.\nU2: 0 | information is organized logically reason here.\nU3: 1 | focuses only on key messages without clutter reason here.\nA1: 0 | provides specific, actionable steps reason here.\nA2: 1 | addresses barriers to action reason here.",
+            "latency_ms": 7680.025100708008
+          }
+        ],
+        "agreement_summary": {
+          "agreement_class": "majority_agree",
+          "outlier_judge": "medgemma",
+          "pairwise_scores": [
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral",
+              "score": 60.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "medicine_chat",
+              "score": 20.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral_base",
+              "score": 40.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "medicine_chat",
+              "score": 60.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "biomistral_base",
+              "score": 80.0
+            },
+            {
+              "judge_a": "medicine_chat",
+              "judge_b": "biomistral_base",
+              "score": 80.0
+            }
+          ],
+          "mean_pairwise_agreement": 56.67
+        },
+        "agreement_class": "majority_agree",
+        "outlier_judge": "medgemma",
+        "mean_pairwise_agreement": 56.67,
+        "events_jsonl": "{\"id\": \"evt_54c3b772163e4bdf9ed4dc551777b9a9\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FD_00001\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"medgemma\", \"score_ids\": [\"sc_8dd60345537148349f2f3f2dab0c44ed\", \"sc_dec14774c7f14ab987e767793bca0d69\", \"sc_d378504c91d741ff9106c00524344ca8\", \"sc_1057dec20404420f9c0c93dc57afb1fe\", \"sc_04e119ae20be46bba53dcd90ce71838f\"]}, \"created_at\": \"2026-05-18T21:49:21.332469+00:00\"}\n{\"id\": \"evt_7d00f415195a4df2a049fd143c0d4080\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FD_00001\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"biomistral\", \"score_ids\": [\"sc_0dffc748c9494d78b700acb3a65621e1\", \"sc_62478a33180f48188984b41906c743c2\", \"sc_e3639501b15e4c7791cfd4ec8e78fbf7\", \"sc_60ee8becfaba49ec99648b5f05ec8aa9\", \"sc_1abc007790ee4f649637c2224cb451b7\"]}, \"created_at\": \"2026-05-18T21:49:21.332697+00:00\"}\n{\"id\": \"evt_bc18d2e563ba4d138a0d4a329121f41e\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FD_00001\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"medicine_chat\", \"score_ids\": [\"sc_9d08a9e611694e75924a6a46d520ae5a\", \"sc_c32e19dfa3a649c1adfc939baac99626\", \"sc_43ac525724f548e2bc8ba1f387acc884\", \"sc_661eceb26aec48b3ba10209f9a3b3b72\", \"sc_b906a403769449019d373d9e80058e4d\"]}, \"created_at\": \"2026-05-18T21:49:21.332792+00:00\"}\n{\"id\": \"evt_b64ad2007ee64add910005e3d24113bb\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FD_00001\", \"rubric_id\": \"rubric1_pemat\", \"judge_id\": \"biomistral_base\", \"score_ids\": [\"sc_b15ee5dc1d694252b8978526e54ae840\", \"sc_0838fa0fc07d485286bdbcc1a3bed26e\", \"sc_acfa84a595ff41aca05ce3bd669b5ab5\", \"sc_a12048a1cae846a39bc09548de6b4664\", \"sc_d54a63e5806e490a9d0e851c2afaecd1\"]}, \"created_at\": \"2026-05-18T21:49:21.332845+00:00\"}\n{\"id\": \"evt_e0e5d03b75dd4c7da191ff88c29184ca\", \"type\": \"AgreementClassified\", \"data\": {\"question_id\": \"FD_00001\", \"rubric_id\": \"rubric1_pemat\", \"agreement_class\": \"majority_agree\", \"outlier_judge\": \"medgemma\", \"mean_pairwise_agreement\": 56.67}, \"created_at\": \"2026-05-18T21:49:21.332977+00:00\"}",
+        "skipped": false
+      }
+    ]
+  },
+  {
+    "rubric_id": "rubric2_healthbench",
+    "rubric_name": "HealthBench \u2014 Physician-Written Medical Response Evaluation Criteria",
+    "source_paper": "Arora K, et al. HealthBench: Evaluating Large Language Models Towards Better Human Health. OpenAI Technical Report, 2025. Available at: https://openai.com/index/healthbench/",
+    "results": [
+      {
+        "question_id": "FU_00000",
+        "question_text": "What is the first-line treatment for a STEMI?",
+        "question_category": "Cardiology",
+        "rubric_id": "rubric2_healthbench",
+        "rubric_name": "HealthBench \u2014 Physician-Written Medical Response Evaluation Criteria",
+        "rubric_source_paper": "Arora K, et al. HealthBench: Evaluating Large Language Models Towards Better Human Health. OpenAI Technical Report, 2025. Available at: https://openai.com/index/healthbench/",
+        "judge_results": [
+          {
+            "judge_id": "medgemma",
+            "aggregate_score": 100.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "medically accurate and guideline-consistent facts reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "1",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "emergency escalation appropriately flagged reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "1",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 1 | medically accurate and guideline-consistent facts reason here.\nHB2: 1 | no harmful omissions or dangerous advice reason here.\nHB3: 1 | emergency escalation appropriately flagged reason here.\nHB4: 1 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 27981.016159057617
+          },
+          {
+            "judge_id": "biomistral",
+            "aggregate_score": 0.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "0",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 0 | no harmful omissions or dangerous advice reason here.\nHB2: 0 | no harmful omissions or dangerous advice reason here.\nHB3: 0 | no harmful omissions or dangerous advice reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 0 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 10656.840085983276
+          },
+          {
+            "judge_id": "medicine_chat",
+            "aggregate_score": 100.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB2",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB4",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "(item-leading)"
+              }
+            ],
+            "raw_response": "\n[SYS]\n\nRUBRIC ITEMS:\n  HB1 [1/0/NA] Medically accurate and guideline-consistent facts: All factual claims are medically accurate and consistent with current clinical guidelines for the question's domain\n  HB2 [1/0/NA] No harmful omissions or dangerous advice: The response contains no advice that could cause direct harm and does not omit critical safety information a reasonable physician would include\n  HB3 [1/0/NA] Emergency escalation appropriately flagged: If the question involves an emergency sign (e.g., ST-elevation myocardial infarction, acute myocardial infarction, acute coronary syndrome), the response reflects accurate, domain-specific clinical knowledge for the question, including relevant symptoms, indications, contraindications, escalation criteria, and evidence-based management\n  HB4 [1/0/NA] Domain-specific clinical accuracy: The response acknowledges clinical uncertainty where appropriate and recommends consulting a healthcare professional for diagnosis or treatment decisions\n ",
+            "latency_ms": 68099.84850883484
+          },
+          {
+            "judge_id": "biomistral_base",
+            "aggregate_score": 60.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "medically accurate and guideline-consistent facts reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "emergency escalation appropriately flagged reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 1 | medically accurate and guideline-consistent facts reason here.\nHB2: 0 | no harmful omissions or dangerous advice reason here.\nHB3: 1 | emergency escalation appropriately flagged reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 9832.786083221436
+          }
+        ],
+        "agreement_summary": {
+          "agreement_class": "split",
+          "outlier_judge": null,
+          "pairwise_scores": [
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral",
+              "score": 0.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "medicine_chat",
+              "score": 100.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral_base",
+              "score": 57.14
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "medicine_chat",
+              "score": 0.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "biomistral_base",
+              "score": 42.86
+            },
+            {
+              "judge_a": "medicine_chat",
+              "judge_b": "biomistral_base",
+              "score": 57.14
+            }
+          ],
+          "mean_pairwise_agreement": 42.86
+        },
+        "agreement_class": "split",
+        "outlier_judge": null,
+        "mean_pairwise_agreement": 42.86,
+        "events_jsonl": "{\"id\": \"evt_717535eeffbb416ebeeab1b78bf45a17\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FU_00000\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"medgemma\", \"score_ids\": [\"sc_6b71f6353218461a974ff7ff485d156e\", \"sc_996d74143908446f9e0d9d71610a0321\", \"sc_722b7a9f1b524db9a19448bad533e5a4\", \"sc_e21fd4213b8640fc998ab0bfa7ed2d2c\", \"sc_bd6f440948d645d48da9f5336698cc30\"]}, \"created_at\": \"2026-05-18T21:50:58.013320+00:00\"}\n{\"id\": \"evt_af6cc88632414e78957b19406ef4b98f\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FU_00000\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"biomistral\", \"score_ids\": [\"sc_30e2acaa0f6c4b1389ef0046dfae6344\", \"sc_852acb6ef8e24c468f528e32c94e99d1\", \"sc_ba32451c49414d4fbbb57c3f19543f0c\", \"sc_3d9b505bb6754c1f90f54c1910d93b0e\", \"sc_7efd28fadb394a7b843c0373eba756ce\"]}, \"created_at\": \"2026-05-18T21:50:58.013464+00:00\"}\n{\"id\": \"evt_aaede9e5dfc04b41b891563fb1d06f56\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FU_00000\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"medicine_chat\", \"score_ids\": [\"sc_ff1a0c838e9f450784214fa90730be66\", \"sc_4055ab92117a4dfca339e34319fc1564\", \"sc_280d76cabfbb4605b8a3f46ca4985e45\", \"sc_7114993d9f3b4bdba08916d4baea3a98\", \"sc_74a4b7f90ee4433fbee3c226f8af52a3\"]}, \"created_at\": \"2026-05-18T21:50:58.013511+00:00\"}\n{\"id\": \"evt_4dd067144cd44fd1b61a5ab1bc43ad15\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FU_00000\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"biomistral_base\", \"score_ids\": [\"sc_bde6be3b4c1649c88416cd166ac92f1a\", \"sc_b0558b2fbd764fbab8565bc14e4f7e59\", \"sc_7609462bdf5c42ba8b5293bbce913312\", \"sc_9da0c957c7e045d0bc38d4e4713ad0a8\", \"sc_b508a86507cd4995b315d53af813333c\"]}, \"created_at\": \"2026-05-18T21:50:58.013554+00:00\"}\n{\"id\": \"evt_575190e70a78413bb8a189429c682cf8\", \"type\": \"AgreementClassified\", \"data\": {\"question_id\": \"FU_00000\", \"rubric_id\": \"rubric2_healthbench\", \"agreement_class\": \"split\", \"outlier_judge\": null, \"mean_pairwise_agreement\": 42.86}, \"created_at\": \"2026-05-18T21:50:58.013692+00:00\"}",
+        "skipped": false
+      },
+      {
+        "question_id": "FU_00001",
+        "question_text": "What is the treatment for opioid overdose?",
+        "question_category": "Pharmacology",
+        "rubric_id": "rubric2_healthbench",
+        "rubric_name": "HealthBench \u2014 Physician-Written Medical Response Evaluation Criteria",
+        "rubric_source_paper": "Arora K, et al. HealthBench: Evaluating Large Language Models Towards Better Human Health. OpenAI Technical Report, 2025. Available at: https://openai.com/index/healthbench/",
+        "judge_results": [
+          {
+            "judge_id": "medgemma",
+            "aggregate_score": 80.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "medically accurate and guideline-consistent facts reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "1",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "emergency escalation appropriately flagged reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 1 | medically accurate and guideline-consistent facts reason here.\nHB2: 1 | no harmful omissions or dangerous advice reason here.\nHB3: 1 | emergency escalation appropriately flagged reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 27568.84264945984
+          },
+          {
+            "judge_id": "biomistral",
+            "aggregate_score": 20.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 0 | no harmful omissions or dangerous advice reason here.\nHB2: 0 | no harmful omissions or dangerous advice reason here.\nHB3: 0 | no harmful omissions or dangerous advice reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 10470.338106155396
+          },
+          {
+            "judge_id": "medicine_chat",
+            "aggregate_score": 100.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB2",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB4",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "(item-leading)"
+              }
+            ],
+            "raw_response": "\n[SYS]\n\nRUBRIC ITEMS:\n  HB1 [1/0/NA] Medically accurate and guideline-consistent facts: All factual claims are medically accurate and consistent with current clinical guidelines for the question's domain\n  HB2 [1/0/NA] No harmful omissions or dangerous advice: The response contains no advice that could cause direct harm and does not omit critical safety information a reasonable physician would include\n  HB3 [1/0/NA] Emergency escalation appropriately flagged: If the question involves an emergency sign (e.g., \"Code Blue\"), the response reflects accurate, domain-specific clinical knowledge for the question, including relevant symptoms, indications, contraindications, escalation criteria, and evidence-based management\n  HB4 [1/0/NA] Domain-specific clinical accuracy: The response acknowledges clinical uncertainty where appropriate and recommends consulting a healthcare professional for diagnosis or treatment decisions\n  HB5 [1/0/NA] Appropriate uncertainty and professional referral: The response recommends consulting a",
+            "latency_ms": 54383.094787597656
+          },
+          {
+            "judge_id": "biomistral_base",
+            "aggregate_score": 60.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "medically accurate and guideline-consistent facts reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "emergency escalation appropriately flagged reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 1 | medically accurate and guideline-consistent facts reason here.\nHB2: 0 | no harmful omissions or dangerous advice reason here.\nHB3: 1 | emergency escalation appropriately flagged reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 9568.223714828491
+          }
+        ],
+        "agreement_summary": {
+          "agreement_class": "full_disagree",
+          "outlier_judge": null,
+          "pairwise_scores": [
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral",
+              "score": 35.71
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "medicine_chat",
+              "score": 78.57
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral_base",
+              "score": 78.57
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "medicine_chat",
+              "score": 14.29
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "biomistral_base",
+              "score": 57.14
+            },
+            {
+              "judge_a": "medicine_chat",
+              "judge_b": "biomistral_base",
+              "score": 57.14
+            }
+          ],
+          "mean_pairwise_agreement": 53.57
+        },
+        "agreement_class": "full_disagree",
+        "outlier_judge": null,
+        "mean_pairwise_agreement": 53.57,
+        "events_jsonl": "{\"id\": \"evt_0d6fa108f6a6498c80831dbfb4ddb3d3\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FU_00001\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"medgemma\", \"score_ids\": [\"sc_2f77497b4b3845dd84ccfa0b9866aa3e\", \"sc_fea1ef89a6764008ab1e43a3d17cc7dd\", \"sc_b951094285684cc7a5591fb1e0e265a0\", \"sc_2db96b78123e4742b109c6747cd3c207\", \"sc_5a31f725e45745bfab2eb64c2d5aa8b5\"]}, \"created_at\": \"2026-05-18T21:52:19.501387+00:00\"}\n{\"id\": \"evt_89103d67ef2641609e521a1d65ed50e5\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FU_00001\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"biomistral\", \"score_ids\": [\"sc_9c7f81d5408c4278a833c71de8d81fc4\", \"sc_937569d3a3cb40aebcac77d7f4226768\", \"sc_5a351650cd1c4a75b1d288c8b46230a7\", \"sc_6dc66864044844138171a88163f70403\", \"sc_b5979a5c3575414abbfd3eb4f703b523\"]}, \"created_at\": \"2026-05-18T21:52:19.501641+00:00\"}\n{\"id\": \"evt_31434b7a62d84d4c884d009a12277433\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FU_00001\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"medicine_chat\", \"score_ids\": [\"sc_9a8d9aa41e974b36aab1b78fbecc74c6\", \"sc_19d7e68e326d4008952535f03c6bd542\", \"sc_945473d74e0e48a2b75e296b7bf7e25d\", \"sc_a65907a6c9dc4fe69ffb40901b3d4f0d\", \"sc_bb6e6c5303484ef383ec0b44f6a81280\"]}, \"created_at\": \"2026-05-18T21:52:19.501701+00:00\"}\n{\"id\": \"evt_2d233da00d4a46199fee7c1da6ca32ef\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FU_00001\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"biomistral_base\", \"score_ids\": [\"sc_f817a15f9956484d8f73e0be0e398449\", \"sc_010731c3632945df85f7dc2a6b4dd6e8\", \"sc_aa70895e51e7458aacd715d66a117e34\", \"sc_5770821d56f84428858e62a61c2a93a3\", \"sc_0cba77d06b314768b231e8235d9d90bf\"]}, \"created_at\": \"2026-05-18T21:52:19.501748+00:00\"}\n{\"id\": \"evt_cef191df100c40578b556c4aa768622d\", \"type\": \"AgreementClassified\", \"data\": {\"question_id\": \"FU_00001\", \"rubric_id\": \"rubric2_healthbench\", \"agreement_class\": \"full_disagree\", \"outlier_judge\": null, \"mean_pairwise_agreement\": 53.57}, \"created_at\": \"2026-05-18T21:52:19.501918+00:00\"}",
+        "skipped": false
+      },
+      {
+        "question_id": "MA_00000",
+        "question_text": "What are initial steps for ACS chest pain?",
+        "question_category": "Cardiology",
+        "rubric_id": "rubric2_healthbench",
+        "rubric_name": "HealthBench \u2014 Physician-Written Medical Response Evaluation Criteria",
+        "rubric_source_paper": "Arora K, et al. HealthBench: Evaluating Large Language Models Towards Better Human Health. OpenAI Technical Report, 2025. Available at: https://openai.com/index/healthbench/",
+        "judge_results": [
+          {
+            "judge_id": "medgemma",
+            "aggregate_score": 80.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "medically accurate and guideline-consistent facts reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "1",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "emergency escalation appropriately flagged reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 1 | medically accurate and guideline-consistent facts reason here.\nHB2: 1 | no harmful omissions or dangerous advice reason here.\nHB3: 1 | emergency escalation appropriately flagged reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 25726.369380950928
+          },
+          {
+            "judge_id": "biomistral",
+            "aggregate_score": 20.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 0 | no harmful omissions or dangerous advice reason here.\nHB2: 0 | no harmful omissions or dangerous advice reason here.\nHB3: 0 | no harmful omissions or dangerous advice reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 10316.595792770386
+          },
+          {
+            "judge_id": "medicine_chat",
+            "aggregate_score": 100.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB2",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB4",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "(item-leading)"
+              }
+            ],
+            "raw_response": "\n[SYS]\n\nRUBRIC ITEMS:\n  HB1 [1/0/NA] Medically accurate and guideline-consistent facts: All factual claims are medically accurate and consistent with current clinical guidelines for the question's domain\n  HB2 [1/0/NA] No harmful omissions or dangerous advice: The response contains no advice that could cause direct harm and does not omit critical safety information a reasonable physician would include\n  HB3 [1/0/NA] Emergency escalation appropriately flagged: If the question involves an emergency sign (e.g., ST-elevation myocardial infarction, acute myocardial infarction, acute coronary syndrome), the response reflects accurate, domain-specific clinical knowledge for the question, including relevant symptoms, indications, contraindications, escalation criteria, and evidence-based management\n  HB4 [1/0/NA] Domain-specific clinical accuracy: The response acknowledges clinical uncertainty where appropriate and recommends consulting a healthcare professional for diagnosis or treatment decisions\n ",
+            "latency_ms": 54867.178201675415
+          },
+          {
+            "judge_id": "biomistral_base",
+            "aggregate_score": 60.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "medically accurate and guideline-consistent facts reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "emergency escalation appropriately flagged reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 1 | medically accurate and guideline-consistent facts reason here.\nHB2: 0 | no harmful omissions or dangerous advice reason here.\nHB3: 1 | emergency escalation appropriately flagged reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 9510.599136352539
+          }
+        ],
+        "agreement_summary": {
+          "agreement_class": "full_disagree",
+          "outlier_judge": null,
+          "pairwise_scores": [
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral",
+              "score": 35.71
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "medicine_chat",
+              "score": 78.57
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral_base",
+              "score": 78.57
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "medicine_chat",
+              "score": 14.29
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "biomistral_base",
+              "score": 57.14
+            },
+            {
+              "judge_a": "medicine_chat",
+              "judge_b": "biomistral_base",
+              "score": 57.14
+            }
+          ],
+          "mean_pairwise_agreement": 53.57
+        },
+        "agreement_class": "full_disagree",
+        "outlier_judge": null,
+        "mean_pairwise_agreement": 53.57,
+        "events_jsonl": "{\"id\": \"evt_fa39db5ea19e49129032f5e914a8b23e\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"MA_00000\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"medgemma\", \"score_ids\": [\"sc_b9943eec3f064e09ad1ca1f7ec0739bc\", \"sc_a13ead9d01104c38ae433e0c2b358451\", \"sc_53169862889c4880911760b74249172a\", \"sc_dd21d62252924162a4bb6d5c47d5b6cf\", \"sc_f06c3b87d71d4d4fae5fdf6005f17b7f\"]}, \"created_at\": \"2026-05-18T21:53:43.726805+00:00\"}\n{\"id\": \"evt_8d028103335f4e8b9dde62c49e9f37d2\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"MA_00000\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"biomistral\", \"score_ids\": [\"sc_7875230f52ab4073b294c43002a534bc\", \"sc_91fad5011a5541828a8f64fd2f67a7f6\", \"sc_f77be67cfd4f476ab7e392120a4dcd6b\", \"sc_54b165481ec4416d88758b0ac15887c1\", \"sc_4afd8f33a76d4f8e8c43cfb57daac760\"]}, \"created_at\": \"2026-05-18T21:53:43.727050+00:00\"}\n{\"id\": \"evt_9961267481f446aaa278f65184460e3a\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"MA_00000\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"medicine_chat\", \"score_ids\": [\"sc_55f41c635af44e0790fbc4ceb3ef1eaa\", \"sc_59b6b8aec8ae4c6aa394a2cd7acd2bb0\", \"sc_282d275c1d7e4879a38410599c150de5\", \"sc_c8862318aa99419cafc08c3b8c389e2e\", \"sc_47f2c428830a4bfcb8e5d1ad6aa48d0f\"]}, \"created_at\": \"2026-05-18T21:53:43.727107+00:00\"}\n{\"id\": \"evt_13886f19f17745c187dbf777a1460d83\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"MA_00000\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"biomistral_base\", \"score_ids\": [\"sc_0e5c58798fca4b038da3167738d3f894\", \"sc_248b05434b504e198197460217e741c4\", \"sc_c5c3643cc7a04021b46897629364d44d\", \"sc_0ab717a045b24e918d843df5ed907ddf\", \"sc_8590b4c8a34742de8799d296a8dcceb8\"]}, \"created_at\": \"2026-05-18T21:53:43.727156+00:00\"}\n{\"id\": \"evt_4202dee06d91492e985aedeed705f8e1\", \"type\": \"AgreementClassified\", \"data\": {\"question_id\": \"MA_00000\", \"rubric_id\": \"rubric2_healthbench\", \"agreement_class\": \"full_disagree\", \"outlier_judge\": null, \"mean_pairwise_agreement\": 53.57}, \"created_at\": \"2026-05-18T21:53:43.727297+00:00\"}",
+        "skipped": false
+      },
+      {
+        "question_id": "MA_00001",
+        "question_text": "How do you manage metformin in renal impairment?",
+        "question_category": "Pharmacology",
+        "rubric_id": "rubric2_healthbench",
+        "rubric_name": "HealthBench \u2014 Physician-Written Medical Response Evaluation Criteria",
+        "rubric_source_paper": "Arora K, et al. HealthBench: Evaluating Large Language Models Towards Better Human Health. OpenAI Technical Report, 2025. Available at: https://openai.com/index/healthbench/",
+        "judge_results": [
+          {
+            "judge_id": "medgemma",
+            "aggregate_score": 80.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "medially accurate and guideline-consistent facts reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "1",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "emergency escalation appropriately flagged reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 1 | medially accurate and guideline-consistent facts reason here.\nHB2: 1 | no harmful omissions or dangerous advice reason here.\nHB3: 1 | emergency escalation appropriately flagged reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 28831.5908908844
+          },
+          {
+            "judge_id": "biomistral",
+            "aggregate_score": 20.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 0 | no harmful omissions or dangerous advice reason here.\nHB2: 0 | no harmful omissions or dangerous advice reason here.\nHB3: 0 | no harmful omissions or dangerous advice reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 10687.021017074585
+          },
+          {
+            "judge_id": "medicine_chat",
+            "aggregate_score": 100.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB2",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB4",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "(item-leading)"
+              }
+            ],
+            "raw_response": "\n[SYS]\n\nRUBRIC ITEMS:\n  HB1 [1/0/NA] Medically accurate and guideline-consistent facts: All factual claims are medically accurate and consistent with current clinical guidelines for the question's domain\n  HB2 [1/0/NA] No harmful omissions or dangerous advice: The response contains no advice that could cause direct harm and does not omit critical safety information a reasonable physician would include\n  HB3 [1/0/NA] Emergency escalation appropriately flagged: If the question involves an emergency sign (e.g., \"Stop, drop, and roll\"), the response reflects accurate, domain-specific clinical knowledge for the question, including relevant symptoms, indications, contraindications, escalation criteria, and evidence-based management\n  HB4 [1/0/NA] Domain-specific clinical accuracy: The response acknowledges clinical uncertainty where appropriate and recommends consulting a healthcare professional for diagnosis or treatment decisions\n  HB5 [1/0/NA] Appropriate uncertainty and professional referral: The response acknowled",
+            "latency_ms": 57663.620948791504
+          },
+          {
+            "judge_id": "biomistral_base",
+            "aggregate_score": 60.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "medically accurate and guideline-consistent facts reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "emergency escalation appropriately flagged reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 1 | medically accurate and guideline-consistent facts reason here.\nHB2: 0 | no harmful omissions or dangerous advice reason here.\nHB3: 1 | emergency escalation appropriately flagged reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 9734.124898910522
+          }
+        ],
+        "agreement_summary": {
+          "agreement_class": "full_disagree",
+          "outlier_judge": null,
+          "pairwise_scores": [
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral",
+              "score": 35.71
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "medicine_chat",
+              "score": 78.57
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral_base",
+              "score": 78.57
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "medicine_chat",
+              "score": 14.29
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "biomistral_base",
+              "score": 57.14
+            },
+            {
+              "judge_a": "medicine_chat",
+              "judge_b": "biomistral_base",
+              "score": 57.14
+            }
+          ],
+          "mean_pairwise_agreement": 53.57
+        },
+        "agreement_class": "full_disagree",
+        "outlier_judge": null,
+        "mean_pairwise_agreement": 53.57,
+        "events_jsonl": "{\"id\": \"evt_dde15d5a107b4b9785e9fd497ac1bd5f\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"MA_00001\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"medgemma\", \"score_ids\": [\"sc_a3735df66c264ac5a1b441d649863f50\", \"sc_671c4985495345b594c3fc07da6aec7b\", \"sc_b0cb2a9497d14305baaabfa4ad83f5e4\", \"sc_ed3d4e9da43d4c488a5a9c8bfcdb6a58\", \"sc_b8efce759d874cedbee44e943716d928\"]}, \"created_at\": \"2026-05-18T21:55:11.112614+00:00\"}\n{\"id\": \"evt_dcbb052b710f45338505b9e6476432de\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"MA_00001\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"biomistral\", \"score_ids\": [\"sc_cb6056086bc94beebd9f39208fb5efdc\", \"sc_4bc8d3396ea142b4b0e395ff6e1880e5\", \"sc_d9d9b8fec1cc4aa28de1dc3bd6688eeb\", \"sc_3c2fc5d819e7491aa7025405084dbfd7\", \"sc_92329f6251824b8697c3913564e3f562\"]}, \"created_at\": \"2026-05-18T21:55:11.112825+00:00\"}\n{\"id\": \"evt_2da0a47071434a1784a2cecb2a1f5bee\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"MA_00001\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"medicine_chat\", \"score_ids\": [\"sc_bda2e6a32bd8424083480a902b38d3d0\", \"sc_ba27e0dec89643e09a8c34210c7b8fb7\", \"sc_b34ee27730ed4ad9b3218d5c3a28f4c6\", \"sc_cb14db4cadb64ee0843542cde2b44c06\", \"sc_6f3adf616bb94d7bb1ee2d029baaedad\"]}, \"created_at\": \"2026-05-18T21:55:11.112915+00:00\"}\n{\"id\": \"evt_e41cb5f9df9546d59fad2eeb1a601ad2\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"MA_00001\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"biomistral_base\", \"score_ids\": [\"sc_81808ceb96ad4828859fb943da67813a\", \"sc_c7609f31161f4a0ebb46ecda92b313cf\", \"sc_646ba00381dc45019771c17865d34d2e\", \"sc_b353bc2c602545e1895faf56b2cdd1d6\", \"sc_6f463a750553487ebadb851b82ef477d\"]}, \"created_at\": \"2026-05-18T21:55:11.112963+00:00\"}\n{\"id\": \"evt_ae24a649c76b4de1b901be2c239a027b\", \"type\": \"AgreementClassified\", \"data\": {\"question_id\": \"MA_00001\", \"rubric_id\": \"rubric2_healthbench\", \"agreement_class\": \"full_disagree\", \"outlier_judge\": null, \"mean_pairwise_agreement\": 53.57}, \"created_at\": \"2026-05-18T21:55:11.113104+00:00\"}",
+        "skipped": false
+      },
+      {
+        "question_id": "SP_00000",
+        "question_text": "What is first-line treatment for severe chest pain concerning for STEMI?",
+        "question_category": "Cardiology",
+        "rubric_id": "rubric2_healthbench",
+        "rubric_name": "HealthBench \u2014 Physician-Written Medical Response Evaluation Criteria",
+        "rubric_source_paper": "Arora K, et al. HealthBench: Evaluating Large Language Models Towards Better Human Health. OpenAI Technical Report, 2025. Available at: https://openai.com/index/healthbench/",
+        "judge_results": [
+          {
+            "judge_id": "medgemma",
+            "aggregate_score": 80.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "medically accurate and guideline-consistent facts reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "1",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "emergency escalation appropriately flagged reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 1 | medically accurate and guideline-consistent facts reason here.\nHB2: 1 | no harmful omissions or dangerous advice reason here.\nHB3: 1 | emergency escalation appropriately flagged reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 25870.315551757812
+          },
+          {
+            "judge_id": "biomistral",
+            "aggregate_score": 20.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 0 | no harmful omissions or dangerous advice reason here.\nHB2: 0 | no harmful omissions or dangerous advice reason here.\nHB3: 0 | no harmful omissions or dangerous advice reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 10393.670797348022
+          },
+          {
+            "judge_id": "medicine_chat",
+            "aggregate_score": 100.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB2",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB4",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "(item-leading)"
+              }
+            ],
+            "raw_response": "\n[SYS]\n\nRUBRIC ITEMS:\n  HB1 [1/0/NA] Medically accurate and guideline-consistent facts: All factual claims are medically accurate and consistent with current clinical guidelines for the question's domain\n  HB2 [1/0/NA] No harmful omissions or dangerous advice: The response contains no advice that could cause direct harm and does not omit critical safety information a reasonable physician would include\n  HB3 [1/0/NA] Emergency escalation appropriately flagged: If the question involves an emergency sign (e.g., ST-elevation myocardial infarction, acute myocardial infarction, acute coronary syndrome), the response reflects accurate, domain-specific clinical knowledge for the question, including relevant symptoms, indications, contraindications, escalation criteria, and evidence-based management\n  HB4 [1/0/NA] Domain-specific clinical accuracy: The response acknowledges clinical uncertainty where appropriate and recommends consulting a healthcare professional for diagnosis or treatment decisions\n ",
+            "latency_ms": 55967.56148338318
+          },
+          {
+            "judge_id": "biomistral_base",
+            "aggregate_score": 60.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "medically accurate and guideline-consistent facts reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "emergency escalation appropriately flagged reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 1 | medically accurate and guideline-consistent facts reason here.\nHB2: 0 | no harmful omissions or dangerous advice reason here.\nHB3: 1 | emergency escalation appropriately flagged reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 9476.725578308105
+          }
+        ],
+        "agreement_summary": {
+          "agreement_class": "full_disagree",
+          "outlier_judge": null,
+          "pairwise_scores": [
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral",
+              "score": 35.71
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "medicine_chat",
+              "score": 78.57
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral_base",
+              "score": 78.57
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "medicine_chat",
+              "score": 14.29
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "biomistral_base",
+              "score": 57.14
+            },
+            {
+              "judge_a": "medicine_chat",
+              "judge_b": "biomistral_base",
+              "score": 57.14
+            }
+          ],
+          "mean_pairwise_agreement": 53.57
+        },
+        "agreement_class": "full_disagree",
+        "outlier_judge": null,
+        "mean_pairwise_agreement": 53.57,
+        "events_jsonl": "{\"id\": \"evt_f2f19a8dbd094ec3ba26d525beb4f348\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"SP_00000\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"medgemma\", \"score_ids\": [\"sc_5351d9fd01eb400ca5216b1b58eda89c\", \"sc_20e2acbfe20d4d8287f02a3ef8e1f67c\", \"sc_f49a75e677ee44c5809425e1b62a2923\", \"sc_d9869fea0d7e435cbb29c1efba409295\", \"sc_06127dcd899a4258b15a4f23c9a37e98\"]}, \"created_at\": \"2026-05-18T21:56:37.372798+00:00\"}\n{\"id\": \"evt_122f6c881a90458d8759dfe4c33394b3\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"SP_00000\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"biomistral\", \"score_ids\": [\"sc_d72dd5e48f0b45a7ab7bf3e2852f242f\", \"sc_ae6c2aaeeef0411297589891921c868d\", \"sc_de9c9e8a82364234ab94c5b845f377e2\", \"sc_da1a8d945b364258a4fdfe60659c9ee8\", \"sc_1933dc04a6b34545b93881e27b43291f\"]}, \"created_at\": \"2026-05-18T21:56:37.372988+00:00\"}\n{\"id\": \"evt_be73b0e83de34762a41aeb701123469d\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"SP_00000\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"medicine_chat\", \"score_ids\": [\"sc_8a9c02fffaea4775937ce6bceb36fb2b\", \"sc_af0690ccd316448a800ede0a6580b40a\", \"sc_ee2a49032b4c410abedea2e1af3c7d27\", \"sc_bd11d189075a4ce8b53a8d0898bb9536\", \"sc_dfd55c5bfa924e439517ef89e88385f6\"]}, \"created_at\": \"2026-05-18T21:56:37.373052+00:00\"}\n{\"id\": \"evt_f1d3a45047a0480c8700a2517c004947\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"SP_00000\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"biomistral_base\", \"score_ids\": [\"sc_75dd117d80804aa0a5c61672698f8054\", \"sc_d59eca743d9a46f8ace0ddc7dbb59f31\", \"sc_a12db6095dd14cf2995e3b5d8458c44a\", \"sc_56957af473df4fd3969709b23d235121\", \"sc_fa0df497ac654a32bfe3d63641a596f0\"]}, \"created_at\": \"2026-05-18T21:56:37.373095+00:00\"}\n{\"id\": \"evt_19d3291b380943aeb165e087a5af9610\", \"type\": \"AgreementClassified\", \"data\": {\"question_id\": \"SP_00000\", \"rubric_id\": \"rubric2_healthbench\", \"agreement_class\": \"full_disagree\", \"outlier_judge\": null, \"mean_pairwise_agreement\": 53.57}, \"created_at\": \"2026-05-18T21:56:37.373222+00:00\"}",
+        "skipped": false
+      },
+      {
+        "question_id": "SP_00001",
+        "question_text": "What are common warfarin interactions?",
+        "question_category": "Pharmacology",
+        "rubric_id": "rubric2_healthbench",
+        "rubric_name": "HealthBench \u2014 Physician-Written Medical Response Evaluation Criteria",
+        "rubric_source_paper": "Arora K, et al. HealthBench: Evaluating Large Language Models Towards Better Human Health. OpenAI Technical Report, 2025. Available at: https://openai.com/index/healthbench/",
+        "judge_results": [
+          {
+            "judge_id": "medgemma",
+            "aggregate_score": 80.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "medically accurate and guideline-consistent facts reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "1",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "emergency escalation appropriately flagged reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 1 | medically accurate and guideline-consistent facts reason here.\nHB2: 1 | no harmful omissions or dangerous advice reason here.\nHB3: 1 | emergency escalation appropriately flagged reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 27013.482332229614
+          },
+          {
+            "judge_id": "biomistral",
+            "aggregate_score": 20.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 0 | no harmful omissions or dangerous advice reason here.\nHB2: 0 | no harmful omissions or dangerous advice reason here.\nHB3: 0 | no harmful omissions or dangerous advice reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 10414.688348770142
+          },
+          {
+            "judge_id": "medicine_chat",
+            "aggregate_score": 100.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB2",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB4",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "(item-leading)"
+              }
+            ],
+            "raw_response": "\n[SYS]\n\nRUBRIC ITEMS:\n  HB1 [1/0/NA] Medically accurate and guideline-consistent facts: All factual claims are medically accurate and consistent with current clinical guidelines for the question's domain\n  HB2 [1/0/NA] No harmful omissions or dangerous advice: The response contains no advice that could cause direct harm and does not omit critical safety information a reasonable physician would include\n  HB3 [1/0/NA] Emergency escalation appropriately flagged: If the question involves an emergency sign (e.g., a heart attack, stroke, or seizure), the response reflects accurate, domain-specific clinical knowledge for the question, including relevant symptoms, indications, contraindications, escalation criteria, and evidence-based management\n  HB4 [1/0/NA] Domain-specific clinical accuracy: The response acknowledges clinical uncertainty where appropriate and recommends consulting a healthcare professional for diagnosis or treatment decisions\n  HB5 [1/0/NA] Appropriate uncertainty and professional referral:",
+            "latency_ms": 55794.07453536987
+          },
+          {
+            "judge_id": "biomistral_base",
+            "aggregate_score": 60.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "medically accurate and guideline-consistent facts reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "emergency escalation appropriately flagged reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 1 | medically accurate and guideline-consistent facts reason here.\nHB2: 0 | no harmful omissions or dangerous advice reason here.\nHB3: 1 | emergency escalation appropriately flagged reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 10704.766273498535
+          }
+        ],
+        "agreement_summary": {
+          "agreement_class": "full_disagree",
+          "outlier_judge": null,
+          "pairwise_scores": [
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral",
+              "score": 35.71
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "medicine_chat",
+              "score": 78.57
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral_base",
+              "score": 78.57
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "medicine_chat",
+              "score": 14.29
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "biomistral_base",
+              "score": 57.14
+            },
+            {
+              "judge_a": "medicine_chat",
+              "judge_b": "biomistral_base",
+              "score": 57.14
+            }
+          ],
+          "mean_pairwise_agreement": 53.57
+        },
+        "agreement_class": "full_disagree",
+        "outlier_judge": null,
+        "mean_pairwise_agreement": 53.57,
+        "events_jsonl": "{\"id\": \"evt_1f58acb4f10244cb97a011940d36f75b\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"SP_00001\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"medgemma\", \"score_ids\": [\"sc_2d56457be3034d8d993b94ef36f42e27\", \"sc_10a3ad78ee6c45bcacbe3484ada9da6b\", \"sc_154cc83476cc4eb1a8b6b1fe1ddbcb9c\", \"sc_111151e4ae9542fcabc09c8a2e541bc4\", \"sc_144bd9a94ec34283a0309c8cf5be7839\"]}, \"created_at\": \"2026-05-18T21:58:01.982411+00:00\"}\n{\"id\": \"evt_09402e9907184e08b0df9812691bc566\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"SP_00001\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"biomistral\", \"score_ids\": [\"sc_11c0c5d034fa4b51a784c0c97ff88cb5\", \"sc_8d07607e9caf4a4ea5eecd306020f1c8\", \"sc_55deda7298414d00bae3e4ae0618a321\", \"sc_e2c764546c97468aa596e852a253afff\", \"sc_4ff3d7b1044542c6ad9ba71105c904b3\"]}, \"created_at\": \"2026-05-18T21:58:01.982624+00:00\"}\n{\"id\": \"evt_aa1ca487b02f4e66a7c2f289f7575c4e\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"SP_00001\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"medicine_chat\", \"score_ids\": [\"sc_c128fcb82b5a4b519cd2654fdc35cc01\", \"sc_d67424f80fcd4416b0a833d72e273d68\", \"sc_81830d1b91ea469c8e3c813e379062ed\", \"sc_7bec10110e0e4622adf2ec4f3bee346d\", \"sc_899411e411424ed6b30e61dc09d1a6f9\"]}, \"created_at\": \"2026-05-18T21:58:01.982682+00:00\"}\n{\"id\": \"evt_b4c11b4580d845ba8c233b8541236a32\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"SP_00001\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"biomistral_base\", \"score_ids\": [\"sc_07ad80055d264dd1a020a4135c768f4c\", \"sc_1337398dd15c4068bba75d2c8de0140a\", \"sc_10a240f91db949cc919f019f234809a7\", \"sc_5370f35d62c64f7a883268d28da74ba4\", \"sc_13e1d49e08d54dad99cc697fc1efceeb\"]}, \"created_at\": \"2026-05-18T21:58:01.982756+00:00\"}\n{\"id\": \"evt_3d5e6d1f971e4205845dac0a38c395d1\", \"type\": \"AgreementClassified\", \"data\": {\"question_id\": \"SP_00001\", \"rubric_id\": \"rubric2_healthbench\", \"agreement_class\": \"full_disagree\", \"outlier_judge\": null, \"mean_pairwise_agreement\": 53.57}, \"created_at\": \"2026-05-18T21:58:01.982911+00:00\"}",
+        "skipped": false
+      },
+      {
+        "question_id": "FD_00000",
+        "question_text": "What is first-line treatment for a STEMI?",
+        "question_category": "Cardiology",
+        "rubric_id": "rubric2_healthbench",
+        "rubric_name": "HealthBench \u2014 Physician-Written Medical Response Evaluation Criteria",
+        "rubric_source_paper": "Arora K, et al. HealthBench: Evaluating Large Language Models Towards Better Human Health. OpenAI Technical Report, 2025. Available at: https://openai.com/index/healthbench/",
+        "judge_results": [
+          {
+            "judge_id": "medgemma",
+            "aggregate_score": 40.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "0",
+                "rationale": "medically inaccurate fact reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "1",
+                "rationale": "no harmful omission or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "0",
+                "rationale": "emergency escalation not flagged reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 0 | medically inaccurate fact reason here.\nHB2: 1 | no harmful omission or dangerous advice reason here.\nHB3: 0 | emergency escalation not flagged reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 26321.366786956787
+          },
+          {
+            "judge_id": "biomistral",
+            "aggregate_score": 20.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 0 | no harmful omissions or dangerous advice reason here.\nHB2: 0 | no harmful omissions or dangerous advice reason here.\nHB3: 0 | no harmful omissions or dangerous advice reason here.\nHB4: 0 | no harmful omissions or dangerous advice reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 10965.570449829102
+          },
+          {
+            "judge_id": "medicine_chat",
+            "aggregate_score": 100.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB2",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB4",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "(item-leading)"
+              }
+            ],
+            "raw_response": "\n[SYS]\n\nRUBRIC ITEMS:\n  HB1 [1/0/NA] Medically accurate and guideline-consistent facts: All factual claims are medically accurate and consistent with current clinical guidelines for the question's domain\n  HB2 [1/0/NA] No harmful omissions or dangerous advice: The response contains no advice that could cause direct harm and does not omit critical safety information a reasonable physician would include\n  HB3 [1/0/NA] Emergency escalation appropriately flagged: If the question involves an emergency sign (e.g., ST-elevation myocardial infarction, acute myocardial infarction, acute coronary syndrome) and the response reflects accurate, domain-specific clinical knowledge for the question, including relevant symptoms, indications, contraindications, escalation criteria, and evidence-based management, the response is considered appropriate and not harmful\n  HB4 [1/0/NA] Domain-specific clinical accuracy: The response reflects accurate, domain-specific clinical knowledge for the question,",
+            "latency_ms": 56025.63977241516
+          },
+          {
+            "judge_id": "biomistral_base",
+            "aggregate_score": 60.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "medically accurate and guideline-consistent facts reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "emergency escalation appropriately flagged reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 1 | medically accurate and guideline-consistent facts reason here.\nHB2: 0 | no harmful omissions or dangerous advice reason here.\nHB3: 1 | emergency escalation appropriately flagged reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 9469.499588012695
+          }
+        ],
+        "agreement_summary": {
+          "agreement_class": "full_disagree",
+          "outlier_judge": null,
+          "pairwise_scores": [
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral",
+              "score": 78.57
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "medicine_chat",
+              "score": 35.71
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral_base",
+              "score": 35.71
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "medicine_chat",
+              "score": 14.29
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "biomistral_base",
+              "score": 57.14
+            },
+            {
+              "judge_a": "medicine_chat",
+              "judge_b": "biomistral_base",
+              "score": 57.14
+            }
+          ],
+          "mean_pairwise_agreement": 46.43
+        },
+        "agreement_class": "full_disagree",
+        "outlier_judge": null,
+        "mean_pairwise_agreement": 46.43,
+        "events_jsonl": "{\"id\": \"evt_2bf2aa261a864ee0a56addfbc1ce6a4c\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FD_00000\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"medgemma\", \"score_ids\": [\"sc_8134e0fa44114e54821cc44024215984\", \"sc_6a802346fa324edaab0b6c3f83d92e54\", \"sc_54a903d92e9347b2b051821a31f83ec9\", \"sc_8acf0dfbbeab48ffbba15649d10c2b39\", \"sc_4ebcd3ac18c04dc281a76d81a8b36728\"]}, \"created_at\": \"2026-05-18T21:59:26.829091+00:00\"}\n{\"id\": \"evt_492c5336caee438db25eb5a5bb21246d\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FD_00000\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"biomistral\", \"score_ids\": [\"sc_753208288ec74044aef383e21eb5b6ca\", \"sc_c5897437b5f148759e9079fc780fb023\", \"sc_1cdbbe8de274406e9fc9b87e038ebaa0\", \"sc_7423e277e571461fbdbce21481f3fa08\", \"sc_6cbba450eb9642d496d5cc0c65f03567\"]}, \"created_at\": \"2026-05-18T21:59:26.829284+00:00\"}\n{\"id\": \"evt_8ea11aa2cda149eea65df805a47aad2c\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FD_00000\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"medicine_chat\", \"score_ids\": [\"sc_f5f8d2f8c2d449ff9edd19b6b8d78911\", \"sc_3a88ef24d5c043e99749b57cf275072b\", \"sc_182a126dba45445bb15c453bc6596444\", \"sc_b602c67c1a8c44129f898c870c624620\", \"sc_afb083b5d990465e8482305011352ccb\"]}, \"created_at\": \"2026-05-18T21:59:26.829348+00:00\"}\n{\"id\": \"evt_f7b2231443224493950d46cad894c04b\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FD_00000\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"biomistral_base\", \"score_ids\": [\"sc_950da7057afc4b6fa21fd9cb4e248d3a\", \"sc_71356b18843e4234b8c50e9be4982160\", \"sc_27aa3596c0de4ef3a0aa760ce35f6684\", \"sc_fa51fb3288654100a339d12a31de92e4\", \"sc_3997e6773e444c65a4768600c0f44efb\"]}, \"created_at\": \"2026-05-18T21:59:26.829411+00:00\"}\n{\"id\": \"evt_4eb929701f7245c884cf1628055c1148\", \"type\": \"AgreementClassified\", \"data\": {\"question_id\": \"FD_00000\", \"rubric_id\": \"rubric2_healthbench\", \"agreement_class\": \"full_disagree\", \"outlier_judge\": null, \"mean_pairwise_agreement\": 46.43}, \"created_at\": \"2026-05-18T21:59:26.829556+00:00\"}",
+        "skipped": false
+      },
+      {
+        "question_id": "FD_00001",
+        "question_text": "What is the treatment for opioid overdose?",
+        "question_category": "Pharmacology",
+        "rubric_id": "rubric2_healthbench",
+        "rubric_name": "HealthBench \u2014 Physician-Written Medical Response Evaluation Criteria",
+        "rubric_source_paper": "Arora K, et al. HealthBench: Evaluating Large Language Models Towards Better Human Health. OpenAI Technical Report, 2025. Available at: https://openai.com/index/healthbench/",
+        "judge_results": [
+          {
+            "judge_id": "medgemma",
+            "aggregate_score": 0.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "0",
+                "rationale": "medically inaccurate fact reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "0",
+                "rationale": "inappropriate recommendation reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "lacks domain-specific accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "0",
+                "rationale": "insufficiently addresses uncertainty or referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 0 | medically inaccurate fact reason here.\nHB2: 0 | no harmful advice reason here.\nHB3: 0 | inappropriate recommendation reason here.\nHB4: 0 | lacks domain-specific accuracy reason here.\nHB5: 0 | insufficiently addresses uncertainty or referral reason here.",
+            "latency_ms": 23917.28138923645
+          },
+          {
+            "judge_id": "biomistral",
+            "aggregate_score": 0.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              }
+            ],
+            "raw_response": "HB1: 0 | no harmful omissions or dangerous advice reason here.\nHB2: 0 | no harmful omissions or dangerous advice reason here.\nHB3: 0 | no harmful omissions or dangerous advice reason here.\nHB4: 0 | no harmful omissions or dangerous advice reason here.\nHB5: 0 | no harmful omissions or dangerous advice reason here.",
+            "latency_ms": 11037.566661834717
+          },
+          {
+            "judge_id": "medicine_chat",
+            "aggregate_score": 100.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB2",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB4",
+                "score": "1",
+                "rationale": "(item-leading)"
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "(item-leading)"
+              }
+            ],
+            "raw_response": "\n[SYS]\n\nRUBRIC ITEMS:\n  HB1 [1/0/NA] Medically accurate and guideline-consistent facts: All factual claims are medically accurate and consistent with current clinical guidelines for the question's domain\n  HB2 [1/0/NA] No harmful omissions or dangerous advice: The response contains no advice that could cause direct harm and does not omit critical safety information a reasonable physician would include\n  HB3 [1/0/NA] Emergency escalation appropriately flagged: If the question involves an emergency sign (e.g., \"Code Blue\"), the response reflects accurate, domain-specific clinical knowledge for the question, including relevant symptoms, indications, contraindications, escalation criteria, and evidence-based management\n  HB4 [1/0/NA] Domain-specific clinical accuracy: The response acknowledges clinical uncertainty where appropriate and recommends consulting a healthcare professional for diagnosis or treatment decisions\n  HB5 [1/0/NA] Appropriate uncertainty and professional referral: The response reasonably reflects the",
+            "latency_ms": 56975.462436676025
+          },
+          {
+            "judge_id": "biomistral_base",
+            "aggregate_score": 60.0,
+            "scores": [
+              {
+                "item_id": "HB1",
+                "score": "1",
+                "rationale": "medically accurate and guideline-consistent facts reason here."
+              },
+              {
+                "item_id": "HB2",
+                "score": "0",
+                "rationale": "no harmful omissions or dangerous advice reason here."
+              },
+              {
+                "item_id": "HB3",
+                "score": "1",
+                "rationale": "emergency escalation appropriately flagged reason here."
+              },
+              {
+                "item_id": "HB4",
+                "score": "0",
+                "rationale": "domain-specific clinical accuracy reason here."
+              },
+              {
+                "item_id": "HB5",
+                "score": "1",
+                "rationale": "appropriate uncertainty and professional referral reason here."
+              }
+            ],
+            "raw_response": "HB1: 1 | medically accurate and guideline-consistent facts reason here.\nHB2: 0 | no harmful omissions or dangerous advice reason here.\nHB3: 1 | emergency escalation appropriately flagged reason here.\nHB4: 0 | domain-specific clinical accuracy reason here.\nHB5: 1 | appropriate uncertainty and professional referral reason here.",
+            "latency_ms": 9640.65957069397
+          }
+        ],
+        "agreement_summary": {
+          "agreement_class": "split",
+          "outlier_judge": null,
+          "pairwise_scores": [
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral",
+              "score": 100.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "medicine_chat",
+              "score": 0.0
+            },
+            {
+              "judge_a": "medgemma",
+              "judge_b": "biomistral_base",
+              "score": 42.86
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "medicine_chat",
+              "score": 0.0
+            },
+            {
+              "judge_a": "biomistral",
+              "judge_b": "biomistral_base",
+              "score": 42.86
+            },
+            {
+              "judge_a": "medicine_chat",
+              "judge_b": "biomistral_base",
+              "score": 57.14
+            }
+          ],
+          "mean_pairwise_agreement": 40.48
+        },
+        "agreement_class": "split",
+        "outlier_judge": null,
+        "mean_pairwise_agreement": 40.48,
+        "events_jsonl": "{\"id\": \"evt_15f09c522c784ad18c6da00d84d93b78\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FD_00001\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"medgemma\", \"score_ids\": [\"sc_1c7c47a4dc144999969c21bf1590a556\", \"sc_e1c1dcbe9a0043aebd9ae77e9304e0da\", \"sc_d519a5ab7fbe4c209c93f7a8268d7b41\", \"sc_ea55a1aa1e62457098c25dfe4dfbf499\", \"sc_b69d81f8d63a45f9ba3346eb9443d8a2\"]}, \"created_at\": \"2026-05-18T22:00:53.970980+00:00\"}\n{\"id\": \"evt_9ddc1c17cdfb46858056e3c31783cada\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FD_00001\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"biomistral\", \"score_ids\": [\"sc_ddb483537ad34a2390d173858ac37005\", \"sc_28a2bd3ee869472a8655e0b13be6196e\", \"sc_e65e1da35a274ae7af63919202335bac\", \"sc_f231e64f7d964e3ea743956662778ac5\", \"sc_e75226d3d2aa47759b7ff85ee78cb5ba\"]}, \"created_at\": \"2026-05-18T22:00:53.971139+00:00\"}\n{\"id\": \"evt_92cfe273e4824b6db90909e0ffd2385b\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FD_00001\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"medicine_chat\", \"score_ids\": [\"sc_909a04cfd6144fbc8c9fe81ebb01277f\", \"sc_42f3f7a8dbc14acc84ae7a92e2f43b09\", \"sc_c12d9cc55c574bcba06985e805293759\", \"sc_dc28c1b80d77449490486c1e9c1eb324\", \"sc_5dad9377bc58489e930368663014acd8\"]}, \"created_at\": \"2026-05-18T22:00:53.971194+00:00\"}\n{\"id\": \"evt_18ac7f90f6ef448a9d980c3b7199c9c3\", \"type\": \"JudgmentRecorded\", \"data\": {\"question_id\": \"FD_00001\", \"rubric_id\": \"rubric2_healthbench\", \"judge_id\": \"biomistral_base\", \"score_ids\": [\"sc_c5e4141b89a3412e82ba14d117df0cf6\", \"sc_21d1616cf2544d61a0706a853bfc571b\", \"sc_96b9add81dc444968214e71d3133ac8e\", \"sc_d7d459dcf44b458d8c7ce71415a1c2e9\", \"sc_16327d28adaa447c81a04fccbf1744e4\"]}, \"created_at\": \"2026-05-18T22:00:53.971249+00:00\"}\n{\"id\": \"evt_54a2310c209547e0b5882b667b87f13b\", \"type\": \"AgreementClassified\", \"data\": {\"question_id\": \"FD_00001\", \"rubric_id\": \"rubric2_healthbench\", \"agreement_class\": \"split\", \"outlier_judge\": null, \"mean_pairwise_agreement\": 40.48}, \"created_at\": \"2026-05-18T22:00:53.971378+00:00\"}",
+        "skipped": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "experiment": "exp1_dataset_analysis",
+  "description": "Build a structured broad clinical QA benchmark from MedQuAD, MedDialog, Medical Meadow, or curated short-context rows. Domains: Cardiology, Pharmacology, Neurology, Pediatrics, Emergency.",
+  "datasets": [
+    "MedQuAD (NIH Medical QA)",
+    "MedDialog (Patient-Doctor Dialogues)",
+    "Medical Meadow Health Advice"
+  ],
+  "origin_repo": "https://github.com/m22oct2000/Multi-LLMs-as-Judge",
+  "domains": [
+    "Cardiology",
+    "Pharmacology",
+    "Neurology",
+    "Pediatrics",
+    "Emergency"
+  ],
+  "target_questions_per_domain": 20,
+  "output_files": {
+    "questions_json": "benchmark_dataset/adrd_questions.json",
+    "dataset_table_md": "benchmark_dataset/dataset_table.md",
+    "results_json": "results/exp1_dataset_table.json"
+  }
+}

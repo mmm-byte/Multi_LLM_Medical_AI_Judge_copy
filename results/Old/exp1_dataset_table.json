@@ -1,0 +1,13 @@
+{
+  "domain_counts": {
+    "Cardiology": 5,
+    "Pharmacology": 5,
+    "Neurology": 5,
+    "Pediatrics": 5,
+    "Emergency": 5
+  },
+  "source_counts": {
+    "placeholder": 25
+  },
+  "total": 25
+}

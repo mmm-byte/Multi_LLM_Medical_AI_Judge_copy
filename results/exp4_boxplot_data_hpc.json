@@ -1,0 +1,392 @@
+[
+  {
+    "rubric_id": "rubric1_pemat",
+    "rubric_name": "PEMAT \u2014 Patient Education Materials Assessment Tool",
+    "domain_scores": {
+      "Cardiology": [
+        73.33,
+        80.0,
+        73.33,
+        63.33,
+        80.0
+      ],
+      "Pharmacology": [
+        73.33,
+        80.0,
+        86.67,
+        66.67,
+        76.67
+      ],
+      "Neurology": [
+        80.0,
+        87.5,
+        90.0,
+        80.83,
+        80.0
+      ],
+      "Pediatrics": [
+        74.17,
+        80.0,
+        80.83,
+        67.5,
+        80.0
+      ],
+      "Emergency": [
+        76.67,
+        74.17,
+        87.5,
+        64.45,
+        63.33
+      ]
+    },
+    "domain_classes": {
+      "Cardiology": {
+        "fully_agree": 0,
+        "majority_agree": 3,
+        "split": 2,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Pharmacology": {
+        "fully_agree": 1,
+        "majority_agree": 3,
+        "split": 1,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Neurology": {
+        "fully_agree": 1,
+        "majority_agree": 4,
+        "split": 0,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Pediatrics": {
+        "fully_agree": 0,
+        "majority_agree": 3,
+        "split": 2,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Emergency": {
+        "fully_agree": 0,
+        "majority_agree": 4,
+        "split": 1,
+        "full_disagree": 0,
+        "skipped": 0
+      }
+    }
+  },
+  {
+    "rubric_id": "rubric2_healthbench",
+    "rubric_name": "HealthBench \u2014 Physician-Written Medical Response Evaluation Criteria",
+    "domain_scores": {
+      "Cardiology": [
+        85.71,
+        85.71,
+        85.71,
+        42.86,
+        92.86
+      ],
+      "Pharmacology": [
+        84.52,
+        85.71,
+        67.86,
+        71.43,
+        85.71
+      ],
+      "Neurology": [
+        85.71,
+        85.71,
+        83.93,
+        85.71,
+        85.71
+      ],
+      "Pediatrics": [
+        85.71,
+        85.71,
+        78.57,
+        54.76,
+        83.77
+      ],
+      "Emergency": [
+        92.86,
+        78.57,
+        85.71,
+        76.19,
+        58.33
+      ]
+    },
+    "domain_classes": {
+      "Cardiology": {
+        "fully_agree": 0,
+        "majority_agree": 3,
+        "split": 1,
+        "full_disagree": 1,
+        "skipped": 0
+      },
+      "Pharmacology": {
+        "fully_agree": 0,
+        "majority_agree": 3,
+        "split": 2,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Neurology": {
+        "fully_agree": 0,
+        "majority_agree": 5,
+        "split": 0,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Pediatrics": {
+        "fully_agree": 0,
+        "majority_agree": 4,
+        "split": 1,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Emergency": {
+        "fully_agree": 0,
+        "majority_agree": 3,
+        "split": 2,
+        "full_disagree": 0,
+        "skipped": 0
+      }
+    }
+  },
+  {
+    "rubric_id": "rubric3_clinical_eval",
+    "rubric_name": "Clinical LLM Evaluation by Expert Review",
+    "domain_scores": {
+      "Cardiology": [
+        77.08,
+        77.08,
+        77.08,
+        56.67,
+        81.25
+      ],
+      "Pharmacology": [
+        71.25,
+        87.92,
+        93.75,
+        77.08,
+        92.29
+      ],
+      "Neurology": [
+        81.25,
+        90.42,
+        96.25,
+        84.38,
+        81.25
+      ],
+      "Pediatrics": [
+        86.67,
+        98.33,
+        92.08,
+        75.42,
+        82.08
+      ],
+      "Emergency": [
+        71.27,
+        86.25,
+        90.42,
+        85.42,
+        84.17
+      ]
+    },
+    "domain_classes": {
+      "Cardiology": {
+        "fully_agree": 0,
+        "majority_agree": 2,
+        "split": 3,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Pharmacology": {
+        "fully_agree": 1,
+        "majority_agree": 2,
+        "split": 2,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Neurology": {
+        "fully_agree": 1,
+        "majority_agree": 3,
+        "split": 1,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Pediatrics": {
+        "fully_agree": 1,
+        "majority_agree": 3,
+        "split": 1,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Emergency": {
+        "fully_agree": 0,
+        "majority_agree": 4,
+        "split": 1,
+        "full_disagree": 0,
+        "skipped": 0
+      }
+    }
+  },
+  {
+    "rubric_id": "rubric4_prometheus",
+    "rubric_name": "Prometheus \u2014 Fine-Grained LLM Evaluation Rubric",
+    "domain_scores": {
+      "Cardiology": [
+        84.38,
+        84.38,
+        84.38,
+        58.33,
+        84.38
+      ],
+      "Pharmacology": [
+        84.38,
+        84.38,
+        81.25,
+        69.79,
+        90.62
+      ],
+      "Neurology": [
+        84.38,
+        90.62,
+        87.5,
+        79.17,
+        84.38
+      ],
+      "Pediatrics": [
+        90.62,
+        90.62,
+        93.75,
+        81.25,
+        85.42
+      ],
+      "Emergency": [
+        79.17,
+        87.5,
+        84.38,
+        64.58,
+        50.0
+      ]
+    },
+    "domain_classes": {
+      "Cardiology": {
+        "fully_agree": 0,
+        "majority_agree": 5,
+        "split": 0,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Pharmacology": {
+        "fully_agree": 1,
+        "majority_agree": 4,
+        "split": 0,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Neurology": {
+        "fully_agree": 1,
+        "majority_agree": 3,
+        "split": 1,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Pediatrics": {
+        "fully_agree": 3,
+        "majority_agree": 2,
+        "split": 0,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Emergency": {
+        "fully_agree": 0,
+        "majority_agree": 3,
+        "split": 2,
+        "full_disagree": 0,
+        "skipped": 0
+      }
+    }
+  },
+  {
+    "rubric_id": "rubric5_pemat_likert",
+    "rubric_name": "PEMAT-Likert \u2014 Patient Education Materials Assessment Tool (Likert 1-5 Variant)",
+    "domain_scores": {
+      "Cardiology": [
+        83.33,
+        90.0,
+        85.0,
+        75.0,
+        83.33
+      ],
+      "Pharmacology": [
+        81.67,
+        90.0,
+        77.5,
+        67.5,
+        86.67
+      ],
+      "Neurology": [
+        90.0,
+        82.5,
+        82.5,
+        63.33,
+        85.0
+      ],
+      "Pediatrics": [
+        84.17,
+        81.67,
+        75.0,
+        74.17,
+        87.5
+      ],
+      "Emergency": [
+        80.0,
+        82.5,
+        75.0,
+        68.33,
+        50.0
+      ]
+    },
+    "domain_classes": {
+      "Cardiology": {
+        "fully_agree": 1,
+        "majority_agree": 3,
+        "split": 1,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Pharmacology": {
+        "fully_agree": 2,
+        "majority_agree": 2,
+        "split": 1,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Neurology": {
+        "fully_agree": 1,
+        "majority_agree": 2,
+        "split": 2,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Pediatrics": {
+        "fully_agree": 0,
+        "majority_agree": 4,
+        "split": 1,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Emergency": {
+        "fully_agree": 0,
+        "majority_agree": 2,
+        "split": 3,
+        "full_disagree": 0,
+        "skipped": 0
+      }
+    }
+  }
+]

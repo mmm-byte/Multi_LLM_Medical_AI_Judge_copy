@@ -1,0 +1,46 @@
+{
+  "experiment": "exp3_rubric_sensitivity",
+  "description": "HPC variant: Rubric sensitivity analysis.",
+  "judges": [
+    {
+      "id": "medgemma",
+      "model": "google/medgemma-4b-it",
+      "url": "http://localhost:8001"
+    },
+    {
+      "id": "biomistral",
+      "model": "BioMistral/BioMistral-7B",
+      "url": "http://localhost:8002"
+    },
+    {
+      "id": "meditron",
+      "model": "epfl-llm/meditron-7b",
+      "url": "http://localhost:8003"
+    },
+    {
+      "id": "medalpaca",
+      "model": "medalpaca/medalpaca-7b",
+      "url": "http://localhost:8004"
+    }
+  ],
+  "rubrics": [
+    "rubrics/rubric1_pemat.json",
+    "rubrics/rubric2_healthbench.json",
+    "rubrics/rubric3_clinical_eval.json",
+    "rubrics/rubric4_prometheus.json",
+    "rubrics/rubric5_pemat_likert.json"
+  ],
+  "scoring_variants": [
+    "BINARY",
+    "LIKERT_1_5",
+    "SCALED_0_10"
+  ],
+  "agreement_threshold": 80.0,
+  "temperature": 0.0,
+  "max_tokens": 1024,
+  "timeout_seconds": 120,
+  "output_files": {
+    "results_json": "results/exp3_sensitivity_results.json",
+    "figure_dir": "results/figures"
+  }
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "rubric_id": "rubric1_pemat",
+    "rubric_name": "PEMAT \u2014 Patient Education Materials Assessment Tool",
+    "domain_scores": {
+      "Cardiology": [
+        56.67,
+        66.67,
+        56.67,
+        56.67
+      ],
+      "Pharmacology": [
+        66.67,
+        56.67,
+        70.0,
+        56.67
+      ],
+      "Neurology": [],
+      "Pediatrics": [],
+      "Emergency": []
+    },
+    "domain_classes": {
+      "Cardiology": {
+        "fully_agree": 0,
+        "majority_agree": 3,
+        "split": 1,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Pharmacology": {
+        "fully_agree": 0,
+        "majority_agree": 3,
+        "split": 1,
+        "full_disagree": 0,
+        "skipped": 0
+      },
+      "Neurology": {},
+      "Pediatrics": {},
+      "Emergency": {}
+    }
+  },
+  {
+    "rubric_id": "rubric2_healthbench",
+    "rubric_name": "HealthBench \u2014 Physician-Written Medical Response Evaluation Criteria",
+    "domain_scores": {
+      "Cardiology": [
+        42.86,
+        53.57,
+        53.57,
+        46.43
+      ],
+      "Pharmacology": [
+        53.57,
+        53.57,
+        53.57,
+        40.48
+      ],
+      "Neurology": [],
+      "Pediatrics": [],
+      "Emergency": []
+    },
+    "domain_classes": {
+      "Cardiology": {
+        "fully_agree": 0,
+        "majority_agree": 0,
+        "split": 1,
+        "full_disagree": 3,
+        "skipped": 0
+      },
+      "Pharmacology": {
+        "fully_agree": 0,
+        "majority_agree": 0,
+        "split": 1,
+        "full_disagree": 3,
+        "skipped": 0
+      },
+      "Neurology": {},
+      "Pediatrics": {},
+      "Emergency": {}
+    }
+  }
+]

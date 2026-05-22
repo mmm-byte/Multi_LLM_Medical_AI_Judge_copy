@@ -1,0 +1,122 @@
+[
+  {
+    "rubric_id": "rubric1_pemat",
+    "rubric_name": "PEMAT \u2014 Patient Education Materials Assessment Tool",
+    "variants": [
+      {
+        "rubric_id": "rubric1_pemat",
+        "scoring_variant": "BINARY",
+        "scale_range": "0.0-1.0",
+        "mean_pairwise_agreement": 50.0,
+        "std_pairwise_agreement": 34.5,
+        "n_questions": 8,
+        "per_question_scores": [
+          50.0,
+          16.67,
+          50.0,
+          100.0,
+          100.0,
+          50.0,
+          16.67,
+          16.67
+        ]
+      },
+      {
+        "rubric_id": "rubric1_pemat",
+        "scoring_variant": "LIKERT_1_5",
+        "scale_range": "1.0-5.0",
+        "mean_pairwise_agreement": 28.65,
+        "std_pairwise_agreement": 13.99,
+        "n_questions": 8,
+        "per_question_scores": [
+          25.0,
+          25.0,
+          25.0,
+          62.5,
+          25.0,
+          25.0,
+          16.67,
+          25.0
+        ]
+      },
+      {
+        "rubric_id": "rubric1_pemat",
+        "scoring_variant": "SCALED_0_10",
+        "scale_range": "0.0-10.0",
+        "mean_pairwise_agreement": 42.08,
+        "std_pairwise_agreement": 19.97,
+        "n_questions": 8,
+        "per_question_scores": [
+          40.0,
+          40.0,
+          40.0,
+          85.0,
+          40.0,
+          40.0,
+          11.67,
+          40.0
+        ]
+      }
+    ]
+  },
+  {
+    "rubric_id": "rubric5_pemat_likert",
+    "rubric_name": "PEMAT-Likert \u2014 Patient Education Materials Assessment Tool (Likert 1-5 Variant)",
+    "variants": [
+      {
+        "rubric_id": "rubric5_pemat_likert",
+        "scoring_variant": "BINARY",
+        "scale_range": "0.0-1.0",
+        "mean_pairwise_agreement": 50.0,
+        "std_pairwise_agreement": 34.5,
+        "n_questions": 8,
+        "per_question_scores": [
+          50.0,
+          16.67,
+          50.0,
+          100.0,
+          100.0,
+          50.0,
+          16.67,
+          16.67
+        ]
+      },
+      {
+        "rubric_id": "rubric5_pemat_likert",
+        "scoring_variant": "LIKERT_1_5",
+        "scale_range": "1.0-5.0",
+        "mean_pairwise_agreement": 23.96,
+        "std_pairwise_agreement": 2.95,
+        "n_questions": 8,
+        "per_question_scores": [
+          25.0,
+          25.0,
+          25.0,
+          25.0,
+          25.0,
+          25.0,
+          16.67,
+          25.0
+        ]
+      },
+      {
+        "rubric_id": "rubric5_pemat_likert",
+        "scoring_variant": "SCALED_0_10",
+        "scale_range": "0.0-10.0",
+        "mean_pairwise_agreement": 36.46,
+        "std_pairwise_agreement": 10.02,
+        "n_questions": 8,
+        "per_question_scores": [
+          40.0,
+          40.0,
+          40.0,
+          40.0,
+          40.0,
+          40.0,
+          11.67,
+          40.0
+        ]
+      }
+    ]
+  }
+]

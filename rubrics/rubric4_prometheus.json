@@ -1,0 +1,43 @@
+{
+  "id": "rubric4_prometheus",
+  "name": "Prometheus — Fine-Grained LLM Evaluation Rubric",
+  "source_paper": "Kim S, et al. Prometheus: Inducing Fine-Grained Evaluation Capability in Language Models. Proceedings of ICLR 2024. Available at: https://github.com/prometheus-eval/prometheus-eval",
+  "source_url": "https://github.com/prometheus-eval/prometheus-eval",
+  "paradigm": "LIKERT",
+  "why_this_rubric": "Prometheus is the only rubric in this study designed specifically for LLM-as-judge evaluation, not human expert review. It operationalizes evaluation as a rubric-grounded task where the judge receives explicit scoring criteria and a reference answer before scoring. This is methodologically important: Prometheus tests whether small medical LLMs (7B parameters) can perform rubric-grounded evaluation the same way GPT-4-class models do. The rubric is deliberately general-purpose to contrast with domain-specific rubrics and reveal whether domain specificity of the rubric affects inter-judge agreement.",
+  "scoring_note": "Each criterion scored 1-5. Judge receives rubric definition and a reference answer before scoring. Final score = mean across criteria.",
+  "items": [
+    {
+      "id": "PR1",
+      "name": "Instruction Following",
+      "description": "Does the response follow the given question's constraints, scope, and intent exactly? 1=Completely ignores the question constraints. 2=Partially follows with major deviations. 3=Mostly follows with minor deviations. 4=Follows well with negligible issues. 5=Perfectly follows all constraints and scope.",
+      "why": "Instruction following is the baseline capability test for any LLM. In a judge panel, if one judge fails to follow the rubric instructions itself, its scores are unreliable. For the evaluated AI responses, this measures whether the medical AI answered the actual clinical question asked. Divergence on this dimension across judges reveals whether judges disagree on what 'following instructions' means in a medical context.",
+      "scale": "LIKERT",
+      "weight": 1.0
+    },
+    {
+      "id": "PR2",
+      "name": "Factual Correctness",
+      "description": "Are all factual claims in the response correct and consistent with established medical knowledge? 1=Predominantly incorrect facts that could mislead. 2=Several factual errors present. 3=Mostly correct with minor errors. 4=Correct with only trivial imprecisions. 5=All facts are accurate and precisely stated.",
+      "why": "Prometheus evaluates factual correctness against a provided reference answer, making it a reference-grounded metric unlike the other rubrics. For clinical QA, this allows comparison between judge model agreement when a human/reference answer is available vs. when judges rely solely on their own parametric knowledge. This is a key methodological variable for the rubric sensitivity analysis in Exp 3.",
+      "scale": "LIKERT",
+      "weight": 1.0
+    },
+    {
+      "id": "PR3",
+      "name": "Coherence and Logical Structure",
+      "description": "Is the response logically structured, internally consistent, and free from contradictions? 1=Incoherent or self-contradictory. 2=Partially coherent with major logical issues. 3=Reasonably coherent with minor gaps. 4=Well-structured and consistent throughout. 5=Perfectly coherent, logically ordered, and contradiction-free.",
+      "why": "Coherence is included because LLMs — including small medical models used as judges — are susceptible to internally inconsistent outputs. A response that first recommends one intervention and later contradicts it undermines caregiver trust and safe action. This item also tests whether judge models detect incoherence consistently, which is a measure of judge model reliability independent of domain knowledge.",
+      "scale": "LIKERT",
+      "weight": 1.0
+    },
+    {
+      "id": "PR4",
+      "name": "Completeness and Depth",
+      "description": "Does the response fully and thoroughly address all key aspects of the question with appropriate depth? 1=Addresses almost nothing of substance. 2=Addresses some aspects but misses key ones. 3=Addresses most aspects with some gaps. 4=Addresses all key aspects with minor omissions. 5=Completely and thoroughly addresses all aspects with appropriate depth.",
+      "why": "Completeness in Prometheus is evaluated relative to what a reference answer covers, making it directly comparable to the HealthBench and Clinical Eval completeness dimensions. This cross-rubric comparability is intentional — the rubric sensitivity experiment (Exp 3) measures whether judges score completeness consistently across all four rubrics for the same response, testing whether rubric wording systematically biases judge outputs.",
+      "scale": "LIKERT",
+      "weight": 1.0
+    }
+  ]
+}

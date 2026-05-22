@@ -1,0 +1,56 @@
+{
+  "id": "rubric1_pemat",
+  "name": "PEMAT — Patient Education Materials Assessment Tool",
+  "source_paper": "Shoemaker SJ, Wolf MS, Brach C. Development of the Patient Education Materials Assessment Tool (PEMAT): A new measure of understandability and actionability for print and audiovisual patient information. Patient Education and Counseling. 2014;96(3):395-403. PMID: 24973195.",
+  "source_url": "https://www.ahrq.gov/health-literacy/patient-education/pemat.html",
+  "paradigm": "BINARY",
+  "why_this_rubric": "PEMAT is the gold-standard AHRQ tool for evaluating whether patient-facing health materials are understandable and actionable. For broad clinical QA, understandability is critical because patients and caregivers may have limited health literacy. PEMAT directly measures whether an AI answer can be acted upon.",
+  "scoring_note": "Each item scored 1 (meets criterion) or 0 (does not meet) or NA (not applicable). Final score = (sum of 1s) / (total non-NA items) x 100.",
+  "items": [
+    {
+      "id": "U1",
+      "name": "Uses plain, everyday language",
+      "section": "understandability",
+      "description": "The answer uses words caregivers use in everyday conversation. Medical terms, when used, are immediately defined in plain language.",
+      "why": "Patients and caregivers frequently have limited health literacy. An answer filled with clinical jargon without explanation creates a barrier to understanding and safe action. This item measures whether the AI response is accessible to its intended audience.",
+      "scale": "BINARY",
+      "weight": 1.0
+    },
+    {
+      "id": "U2",
+      "name": "Information is organized logically",
+      "section": "understandability",
+      "description": "The answer presents information in a logical order — most important information first, sequences are in correct order, and related ideas are grouped together.",
+      "why": "Disorganized responses force patients or caregivers to mentally reconstruct the correct sequence, increasing cognitive load. For safety-critical clinical instructions, a disorganized response can lead to misordered action. This item captures structural quality that directly affects safe use.",
+      "scale": "BINARY",
+      "weight": 1.0
+    },
+    {
+      "id": "U3",
+      "name": "Focuses only on key messages without clutter",
+      "section": "understandability",
+      "description": "The answer stays on topic, avoids unnecessary tangents, and presents no more than 4-5 key points. Irrelevant information is absent.",
+      "why": "Cognitive overload is a serious risk when caregivers try to absorb AI-generated responses. Excess information dilutes the key message and increases the likelihood of a caregiver missing the most important action step. This item ensures the response is appropriately scoped.",
+      "scale": "BINARY",
+      "weight": 1.0
+    },
+    {
+      "id": "A1",
+      "name": "Provides specific, actionable steps",
+      "section": "actionability",
+      "description": "The answer tells the caregiver exactly what to DO, not just what is known. Steps are explicit, concrete, and sequenced.",
+      "why": "The core purpose of clinical QA support is to enable appropriate next steps, not just convey knowledge. A response that explains background physiology without telling the user what to do has failed its practical purpose. This is the most important actionability item in PEMAT.",
+      "scale": "BINARY",
+      "weight": 1.0
+    },
+    {
+      "id": "A2",
+      "name": "Addresses barriers to action",
+      "section": "actionability",
+      "description": "The answer acknowledges real-world difficulties the caregiver may face when following the advice, and provides workarounds or alternatives.",
+      "why": "Clinical self-care and caregiving are filled with practical obstacles: medication refusal, limited resources, transportation barriers, and uncertainty about when to seek help. An AI response that ignores these barriers is incomplete. This item captures whether the response anticipates realistic constraints.",
+      "scale": "BINARY",
+      "weight": 1.0
+    }
+  ]
+}

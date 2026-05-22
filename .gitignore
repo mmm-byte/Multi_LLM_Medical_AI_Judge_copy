@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env
+
+# Secrets — NEVER commit
+.env
+*.env
+secrets.json
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Results & figures (generated — push manually after HPC run)
+benchmark_dataset/agreement_benchmark.csv
+# Keep the scaffold
+!results/figures/.gitkeep
+!results/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# vLLM / HuggingFace cache
+.cache/
+*.bin
+*.safetensors
+
+# Local HF cache for CPU real-LLM run (gigabyte weights, do not commit)
+hf_cache/
+
+# Server / experiment logs (large, frequently regenerated)
+logs/

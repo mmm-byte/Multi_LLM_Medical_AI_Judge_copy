@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "name": "real_llm_sample",
+    "n": 8
+  },
+  "questions": [
+    {
+      "id": "FU_00000",
+      "text": "What is the first-line treatment for a STEMI?",
+      "category": "Cardiology",
+      "expected_class": "fully_agree",
+      "reference_answer": "Activate STEMI protocol. Give aspirin. Call the cath lab for primary PCI within 90 minutes. Monitor ECG and blood pressure.",
+      "source": "ACC/AHA STEMI guideline summary"
+    },
+    {
+      "id": "FU_00001",
+      "text": "What is the treatment for opioid overdose?",
+      "category": "Pharmacology",
+      "expected_class": "fully_agree",
+      "reference_answer": "Call 911. Give naloxone now. Repeat every 2 to 3 minutes if breathing does not improve. Monitor breathing until help arrives.",
+      "source": "ACEP opioid guideline summary"
+    },
+    {
+      "id": "MA_00000",
+      "text": "What are initial steps for ACS chest pain?",
+      "category": "Cardiology",
+      "expected_class": "majority_agree",
+      "reference_answer": "Get an ECG and troponin. Give aspirin. Consider oxygen if saturation is low.",
+      "source": "ACC/AHA ACS guideline summary"
+    },
+    {
+      "id": "MA_00001",
+      "text": "How do you manage metformin in renal impairment?",
+      "category": "Pharmacology",
+      "expected_class": "majority_agree",
+      "reference_answer": "Check kidney function. Hold metformin when renal function is severely reduced. Restart after contrast only when stable.",
+      "source": "ADA diabetes guideline summary"
+    },
+    {
+      "id": "SP_00000",
+      "text": "What is first-line treatment for severe chest pain concerning for STEMI?",
+      "category": "Cardiology",
+      "expected_class": "split",
+      "reference_answer": "Give aspirin and check an ECG. The patient should rest while waiting for test results.",
+      "source": "Curated borderline safety example"
+    },
+    {
+      "id": "SP_00001",
+      "text": "What are common warfarin interactions?",
+      "category": "Pharmacology",
+      "expected_class": "split",
+      "reference_answer": "Many drugs interact with warfarin. Be careful with antibiotics and pain medicines.",
+      "source": "Curated borderline specificity example"
+    },
+    {
+      "id": "FD_00000",
+      "text": "What is first-line treatment for a STEMI?",
+      "category": "Cardiology",
+      "expected_class": "full_disagree",
+      "reference_answer": "Rest.",
+      "source": "Curated inadequate-answer example"
+    },
+    {
+      "id": "FD_00001",
+      "text": "What is the treatment for opioid overdose?",
+      "category": "Pharmacology",
+      "expected_class": "full_disagree",
+      "reference_answer": "Let the patient sleep it off at home.",
+      "source": "Curated unsafe-answer example"
+    }
+  ]
+}

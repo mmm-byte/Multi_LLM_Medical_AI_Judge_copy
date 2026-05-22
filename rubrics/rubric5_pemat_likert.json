@@ -1,0 +1,93 @@
+{
+  "id": "rubric5_pemat_likert",
+  "name": "PEMAT-Likert — Patient Education Materials Assessment Tool (Likert 1-5 Variant)",
+  "source_paper": "Shoemaker SJ, Wolf MS, Brach C. Development of the Patient Education Materials Assessment Tool (PEMAT): A new measure of understandability and actionability for print and audiovisual patient information. Patient Education and Counseling. 2014;96(3):395-403. PMID: 24973195.",
+  "source_url": "https://www.ahrq.gov/health-literacy/patient-education/pemat.html",
+  "paradigm": "LIKERT",
+  "paired_with": "rubric1_pemat",
+  "scoring_contrast": "rubric1_pemat uses BINARY (0/1). This rubric uses LIKERT 1-5 on the EXACT same 5 items and criteria. The purpose is to isolate the effect of scoring type on inter-judge agreement — holding rubric content constant while varying only the scale.",
+  "why_this_rubric": "Rubric sensitivity analysis (Exp 3) tests whether changing the scoring scale changes how much judges agree. To do this correctly, you need two rubrics that are IDENTICAL in content but different only in scoring type. rubric1_pemat (BINARY) and rubric5_pemat_likert (LIKERT 1-5) form this controlled pair. If judges agree more under BINARY than LIKERT 1-5 on the same criteria, that is direct evidence that scoring granularity drives disagreement, not the rubric content itself.",
+  "scoring_note": "Each item scored 1-5: 1=Completely fails criterion, 2=Mostly fails, 3=Partially meets, 4=Mostly meets, 5=Fully meets criterion. Final score = (mean of all item scores - 1) / 4 x 100, normalized to 0-100 for comparability with BINARY PEMAT.",
+  "items": [
+    {
+      "id": "U1",
+      "name": "Uses plain, everyday language",
+      "section": "understandability",
+      "description": "The answer uses words caregivers use in everyday conversation. Medical terms, when used, are immediately defined in plain language.",
+      "scale_anchors": {
+        "1": "Heavily jargon-laden throughout. No definitions provided. Incomprehensible to a layperson.",
+        "2": "Frequent jargon with minimal plain-language explanation. Most caregivers would struggle.",
+        "3": "Mix of plain and technical language. Some terms defined, others not.",
+        "4": "Mostly plain language. Rare technical terms are immediately explained.",
+        "5": "Entirely plain, everyday language. All medical terms defined in plain language on first use."
+      },
+      "why": "BINARY scoring forces judges to make a hard yes/no decision on language accessibility. LIKERT 1-5 requires judges to agree on degree — is 'partially plain' a 3 or a 4? This is where inter-judge disagreement emerges under Likert but not Binary. Comparing agreement on this item across rubric1 vs rubric5 directly measures scoring-scale-induced disagreement.",
+      "scale": "LIKERT",
+      "weight": 1.0
+    },
+    {
+      "id": "U2",
+      "name": "Information is organized logically",
+      "section": "understandability",
+      "description": "The answer presents information in a logical order — most important information first, sequences are in correct order, and related ideas are grouped together.",
+      "scale_anchors": {
+        "1": "Completely disorganized. Key information buried or absent. No logical flow.",
+        "2": "Mostly disorganized with occasional logical grouping. Hard to follow.",
+        "3": "Partially organized. Main points present but ordering or grouping is inconsistent.",
+        "4": "Well-organized with minor sequencing issues. Easy to follow overall.",
+        "5": "Perfectly organized. Most important information first, all sequences correct, related ideas grouped."
+      },
+      "why": "Organization is a continuous quality — a response can be 'mostly organized but missing one transition'. BINARY forces judges to round this to 0 or 1, reducing room for disagreement but also losing nuance. LIKERT allows richer discrimination but opens the door for judges to disagree on whether 'minor sequencing issue' is a 3 or a 4. This is the key trade-off Exp 3 quantifies.",
+      "scale": "LIKERT",
+      "weight": 1.0
+    },
+    {
+      "id": "U3",
+      "name": "Focuses only on key messages without clutter",
+      "section": "understandability",
+      "description": "The answer stays on topic, avoids unnecessary tangents, and presents no more than 4-5 key points. Irrelevant information is absent.",
+      "scale_anchors": {
+        "1": "Extremely cluttered. Multiple irrelevant tangents. Key message buried completely.",
+        "2": "Significant clutter. More than 5 key points with tangents diluting main message.",
+        "3": "Moderate focus. Key message present but 1-2 unnecessary tangents or excess points.",
+        "4": "Mostly focused. Minor inclusion of borderline relevant information.",
+        "5": "Perfectly focused. Exactly the key message, no clutter, 4-5 points maximum."
+      },
+      "why": "'Clutter' is highly subjective — what one judge considers redundant, another considers helpful context. Under BINARY, both judges must agree only that clutter is present or absent, making agreement easier. Under LIKERT, they must agree on the degree of clutter. For medical domains like Emergency where brevity is critical, this item is expected to show the largest scoring-type disagreement gap.",
+      "scale": "LIKERT",
+      "weight": 1.0
+    },
+    {
+      "id": "A1",
+      "name": "Provides specific, actionable steps",
+      "section": "actionability",
+      "description": "The answer tells the caregiver exactly what to DO, not just what is known. Steps are explicit, concrete, and sequenced.",
+      "scale_anchors": {
+        "1": "No actionable content at all. Pure information or description only.",
+        "2": "Vague suggestions present ('consult a doctor') but no concrete steps.",
+        "3": "Some actionable steps present but incomplete — missing sequencing or specificity.",
+        "4": "Clear actionable steps. Minor gap in specificity or sequence.",
+        "5": "Fully explicit, concrete, correctly sequenced steps. Caregiver knows exactly what to do."
+      },
+      "why": "Actionability is the most clinically consequential PEMAT item. Under BINARY, any presence of a concrete step scores 1. Under LIKERT 1-5, judges must distinguish between 'vague suggestion' (2) and 'partially actionable' (3) — a distinction that small medical LLMs may interpret inconsistently. This item is expected to produce the highest inter-judge disagreement under Likert, and is the key finding of the scoring-sensitivity analysis.",
+      "scale": "LIKERT",
+      "weight": 1.0
+    },
+    {
+      "id": "A2",
+      "name": "Addresses barriers to action",
+      "section": "actionability",
+      "description": "The answer acknowledges real-world difficulties the caregiver may face when following the advice, and provides workarounds or alternatives.",
+      "scale_anchors": {
+        "1": "No acknowledgment of any barrier. Advice given as if all conditions are ideal.",
+        "2": "Token acknowledgment of difficulty ('this may be hard') with no workaround.",
+        "3": "One barrier acknowledged with partial workaround. Others ignored.",
+        "4": "Multiple barriers acknowledged with practical alternatives for most.",
+        "5": "Comprehensive anticipation of realistic obstacles with concrete workarounds for each."
+      },
+      "why": "Barrier-addressing is the most nuanced PEMAT item because it requires the judge to infer what patient or caregiver obstacles exist and whether the response pre-empts them. Under BINARY, judges simply ask 'does this response address barriers at all?' — a binary judgment most judges make consistently. Under LIKERT, judges must evaluate completeness of barrier coverage, a much harder call. This item is expected to show the largest Binary vs. Likert agreement gap in the sensitivity analysis.",
+      "scale": "LIKERT",
+      "weight": 1.0
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "experiment": "exp2_agreement_analysis_realllm",
+  "description": "CPU substitute run of Exp2 \u2014 same judge-id roles as the HPC config but each port serves a small open instruction-tuned LM that fits in 15 GB RAM. Used for end-to-end notebook validation on machines without GPUs.",
+  "judges": [
+    {
+      "id": "medgemma",
+      "model": "/lustre/smuexa01/client/users/mkotha/CS7325/hf_models/models--google--medgemma-4b-it/snapshots/290cda5eeccbee130f987c4ad74a59ae6f196408",
+      "url": "http://localhost:8001"
+    },
+    {
+      "id": "biomistral",
+      "model": "/lustre/smuexa01/client/users/mkotha/CS7325/hf_models/models--BioMistral--BioMistral-7B/snapshots/9a11e1ffa817c211cbb52ee1fb312dc6b61b40a5",
+      "url": "http://localhost:8002"
+    },
+    {
+      "id": "medicine_chat",
+      "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+      "url": "http://127.0.0.1:8003"
+    },
+    {
+      "id": "biomistral_base",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "url": "http://127.0.0.1:8004"
+    }
+  ],
+  "rubrics": [
+    "rubrics/rubric1_pemat.json",
+    "rubrics/rubric2_healthbench.json",
+    "rubrics/rubric3_clinical_eval.json",
+    "rubrics/rubric4_prometheus.json",
+    "rubrics/rubric5_pemat_likert.json"
+  ],
+  "benchmark_csv": "benchmark_dataset/agreement_benchmark_sample.csv",
+  "domains": [
+    "Cardiology",
+    "Pharmacology",
+    "Neurology",
+    "Pediatrics",
+    "Emergency"
+  ],
+  "agreement_threshold": 80.0,
+  "temperature": 0.0,
+  "max_tokens": 200,
+  "timeout_seconds": 300,
+  "print_rationales": true,
+  "output_files": {
+    "results_json": "results/exp2_agreement_results_realllm.json",
+    "figure_dir": "results/figures/realllm"
+  }
+}
