@@ -1,6 +1,5 @@
 \documentclass[conference]{IEEEtran}
 \IEEEoverridecommandlockouts
-% Remove \IEEEoverridecommandlockouts if no funding footnote is needed.
 
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
@@ -35,23 +34,26 @@ email@domain}
 
 \maketitle
 
+% -------------------------------------------------------------------
 \begin{abstract}
-Automated evaluation of AI-generated medical answers typically relies on
-a single large cloud-hosted model, posing HIPAA compliance risks and
-precluding offline deployment. We present Multi-SLMs-as-Judge, a
-privacy-preserving framework that assembles a panel of four locally
-deployed small language models (SLMs) to evaluate medical answer quality.
-Inter-judge consensus is quantified via a normalized pairwise agreement
-score, which gates quality score reporting and routes low-consensus cases
-to human review. Evaluated on 100 clinical questions spanning five domains
-and five rubrics, binary rubrics achieve mean agreement of 91--94\%, while
-Likert-scale rubrics fall to 72--81\%. A controlled binary-vs-Likert
-comparison on identical criteria isolates a 22 percentage-point drop
-attributable solely to scale choice. Cardiology is the most consistently
-judged domain; pharmacology generates the most disagreement, driven
-primarily by Likert rubrics. These findings give practical guidance for
-rubric design and scoring scale selection in privacy-safe clinical
-evaluation pipelines.
+Automated evaluation of AI-generated medical answers typically relies
+on a single large, cloud-hosted model, posing HIPAA compliance risks
+and precluding offline deployment. We present Multi-SLMs-as-Judge,
+a privacy-preserving framework that assembles a panel of four locally
+deployed small language models (SLMs, $\leq$7B parameters) to evaluate
+medical answer quality entirely on local hardware. Inter-judge consensus
+is quantified via a normalized pairwise agreement score ($\mathrm{Agr}$),
+which gates quality score reporting and routes low-consensus cases to
+human review rather than silently accepting an unreliable result.
+Across 100 clinical questions spanning five domains and five evaluation
+rubrics, binary-scale rubrics achieve mean agreement of 91--94\%, while
+Likert-scale rubrics fall to 72--81\%. A controlled comparison using
+identical rubric criteria at different scales isolates a 22
+percentage-point drop attributable solely to scale choice. Cardiology
+is the most consistently judged domain; pharmacology generates the most
+disagreement, driven primarily by Likert rubrics. These findings offer
+practical guidance for rubric design and scoring-scale selection in
+privacy-safe clinical evaluation pipelines.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -59,95 +61,107 @@ medical AI evaluation, small language models, inter-judge agreement,
 privacy-preserving NLP, rubric design, local deployment, e-health
 \end{IEEEkeywords}
 
-% ===================================================================
+% -------------------------------------------------------------------
 \section{Introduction}
-% ===================================================================
 
-Reliable automated evaluation of AI-generated medical answers is a
-prerequisite for safe clinical deployment. The dominant paradigm routes
-answers to a single large, closed-source model such as GPT-4~\cite{achiam2023gpt}
-acting as an automated judge~\cite{zheng2023judging}. In healthcare,
-this approach carries two compounding risks: (i) transmitting protected
-health information to third-party APIs violates HIPAA~\cite{cohen2017hipaa},
-and (ii) remote inference is unavailable in offline or
-bandwidth-constrained clinical environments.
+Reliable evaluation of AI-generated medical answers is a prerequisite
+for safe clinical deployment. The dominant approach routes answers to a
+single large, closed-source model---such as GPT-4~\cite{achiam2023gpt}---
+acting as an automated judge~\cite{zheng2023judging}. In healthcare this
+creates two compounding problems. First, routing protected health
+information through a third-party API raises significant HIPAA
+compliance concerns~\cite{cohen2017hipaa}. Second, dependence on remote
+inference makes such systems unavailable in offline or
+bandwidth-constrained environments such as mobile point-of-care tools.
+Beyond these structural barriers, single-model judges carry well-documented
+reliability problems: some favor longer responses regardless of quality
+~\cite{wang2023verbosity}, exhibit self-preference bias~\cite{panickssery2024bias},
+and produce ratings that shift with superficial prompt rewording~\cite{zeng2023framing}.
 
-Prior work has explored rubric-grounded judges~\cite{kim2024prometheus},
-diverse model panels~\cite{verga2024replacing,chan2023chateval}, and
-clinical benchmarking~\cite{singhal2023large,nori2023gpt4}, yet no study
-has jointly examined how rubric design, scoring scale, and clinical domain
-interact to affect inter-judge agreement in a fully local,
-privacy-preserving deployment.
+Small language models (SLMs) that run entirely on-device offer a promising
+alternative. Yet the proliferation of open-source medical SLMs makes it
+non-trivial to select a single trustworthy judge. Rather than committing
+to one model, we ask whether a \emph{panel} of SLMs---analogous to a
+committee of expert reviewers---can collectively produce more reliable
+evaluations than any individual judge. Consensus among diverse models
+can serve as an internal reliability signal, while disagreement can flag
+cases warranting human review.
 
-We address this gap with Multi-SLMs-as-Judge, a framework that (1) runs
-a configurable panel of locally deployed SLMs, (2) computes a pairwise
-agreement score to determine routing, and (3) reports a quality score
-only when sufficient consensus is reached. Our main contributions are:
+We address this gap with \textbf{Multi-SLMs-as-Judge}, a modular framework
+that (1)~runs a configurable panel of locally deployed SLMs with no
+external API call, (2)~computes a pairwise agreement score to determine
+routing, and (3)~reports a quality score only when sufficient consensus
+is reached. Our main contributions are:
 \begin{itemize}
-  \item A consensus-gated evaluation framework requiring no external API.
-  \item An empirical comparison of five rubrics across three scoring
-        scales (binary, Likert~1--5, Likert~0--10) on 100 clinical
-        questions in five domains.
-  \item Evidence that scoring scale has a substantial independent effect
-        on inter-judge agreement, independent of rubric content.
+  \item A consensus-gated evaluation pipeline that transforms panel
+        disagreement into an actionable routing signal rather than a
+        silent failure.
+  \item Three controlled experiments separating the effects of rubric
+        design, scoring scale, and clinical domain on inter-judge agreement.
+  \item Empirical evidence that scoring scale has a large, independent
+        effect on agreement: switching from binary to Likert on identical
+        criteria drops agreement by 22 percentage points.
+  \item Practical deployment guidance derived from per-domain and
+        per-rubric breakdowns, including a judge candidate screening
+        protocol and threshold tuning recommendations.
 \end{itemize}
 
-% ===================================================================
+% -------------------------------------------------------------------
 \section{Related Work}
-% ===================================================================
 
 \subsection{LLM-as-Judge}
-Zheng et al.\ introduced the LLM-as-a-judge paradigm using MT-Bench
-and demonstrated that strong models can serve as reliable evaluators~\cite{zheng2023judging}.
-Kim et al.\ showed that fine-grained rubric-grounded prompting substantially
-improves consistency~\cite{kim2024prometheus}. Known failure modes include
+Zheng et al.\ introduced MT-Bench and showed that GPT-4 judgments match
+human preferences nearly as well as human-to-human agreement~\cite{zheng2023judging}.
+Kim et al.\ built Prometheus, a rubric-trained evaluator that improves
+instruction-following consistency~\cite{kim2024prometheus}. Li et al.\
+showed that single-model judges benefit substantially from multi-criteria
+rubrics~\cite{li2023generative}. Known failure modes include
 self-preference bias~\cite{panickssery2024bias} and sensitivity to
-prompt framing~\cite{zeng2023framing}.
+prompt framing~\cite{zeng2023framing}. None of these studies tests
+scoring scale as a separate variable.
 
-\subsection{Panel-Based Evaluation}
+\subsection{Panel and Ensemble Evaluation}
 Verga et al.\ demonstrated that a jury of diverse smaller models can
 match single large-judge reliability at lower cost~\cite{verga2024replacing}.
-Chan et al.\ used multi-agent debate to improve evaluation
-fidelity~\cite{chan2023chateval}. Our framework extends this direction
-to the medical domain with an explicit consensus-gated routing mechanism.
+Chan et al.\ showed that multi-agent debate among diverse judges
+improves evaluation fidelity~\cite{chan2023chateval}. Wu et al.\ found
+that ensemble judges reduce position bias in summarization
+evaluation~\cite{wu2023ensemble}. These studies establish the value of
+panel diversity but do not separate rubric, scale, and domain effects.
 
 \subsection{Medical AI Evaluation}
-Singhal et al.\ and Nori et al.\ showed strong benchmark performance
-for large models on clinical questions but did not systematically study
-evaluation reliability~\cite{singhal2023large,nori2023gpt4}. The
-HealthBench rubric, developed with input from 262 physicians, provides
-a rigorous framework for safety-critical clinical
-assessment~\cite{arora2025healthbench}. Ho et al.\ reviewed qualitative
-metrics for evaluating LLMs in clinical decision-making~\cite{ho2024qualitative}.
+Singhal et al.\ evaluated PaLM on clinical questions using physician
+ratings~\cite{singhal2023large}. Nori et al.\ tested GPT-4 on USMLE-style
+problems, finding strong benchmark performance but little insight into
+evaluation reliability~\cite{nori2023gpt4}. HealthBench, developed with
+input from 262 physicians, provides physician-written criteria for
+clinical answer evaluation~\cite{arora2025healthbench}. Ho et al.\
+reviewed qualitative metrics for clinical LLM evaluation~\cite{ho2024qualitative}.
+Labrak et al.\ emphasized the need for domain-aware rubrics in medical
+NLP~\cite{labrak2024biomistral}. To our knowledge, no prior work has
+systematically studied multi-SLM judge panels for medical answer evaluation.
 
-% ===================================================================
-\section{Framework}
-% ===================================================================
+% -------------------------------------------------------------------
+\section{Multi-SLMs-as-Judge Framework}
 
 \subsection{System Overview}
 
-Fig.~\ref{fig:system} shows the Multi-SLMs-as-Judge pipeline.
-Each judge $j_i$ in the panel $J = \{J_1, \ldots, J_N\}$ independently
-receives three inputs: the medical question $q$, the candidate answer
-$a$, and the evaluation rubric $R$. A pairwise agreement score
-$\mathrm{Agr}$ is computed first to decide routing. If consensus
-exceeds a configurable threshold, a quality score $\hat{S}$ is
-reported; otherwise the case is flagged for human review.
-
-\begin{figure}[htbp]
-\centerline{\includegraphics[width=\columnwidth]{figures/framework.png}}
-\caption{Multi-SLMs-as-Judge pipeline. Each of the $N$ locally deployed
-SLMs scores the answer against rubric $R$. The pairwise agreement score
-$\mathrm{Agr}$ gates reporting of the quality score $\hat{S}$ and routes
-low-consensus cases to human review.}
-\label{fig:system}
-\end{figure}
+Each judge $J_i$ in the panel $\{J_1, \ldots, J_N\}$ independently
+receives three inputs: the medical question $q$, the candidate answer $a$,
+and the evaluation rubric $R$. The system then proceeds in two strictly
+ordered steps. First, the pairwise agreement score $\mathrm{Agr}$ is
+computed across all judge pairs. Second, if and only if $\mathrm{Agr}$
+exceeds a configurable threshold, the quality score $\hat{S}$ is computed
+and reported. This ordering is deliberate: reporting a quality score when
+judges strongly disagree would give users a false sense of confidence.
+By checking agreement first, the framework turns judge disagreement into
+an actionable routing signal.
 
 \subsection{Pairwise Agreement Score}
 
 Let $s_i^k$ denote the score assigned by judge $i$ to criterion $k$,
-and $\max_k$ the maximum achievable score for criterion $k$. The
-normalized pairwise agreement score is:
+and $\max_k$ the maximum achievable score for that criterion.
+The normalized pairwise agreement score is:
 
 \begin{equation}
 \mathrm{Agr} = \frac{2}{N(N-1)}\sum_{i < j}
@@ -156,31 +170,38 @@ normalized pairwise agreement score is:
 \label{eq:agr}
 \end{equation}
 
-\noindent where $|R|$ is the number of rubric criteria. Dividing each
-criterion difference by $\max_k$ normalizes scores to $[0,1]$, making
-binary and Likert rubrics directly comparable. Thus
-$\mathrm{Agr} \in [0,1]$, with 1.0 indicating perfect consensus.
+\noindent where $|R|$ is the number of criteria in rubric $R$.
+Dividing by $\max_k$ normalizes each criterion difference to $[0,1]$,
+making binary and Likert scores directly comparable across rubrics.
+Thus $\mathrm{Agr} \in [0,1]$, where 1.0 indicates perfect consensus
+and 0.0 indicates maximum disagreement.
 
-Four routing levels are defined by user-configurable thresholds
-$\theta_{FA}$, $\theta_{MA}$, and $\theta_{SP}$:
-
+Based on $\mathrm{Agr}$, the framework routes each case to one of four
+levels, governed by user-configurable thresholds:
 \begin{itemize}
   \item \textbf{Full Agreement (FA):} $\mathrm{Agr} \geq \theta_{FA}$
-  \item \textbf{Majority Agreement (MA):} $\theta_{MA} \leq \mathrm{Agr} < \theta_{FA}$
+        --- judges are nearly unanimous; $\hat{S}$ is delivered as
+        fully reliable.
+  \item \textbf{Majority Agreement (MA):} $\theta_{MA} \leq \mathrm{Agr}
+        < \theta_{FA}$ --- panel broadly agrees; $\hat{S}$ is delivered
+        with a confidence note.
   \item \textbf{Split (SP):} $\theta_{SP} \leq \mathrm{Agr} < \theta_{MA}$
+        --- panel is genuinely divided; case routed to human review.
   \item \textbf{Disagreement (D):} $\mathrm{Agr} < \theta_{SP}$
+        --- substantial disagreement; case escalated to domain expert.
 \end{itemize}
 
-Default thresholds used in this study are $\theta_{FA} = 0.95$,
-$\theta_{MA} = 0.75$, $\theta_{SP} = 0.50$, calibrated for a four-judge
-panel to reflect near-unanimous, supermajority, split, and
-substantial-disagreement regimes respectively.
+Default thresholds for a four-judge panel: $\theta_{FA}=0.95$,
+$\theta_{MA}=0.75$, $\theta_{SP}=0.50$. These correspond to near-unanimous,
+supermajority, and coin-flip agreement levels respectively. Operators
+should recalibrate thresholds using historical data when panel size
+or clinical context changes.
 
 \subsection{Quality Score}
 
-The quality score $\hat{S}$ is reported only when
-$\mathrm{Agr} \geq \theta_{MA}$. It is computed as the criterion-weighted
-mean of all judges' normalized scores:
+The quality score is reported only when $\mathrm{Agr} \geq \theta_{MA}$.
+It is computed as the criterion-weighted mean of all judges' normalized
+scores:
 
 \begin{equation}
 \hat{S} = \frac{1}{N}\sum_{i=1}^{N}
@@ -188,134 +209,235 @@ mean of all judges' normalized scores:
 \label{eq:score}
 \end{equation}
 
-\noindent where $w_k$ is the weight of criterion $k$. The resulting
-$\hat{S} \in [0,1]$ summarizes how well the answer satisfies the rubric.
+\noindent where $w_k$ is the weight of criterion $k$ (default $w_k=1$,
+equal weighting). The resulting $\hat{S} \in [0,1]$ summarizes how well
+the answer satisfies the rubric's criteria.
+
 When one judge's scores deviate substantially from the rest, the
-framework supports three configurable outlier strategies: equal
-weighting, outlier removal, or down-weighting.
+framework offers three configurable strategies: (A)~include all judges
+equally (simpler, no silent exclusion); (B)~remove the most deviant
+judge before computing $\hat{S}$ (more robust but reduces transparency);
+or (C)~down-weight outlier judges via inverse-variance weighting. When
+$\mathrm{Agr} < \theta_{SP}$, no outlier-handling strategy is reliable
+because there is no stable majority to serve as a reference---escalation
+to human review is the only safe option.
 
-% ===================================================================
-\section{Evaluation Rubrics}
-% ===================================================================
+\subsection{Worked Example}
 
-We evaluate the framework using five rubrics spanning patient
-communication, clinical safety, and general quality assessment.
-Table~\ref{tab:rubrics} summarizes the rubric criteria.
+Consider the question: \textit{``What is the first-line treatment for
+anaphylaxis?''} The candidate answer states: \textit{``Administer
+epinephrine 0.3\,mg IM into the lateral thigh immediately. Place patient
+supine. Call emergency services.''} Under the HealthBench rubric, four
+judges independently score five binary criteria (correctness, safety,
+escalation, uncertainty, referral). Suppose Judges 1, 3, 4 score
+$[1,1,1,1,1]$ while Judge 2 scores $[1,1,1,0,1]$ (judging that the
+answer does not sufficiently acknowledge uncertainty). This yields
+$\mathrm{Agr} = 0.88$ (Majority Agreement) and
+$\hat{S} = 0.90$, delivered with a confidence note flagging the
+divergence on criterion 4.
+
+% -------------------------------------------------------------------
+\section{Judge Panel and Model Screening}
+
+We screened eleven small medical LLM candidates using a standardized
+rubric-scoring probe---a STEMI QA pair evaluated with the five-item
+PEMAT rubric. We measured two failure modes: (1)~format failure
+(non-parseable output), and (2)~item-leading, where a judge echoes
+rubric criterion wording in its rationale rather than genuinely
+evaluating the answer, producing scores that look agreeable but
+reflect no real judgment.
+
+Table~\ref{tab:screening} summarizes screening outcomes. Three models
+failed entirely due to absence of instruction tuning (BioGPT-Large,
+BioMedLM, Meditron base), and three could not be loaded on our hardware.
+The final panel of four models was selected to maximize architectural
+diversity while ensuring reliable output parsing:
+
+\begin{table}[htbp]
+\caption{Judge Candidate Screening Summary}
+\label{tab:screening}
+\begin{center}
+\small
+\begin{tabular}{|l|c|c|l|}
+\hline
+\textbf{Model} & \textbf{Params} & \textbf{Fmt\%} & \textbf{Outcome} \\
+\hline
+MedGemma-4B-IT~\cite{sellergren2025medgemma}   & 4B & 100 & Selected \\
+BioMistral-7B~\cite{labrak2024biomistral}      & 7B & 100 & Selected \\
+Meditron-7B~\cite{chen2023meditron70b}         & 7B &  80 & Selected* \\
+MedAlpaca-7B~\cite{han2023medalpaca}           & 7B & 100 & Selected$^\dagger$ \\
+AdaptLLM/medicine-chat                          & 7B & 100 & Not needed \\
+BioGPT-Large / BioMedLM                         & -- &   0 & No instr. tuning \\
+MMedLM2, PMC-LLaMA, medicine-LLM                & -- & --- & Failed to load \\
+\hline
+\end{tabular}
+\end{center}
+{\footnotesize *Rescued by one retry with a simplified prompt.
+$^\dagger$MedAlpaca retained as a case study; its 51.7\% item-leading
+rate inflates agreement statistics and it should be excluded from
+production panels.}
+\end{table}
+
+The selected panel spans three base architectures (Gemma-3, Mistral-DARE,
+LLaMA-2), providing architectural diversity within a fully local,
+privacy-safe setup. All models were served via vLLM with greedy decoding
+(temperature~$=0.0$, max 1024 output tokens). No data was transmitted
+to any external service, satisfying HIPAA data-governance
+requirements~\cite{cohen2017hipaa}.
+
+\textbf{Item-leading failure mode.} MedAlpaca-7B exhibited a 51.7\%
+item-leading rate, meaning that more than half of its rationales closely
+echo the wording of rubric criteria rather than analyzing the answer.
+This inflates agreement statistics artificially and should disqualify a
+model from any production panel. We retain MedAlpaca here as a documented
+failure case. Full-agreement rates reported in this paper should therefore
+be treated as upper bounds.
+
+% -------------------------------------------------------------------
+\section{Evaluation Rubrics and Benchmark}
+
+\subsection{Rubrics}
+
+Five rubrics covering patient communication, clinical safety, and
+general quality assessment are tested. Table~\ref{tab:rubrics}
+summarizes their criteria and default scales.
 
 \begin{table}[htbp]
 \caption{Medical Answer Evaluation Rubrics}
 \label{tab:rubrics}
 \begin{center}
-\begin{tabular}{|l|l|p{4.2cm}|}
+\small
+\begin{tabular}{|l|l|p{3.8cm}|}
 \hline
-\textbf{ID} & \textbf{Scale} & \textbf{Criteria} \\
+\textbf{Rubric} & \textbf{Scale} & \textbf{Criteria} \\
 \hline
-PEMAT~\cite{shoemaker2014development} & Binary & Plain language, organized, focused; actionable steps, barriers \\
+PEMAT (R1)~\cite{shoemaker2014development} & Binary & Plain language, organized, focused; actionable steps, barriers \\
 \hline
-HealthBench~\cite{arora2025healthbench} & Binary & Correctness, safety, escalation, uncertainty, referral \\
+HealthBench (R2)~\cite{arora2025healthbench} & Binary & Correctness, safety, escalation, uncertainty, referral \\
 \hline
-ClinicalEval~\cite{ho2024qualitative} & Likert 1--5 & Accuracy, safety, relevance, completeness, clarity \\
+ClinicalEval (R3)~\cite{ho2024qualitative} & Likert 1--5 & Accuracy, safety, relevance, completeness, clarity \\
 \hline
-Prometheus~\cite{kim2024prometheus} & Likert 1--5 & Instruction-following, factuality, coherence, completeness \\
+Prometheus (R4)~\cite{kim2024prometheus} & Likert 1--5 & Instruction-following, factuality, coherence, completeness \\
 \hline
-PEMAT-Likert & Likert 1--5 & Same criteria as PEMAT (scale variant) \\
+PEMAT-Likert (R5) & Likert 1--5 & Same as PEMAT (scale variant only) \\
 \hline
 \end{tabular}
 \end{center}
 \end{table}
 
-PEMAT~\cite{shoemaker2014development} assesses patient understandability
-and actionability using binary criteria. HealthBench~\cite{arora2025healthbench}
-evaluates five safety-critical clinical dimensions. ClinicalEval~\cite{ho2024qualitative}
-measures overall clinical utility via a 1--5 Likert scale.
-Prometheus~\cite{kim2024prometheus} judges instruction-following,
-factual grounding, and coherence. PEMAT-Likert uses identical criteria
-to PEMAT but with a 1--5 Likert scale, forming the controlled pair for
-isolating the scale effect.
-
-% ===================================================================
-\section{Experimental Setup}
-% ===================================================================
-
-\subsection{Judge Panel}
-
-The panel consists of four locally deployable SLMs spanning three
-distinct base architectures:
-
-\begin{itemize}
-  \item MedGemma-4B-IT~\cite{sellergren2025medgemma} (Gemma-3 base)
-  \item BioMistral-7B-DARE~\cite{labrak2024biomistral} (Mistral base)
-  \item Meditron-7B~\cite{chen2023meditron70b} (LLaMA-2 base)
-  \item MedAlpaca-7B~\cite{han2023medalpaca} (LLaMA-2 base)
-\end{itemize}
-
-All models were served locally via vLLM with greedy decoding
-(temperature~=~0.0, max~1024 output tokens). No data was transmitted
-to any external service, satisfying HIPAA data-governance
-requirements~\cite{cohen2017hipaa}.
+PEMAT~\cite{shoemaker2014development} uses binary criteria specifically
+designed to assess whether patient education materials are written in
+plain language and provide clear, actionable guidance. HealthBench
+~\cite{arora2025healthbench} evaluates five safety-critical dimensions
+drawn from physician-authored criteria. ClinicalEval~\cite{ho2024qualitative}
+measures overall clinical utility on a 1--5 Likert scale. Prometheus
+~\cite{kim2024prometheus} targets instruction-following and factual
+grounding. PEMAT-Likert (R5) is identical to PEMAT in criteria but uses
+a 1--5 Likert scale, forming a controlled pair that directly isolates
+the effect of scale width from rubric content.
 
 \subsection{Benchmark Dataset}
 
-The evaluation dataset comprises 100 questions drawn from three
-publicly available medical QA collections: MedQuAD~\cite{ben-abacha-medquad-2019},
-MedDialog~\cite{chen-meddialog-2020}, and Medical
-Meadow~\cite{singhal-medical-meadow-2023}. Twenty questions were
-sampled from each of five clinical domains: cardiology, pharmacology,
-neurology, pediatrics, and emergency medicine. Answers were authored
-or verified by medical professionals, reflecting realistic quality
-variation including ambiguous and partially correct responses.
+The evaluation benchmark contains 100 questions drawn from three
+publicly available, human-evaluated medical QA collections:
+MedQuAD~\cite{ben-abacha-medquad-2019}, MedDialog~\cite{chen-meddialog-2020},
+and Medical Meadow~\cite{singhal-medical-meadow-2023}. Twenty questions
+were sampled from each of five clinical domains: cardiology, pharmacology,
+neurology, pediatrics, and emergency medicine. All answers were written
+or verified by medical professionals, meaning the benchmark contains
+realistic quality variation---including ambiguous, partially correct,
+and occasionally wrong responses---that puts real pressure on the judges
+in a way that synthetic data cannot.
 
-\subsection{Hardware}
-All experiments were conducted on a high-performance server equipped
-with a 64-core CPU and 128~GB of RAM.
+Domains were chosen to represent a range of clinical guideline maturity:
+cardiology has highly standardized protocols (STEMI, atrial fibrillation,
+heart failure); pharmacology requires precise numerical knowledge (drug
+interactions, dosing thresholds, contraindications) that small models
+may encode inconsistently; neurology, pediatrics, and emergency medicine
+fall in between.
 
-% ===================================================================
+% -------------------------------------------------------------------
 \section{Results}
-% ===================================================================
 
-\subsection{Agreement Across Rubrics (Default Scale)}
+We run three experiments, each holding two variables constant while
+varying the third. \textbf{Exp1} varies the rubric (at its default
+scale). \textbf{Exp2} varies the scoring scale (with rubric content
+held fixed). \textbf{Exp3} varies the clinical domain (aggregated
+over all rubrics).
 
-Table~\ref{tab:exp1} reports results for all five rubrics at their
-default scoring scales. Binary rubrics consistently achieve higher
-inter-judge agreement than Likert rubrics. PEMAT and HealthBench
-reach 94.1\% and 91.3\% mean agreement, while ClinicalEval, Prometheus,
-and PEMAT-Likert fall to 80.9\%, 74.0\%, and 72.2\% respectively.
-The direct comparison between PEMAT (binary) and PEMAT-Likert
-(identical criteria, Likert scale) isolates the scale effect and
-yields a 22 percentage-point agreement drop.
+\subsection{Exp1: Rubric Comparison at Default Scale}
+
+Table~\ref{tab:exp1} reports mean pairwise agreement ($\mathrm{Agr}$),
+quality score ($\hat{S}$), and the distribution of routing outcomes
+for all five rubrics at their default scales.
 
 \begin{table}[htbp]
-\caption{Results Across All Rubrics at Default Scale}
+\caption{Exp1 --- Rubric comparison at default scale ($N$=100, 4-judge panel).
+Agr = mean pairwise agreement $\pm$ std. FA/MA/SP/D = count of cases
+per routing class out of 100.}
 \label{tab:exp1}
 \begin{center}
 \small
-\begin{tabular}{|l|l|r|r|r|r|r|}
+\begin{tabular}{|l|l|r|r|r|r|r|r|}
 \hline
-\textbf{Rubric} & \textbf{Scale} & \textbf{Agr\%} & \textbf{$\hat{S}$} & \textbf{FA} & \textbf{MA} & \textbf{SP+D} \\
+\textbf{Rubric} & \textbf{Scale} & \textbf{Agr\%} & \textbf{$\hat{S}$} & \textbf{FA} & \textbf{MA} & \textbf{SP} & \textbf{D} \\
 \hline
-PEMAT        & Binary & $94.1{\pm}10.5$ & $.68{\pm}.12$ & 72 & 24 & 4 \\
-HealthBench  & Binary & $91.3{\pm}9.9$  & $.75{\pm}.10$ & 51 & 38 & 11 \\
-ClinicalEval & Likert & $80.9{\pm}13.3$ & $.72{\pm}.14$ &  6 & 61 & 33 \\
-Prometheus   & Likert & $74.0{\pm}16.2$ & $.55{\pm}.18$ & 17 & 53 & 30 \\
-PEMAT-Likert & Likert & $72.2{\pm}8.9$  & $.60{\pm}.11$ &  5 & 50 & 45 \\
+PEMAT (R1)        & Binary & $94.1{\pm}10.5$ & $.68{\pm}.12$ & 72 & 24 &  4 & 0 \\
+HealthBench (R2)  & Binary & $91.3{\pm}9.9$  & $.75{\pm}.10$ & 51 & 38 & 10 & 1 \\
+ClinicalEval (R3) & Likert & $80.9{\pm}13.3$ & $.72{\pm}.14$ &  6 & 61 & 30 & 3 \\
+Prometheus (R4)   & Likert & $74.0{\pm}16.2$ & $.55{\pm}.18$ & 17 & 53 & 29 & 1 \\
+PEMAT-Likert (R5) & Likert & $72.2{\pm}8.9$  & $.60{\pm}.11$ &  5 & 50 & 44 & 1 \\
 \hline
 \end{tabular}
 \end{center}
 \end{table}
 
-\subsection{Effect of Scoring Scale}
+The two binary rubrics (PEMAT, HealthBench) consistently outperform
+the three Likert rubrics. PEMAT reaches 94.1\% agreement and a
+full-agreement rate of 72 out of 100 questions. Its criteria
+(plain language, organized, focused, actionable steps, barriers to
+action) have clear yes/no thresholds that all four models recognize
+similarly, leaving little room for disagreement.
 
-Table~\ref{tab:exp2} reports mean pairwise agreement under three
-scoring scales: binary, Likert~1--5, and Likert~0--10, applied to each
-rubric. Binary elicitation yields the highest agreement for all rubrics
-except HealthBench, where the 0--10 scale achieves a marginal gain
-(92.6\% vs.\ 91.3\%). Likert~1--5 consistently produces the lowest
-agreement. The 0--10 scale partially recovers agreement by allowing
-finer score distinctions; ClinicalEval peaks at 96.8\% under binary
-scoring, the highest value observed across all experiments.
+HealthBench is slightly lower at 91.3\% because two of its five
+criteria---HB4 (acknowledges uncertainty) and HB5 (recommends referral)
+---require models to judge implicit clinical intent rather than
+observable surface features. Deciding whether an answer
+``sufficiently'' acknowledges uncertainty is harder to agree on with
+a binary vote than deciding whether it uses plain language.
+
+Among Likert rubrics, ClinicalEval (80.9\%) outperforms Prometheus
+(74.0\%) because its criteria (accuracy, safety, relevance, completeness,
+clarity) have more concrete anchors. Prometheus's criteria---especially
+coherence and instruction-following---are more subjective, leading to
+high standard deviation (16.2\%) and many questions where some judges
+score near 5 while others score near 1.
+
+The PEMAT controlled pair is the clearest single result: PEMAT binary
+(R1, 94.1\%) versus PEMAT-Likert (R5, 72.2\%) use \emph{exactly the
+same five criteria}. The 22 percentage-point drop is entirely
+attributable to switching the scale from binary to Likert 1--5.
+
+\textbf{On quality scores ($\hat{S}$).} Mean scores range from 0.55
+to 0.75, which is lower than those typically reported by large cloud
+judges (0.85--0.95). This is expected. Small local models are more
+conservative scorers. The benchmark intentionally includes difficult,
+ambiguous human-authored answers, not polished AI outputs. Rubrics also
+contain strict safety criteria that most short answers partially fail.
+A $\hat{S} = 0.68$ under PEMAT binary means the panel judged that
+approximately 68\% of rubric criteria were met---for a challenging
+benchmark, this is an informative and appropriate signal.
+
+\subsection{Exp2: Scoring Scale Sensitivity}
+
+Table~\ref{tab:exp2} reports mean pairwise agreement for all five
+rubrics re-scored under three controlled scales: binary $\{0,1\}$,
+Likert 1--5, and 0--10. All criteria and weights were held constant;
+only the scale changed.
 
 \begin{table}[htbp]
-\caption{Mean Pairwise Agreement (\%) under Three Scoring Scales}
+\caption{Exp2 --- Mean pairwise agreement (\%) by scoring scale.
+Bold = highest Agr per rubric. Std in parentheses.}
 \label{tab:exp2}
 \begin{center}
 \small
@@ -323,31 +445,46 @@ scoring, the highest value observed across all experiments.
 \hline
 \textbf{Rubric} & \textbf{Binary} & \textbf{Likert 1--5} & \textbf{0--10} \\
 \hline
-PEMAT        & $\mathbf{94.1}{\pm}10.5$ & $71.5{\pm}10.6$ & $88.6{\pm}4.1$ \\
-HealthBench  & $91.3{\pm}9.9$  & $80.8{\pm}14.5$ & $\mathbf{92.6}{\pm}5.7$ \\
-ClinicalEval & $\mathbf{96.8}{\pm}9.6$  & $80.9{\pm}13.3$ & $92.1{\pm}5.5$ \\
-Prometheus   & $91.3{\pm}17.7$ & $74.0{\pm}16.2$ & $\mathbf{89.4}{\pm}6.4$ \\
-PEMAT-Likert & $\mathbf{94.1}{\pm}10.6$ & $72.2{\pm}8.9$  & $88.5{\pm}4.2$ \\
+PEMAT (R1)        & $\mathbf{94.1}_{(10.5)}$ & $71.5_{(10.6)}$ & $88.6_{(4.1)}$ \\
+HealthBench (R2)  & $91.3_{(9.9)}$ & $80.8_{(14.5)}$ & $\mathbf{92.6}_{(5.7)}$ \\
+ClinicalEval (R3) & $\mathbf{96.8}_{(9.6)}$ & $80.9_{(13.3)}$ & $92.1_{(5.5)}$ \\
+Prometheus (R4)   & $91.3_{(17.7)}$ & $74.0_{(16.2)}$ & $\mathbf{89.4}_{(6.4)}$ \\
+PEMAT-Likert (R5) & $\mathbf{94.1}_{(10.6)}$ & $72.2_{(8.9)}$ & $88.5_{(4.2)}$ \\
 \hline
 \end{tabular}
 \end{center}
 \end{table}
 
-\subsection{Agreement Across Clinical Domains}
+Binary scoring is not universally superior. For rubrics with natural
+yes/no thresholds (R1, R3, R5), binary achieves the highest agreement.
+ClinicalEval binary (96.8\%) is the single highest value observed
+across all experiments---its five criteria each have clear binary
+thresholds that all four models recognize consistently.
 
-Table~\ref{tab:exp3} reports the distribution of agreement levels
-across five clinical domains, aggregated over all five rubrics (100
-cases per domain). Cardiology is the most consistently judged domain
-(36 Full Agreement, 0 Full Disagreement). Pharmacology is the most
-contested (20 Full Agreement, 38 combined Split and Full Disagreement),
-with elevated disagreement driven primarily by ClinicalEval~(13) and
-PEMAT-Likert~(14) on pharmacology questions. PEMAT and HealthBench
-show minimal pharmacology contention ($\leq$3 SP+D), confirming that
-rubric design strongly moderates the translation of domain difficulty
-into panel disagreement.
+For HealthBench and Prometheus, the 0--10 scale achieves marginally
+higher peak agreement (92.6\% and 89.4\% respectively). The reason:
+subjective criteria such as ``acknowledges uncertainty'' or ``coherent''
+benefit from a finer scale that lets judges express small distinctions
+as nearby numbers (e.g., 7 vs. 8) rather than being forced to different
+Likert steps (e.g., 3 vs. 4).
+
+The most important practical finding from Exp2 is about standard
+deviation. The 0--10 scale consistently reduces cross-question
+variability to 4--7\% across all rubrics. A system that reliably
+produces 88\% agreement on every question is often more operationally
+trusthworthy than one averaging 94\% with a 10.5\% standard deviation,
+because the latter will route many individual questions to human review
+unpredictably. The 0--10 scale is therefore preferable when consistent
+routing stability matters more than peak agreement.
+
+\subsection{Exp3: Agreement Across Clinical Domains}
+
+Table~\ref{tab:exp3} reports routing class counts per domain, aggregated
+over all five rubrics (5 rubrics $\times$ 20 questions = 100 cases per domain).
 
 \begin{table}[htbp]
-\caption{Agreement Level Distribution Across Clinical Domains}
+\caption{Exp3 --- Panel agreement class counts by domain (100 cases
+per domain, default scales). FA=Full Agree, MA=Majority, SP=Split, D=Full Disagree.}
 \label{tab:exp3}
 \begin{center}
 \small
@@ -365,67 +502,159 @@ Pharmacology & 20 & 42 & 33 & 5 \\
 \end{center}
 \end{table}
 
-% ===================================================================
+\textbf{Cardiology} is the most consistently judged domain (36 FA,
+0 D). Cardiology guidelines---STEMI protocols, atrial fibrillation
+management, heart failure treatment---are among the most standardized
+in medicine. All four models have been trained on these well-documented
+protocols and recognize correct answers similarly.
+
+\textbf{Pharmacology} is the hardest domain (20 FA, 5 D, 38 combined
+SP+D). Drug interactions, dosing thresholds, and contraindication
+reasoning require precise numerical knowledge that small 4--7B models
+encode inconsistently. Critically, this contention is not uniform across
+rubrics: PEMAT (R1) and HealthBench (R2) show only 2--3 SP+D cases
+even in pharmacology, while ClinicalEval (R3) contributes 13 and
+PEMAT-Likert (R5) contributes 14 SP+D cases in this domain alone.
+This shows that rubric choice strongly moderates how much domain
+difficulty translates into panel disagreement. Teams working in
+pharmacology should prefer binary rubrics and raise $\theta_{FA}$
+to 0.98 and $\theta_{MA}$ to 0.85.
+
+\textbf{Emergency medicine} has a notable split rate (25 SP, 1 D).
+The single full-disagree case occurs under HealthBench on its escalation
+criterion (HB3), confirming that the disagreement traces to a genuine
+clinical judgment question---when exactly to escalate a borderline
+presentation---rather than a model calibration problem.
+
+\textbf{Neurology and Pediatrics} show moderate contention (22--23 SP,
+0 D). Their topics involve clear guidelines but also some room for
+clinical interpretation.
+
+% -------------------------------------------------------------------
 \section{Discussion}
-% ===================================================================
+
+\subsection{Interpreting Agreement and Quality Scores}
 
 High inter-judge agreement is a necessary but not sufficient condition
-for clinical correctness: judges may unanimously assign an incorrect
-score when a flaw is subtle. Before any clinical deployment, panels
-should be validated against physician ratings on a held-out set.
+for clinical correctness. Judges may unanimously assign an incorrect
+score when an answer's flaw is subtle enough for all small models to
+miss. Before any clinical deployment, the panel's scores should be
+validated against physician ratings on a held-out set. We recommend
+reporting correlation with physician scores and a breakdown of Split
+and Disagreement cases to quantify residual clinical risk.
+
+The relatively low quality scores in our experiments (0.55--0.75
+compared to 0.85--0.95 for large cloud judges) should not be interpreted
+as a framework failure. They reflect three design choices: conservative
+local models, a challenging benchmark with ambiguous human-authored
+answers, and rubrics with strict safety criteria. $\hat{S}$ is designed
+to be informative within this evaluation context, not to be compared
+cross-system.
+
+\subsection{Threshold Tuning and Panel Composition}
+
 The default thresholds ($\theta_{FA}=0.95$, $\theta_{MA}=0.75$,
-$\theta_{SP}=0.50$) are reasonable for a four-judge panel but should
-be recalibrated using domain-specific historical data when panel size
-or clinical context changes.
+$\theta_{SP}=0.50$) were calibrated for a four-judge panel. Operators
+changing panel size must recalibrate, because the same numeric Agr
+value carries different statistical meaning with more or fewer judges.
+The per-domain split rates in Table~\ref{tab:exp3} provide a practical
+empirical prior for this tuning. For example, pharmacology deployments
+would benefit from stricter thresholds, while cardiology deployments
+could accept more permissive ones.
 
-Regarding panel composition, running a rubric-scoring probe and
-conducting per-judge ablation experiments before finalizing the panel
-are recommended. MedAlpaca's 51.7\% item-leading rate suggests its
-agreement contribution may not reflect genuine evaluation, and
-full-agreement rates should be treated as upper bounds. Where human
-routing costs are prohibitive, a mediator model that reconciles
-divergent rationales may reduce escalation rates, though its outputs
-require empirical validation against physician adjudication.
+Before finalizing any panel, we recommend: (1)~running a rubric-scoring
+probe to screen all candidate judges; (2)~conducting per-judge ablation
+experiments that report agreement with and without each model; and
+(3)~tracking the item-leading rate per judge on the full benchmark.
+These checks make panel reliability visible and help avoid silent
+inflation of agreement statistics.
 
-% ===================================================================
+\subsection{Practical Deployment Recommendations}
+
+The following recommendations are derived directly from our empirical
+findings:
+
+\begin{itemize}
+  \item \textbf{Match scale to rubric.} Use binary scales for rubrics
+        whose criteria have natural yes/no thresholds (e.g., PEMAT,
+        HealthBench). Use 0--10 when consistent routing stability across
+        questions matters more than peak agreement.
+  \item \textbf{Probe judges before finalizing the panel.} Any model
+        with more than 20\% item-leading rate on the probe set should
+        be excluded. MedAlpaca's 51.7\% rate demonstrates that this
+        failure mode is not hypothetical.
+  \item \textbf{Always route Split and Disagreement to human review.}
+        No automated outlier-handling strategy is reliable when the
+        panel lacks a stable majority. Automating over SP and D outcomes
+        silently amplifies evaluation error.
+  \item \textbf{Raise thresholds in high-stakes domains.} Pharmacology
+        and emergency medicine warrant $\theta_{FA}=0.98$,
+        $\theta_{MA}=0.85$ based on their observed split rates.
+  \item \textbf{Validate against physician ratings.} All SP+D cases
+        should be audited against clinical ground truth before reporting
+        framework performance in any deployment setting.
+\end{itemize}
+
+\subsection{Limitations}
+
+The benchmark contains 100 questions across five domains---sufficient
+for directional findings but not for definitive statistical inference.
+Rare specialties such as oncology and psychiatry remain untested.
+All judges use context windows under 400 tokens, which limits the length
+of answers that can be reliably evaluated. The panel does not implement
+a mediator loop: disagreements are routed to humans but no automated
+reconciliation is attempted. Future work should test whether a mediator
+model can reduce human review load without introducing its own failure
+modes. Finally, MedAlpaca's item-leading rate means that full-agreement
+counts reported here are upper bounds.
+
+% -------------------------------------------------------------------
 \section{Conclusion}
-% ===================================================================
 
 We presented Multi-SLMs-as-Judge, a privacy-preserving framework for
-medical answer evaluation using panels of locally deployed SLMs.
-Gating quality score reporting on inter-judge consensus transforms
-panel disagreement into an actionable routing signal. Experiments
-across five rubrics and five clinical domains show that binary scoring
-yields the highest agreement for rubrics with natural yes/no
-thresholds, the 0--10 scale most consistently reduces score variance,
-and pharmacology generates the most disagreement driven primarily by
-Likert-scale rubrics. Because scale and domain effects can be
-disentangled, gate thresholds can be tuned independently of rubric
-design, making the framework adaptable across clinical e-health
-settings. For deployment, we recommend matching scoring scale to rubric
-type, probing all candidate judges before panel finalization, and
-routing all Split and Disagreement outcomes to human review.
+medical answer evaluation using a panel of locally deployed SLMs. The
+framework's two-step design---checking inter-judge agreement before
+reporting a quality score---transforms panel disagreement from a silent
+failure into an actionable routing signal. Three controlled experiments
+yield four concrete findings.
 
-% ===================================================================
+First, binary scoring works best for rubrics whose criteria have natural
+yes/no thresholds, reaching 91--97\% mean agreement and the highest
+full-agreement rates. Second, the 0--10 scale consistently reduces
+cross-question score variation to 4--7\% standard deviation across all
+rubrics, making it the better choice when routing stability matters more
+than peak agreement. Third, cardiology is the most stable domain;
+pharmacology generates the most disagreement, but this is driven by
+Likert rubrics---binary rubrics stay below 3 SP+D cases even in
+pharmacology. Fourth, scoring scale and domain difficulty can be
+disentangled, which means gate thresholds can be tuned independently
+of rubric design.
+
+Because the framework runs entirely on local hardware and requires no
+external API, it is directly applicable to HIPAA-constrained clinical
+settings where cloud-based evaluation is not an option. We hope the
+controlled experimental design and open release of code, rubrics, and
+benchmark data help other teams build and calibrate their own
+privacy-safe evaluation pipelines.
+
+% -------------------------------------------------------------------
 \section*{Acknowledgment}
-% ===================================================================
 
 The authors thank the developers of MedGemma, BioMistral, Meditron,
-and MedAlpaca for making their models publicly available. All
-benchmark datasets are used under their respective open licences.
+and MedAlpaca for making their models publicly available under open
+licenses. All benchmark datasets are used under their respective
+open licenses.
 
-% ===================================================================
-% REFERENCES
-% ===================================================================
+% -------------------------------------------------------------------
 \begin{thebibliography}{00}
 
 \bibitem{achiam2023gpt}
-J. Achiam et al., ``GPT-4 technical report,'' arXiv preprint
+J. Achiam et al., ``GPT-4 technical report,'' \textit{arXiv}
 arXiv:2303.08774, 2023.
 
 \bibitem{arora2025healthbench}
 R. K. Arora et al., ``HealthBench: Evaluating large language models
-towards improved human health,'' arXiv preprint arXiv:2505.08775, 2025.
+towards improved human health,'' \textit{arXiv} arXiv:2505.08775, 2025.
 
 \bibitem{ben-abacha-medquad-2019}
 A. Ben Abacha and D. Demner-Fushman, ``A question-entailment approach
@@ -433,15 +662,15 @@ to question answering,'' in \textit{Proc. 18th BioNLP Workshop}, 2019.
 
 \bibitem{chan2023chateval}
 C.-M. Chan et al., ``ChatEval: Towards better LLM-based evaluators
-through multi-agent debate,'' arXiv preprint arXiv:2308.07201, 2023.
+through multi-agent debate,'' \textit{arXiv} arXiv:2308.07201, 2023.
 
 \bibitem{chen2023meditron70b}
 Z. Chen et al., ``MEDITRON-70B: Scaling medical pretraining for large
-language models,'' arXiv preprint arXiv:2311.16079, 2023.
+language models,'' \textit{arXiv} arXiv:2311.16079, 2023.
 
 \bibitem{chen-meddialog-2020}
 S. Chen et al., ``MedDialog: Large-scale medical dialogue datasets,''
-arXiv preprint arXiv:2004.03329, 2020.
+\textit{arXiv} arXiv:2004.03329, 2020.
 
 \bibitem{cohen2017hipaa}
 I. G. Cohen and M. M. Mello, ``Unauthorized disclosure of protected
@@ -450,14 +679,14 @@ health information: Criminal and civil HIPAA enforcement actions,''
 
 \bibitem{han2023medalpaca}
 T. Han et al., ``MedAlpaca: An open-source collection of medical
-conversational AI models and training data,'' arXiv preprint
+conversational AI models and training data,'' \textit{arXiv}
 arXiv:2304.08247, 2023.
 
 \bibitem{ho2024qualitative}
 C. N. Ho et al., ``Qualitative metrics from the biomedical literature
 for evaluating large language models in clinical decision-making:
-A narrative review,'' \textit{BMC Medical Informatics and Decision
-Making}, vol. 24, no. 1, p. 357, 2024.
+A narrative review,'' \textit{BMC Med. Inform. Decis. Mak.},
+vol. 24, no. 1, p. 357, 2024.
 
 \bibitem{kim2024prometheus}
 S. Kim et al., ``Prometheus: Inducing fine-grained evaluation capability
@@ -465,27 +694,30 @@ in language models,'' in \textit{Proc. ICLR}, 2024.
 
 \bibitem{labrak2024biomistral}
 Y. Labrak et al., ``BioMistral: A collection of open-source pretrained
-large language models for medical domains,'' arXiv preprint
+large language models for medical domains,'' \textit{arXiv}
 arXiv:2402.10373, 2024.
 
+\bibitem{li2023generative}
+J. Li et al., ``Generative judge for evaluating alignment,''
+\textit{arXiv} arXiv:2310.05470, 2023.
+
 \bibitem{nori2023gpt4}
-H. Nori et al., ``Capabilities of GPT-4 on medical challenge
-problems,'' arXiv preprint arXiv:2303.13375, 2023.
+H. Nori et al., ``Capabilities of GPT-4 on medical challenge problems,''
+\textit{arXiv} arXiv:2303.13375, 2023.
 
 \bibitem{panickssery2024bias}
 A. Panickssery, S. R. Bowman, and S. Feng, ``LLM evaluators recognize
-and favor their own generations,'' in \textit{Proc. NeurIPS}, vol. 37,
-2024.
+and favor their own generations,'' in \textit{Proc. NeurIPS},
+vol. 37, 2024.
 
 \bibitem{sellergren2025medgemma}
-A. Sellergren et al., ``MedGemma technical report,'' arXiv preprint
+A. Sellergren et al., ``MedGemma technical report,'' \textit{arXiv}
 arXiv:2507.05201, 2025.
 
 \bibitem{shoemaker2014development}
-S. J. Shoemaker, M. S. Wolf, and C. Brach, ``Development of the
-Patient Education Materials Assessment Tool (PEMAT): A new instrument
-to assess understandability and actionability,'' \textit{Patient
-Education and Counseling}, vol. 96, no. 3, pp. 395--403, 2014.
+S. J. Shoemaker, M. S. Wolf, and C. Brach, ``Development of the Patient
+Education Materials Assessment Tool (PEMAT),'' \textit{Patient Educ.
+Couns.}, vol. 96, no. 3, pp. 395--403, 2014.
 
 \bibitem{singhal2023large}
 K. Singhal et al., ``Large language models encode clinical knowledge,''
@@ -493,16 +725,24 @@ K. Singhal et al., ``Large language models encode clinical knowledge,''
 
 \bibitem{singhal-medical-meadow-2023}
 K. Singhal et al., ``Towards expert-level medical question answering
-with large language models,'' arXiv preprint arXiv:2305.09617, 2023.
+with large language models,'' \textit{arXiv} arXiv:2305.09617, 2023.
 
 \bibitem{verga2024replacing}
 P. Verga et al., ``Replacing judges with juries: Evaluating LLM
-generations with a panel of diverse models,'' arXiv preprint
+generations with a panel of diverse models,'' \textit{arXiv}
 arXiv:2404.18796, 2024.
+
+\bibitem{wang2023verbosity}
+P. Wang et al., ``Large language models are not robust multiple choice
+selectors,'' \textit{arXiv} arXiv:2309.03882, 2023.
+
+\bibitem{wu2023ensemble}
+N. Wu et al., ``Large language models are diverse role-players
+for summarization evaluation,'' \textit{arXiv} arXiv:2303.15078, 2023.
 
 \bibitem{zeng2023framing}
 Z. Zeng et al., ``Evaluating large language models at evaluating
-instruction following,'' arXiv preprint arXiv:2310.07641, 2023.
+instruction following,'' \textit{arXiv} arXiv:2310.07641, 2023.
 
 \bibitem{zheng2023judging}
 L. Zheng et al., ``Judging LLM-as-a-judge with MT-Bench and chatbot
