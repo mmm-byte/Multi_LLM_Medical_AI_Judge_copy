@@ -243,27 +243,28 @@ Five rubrics covering patient communication, clinical safety, and
 general quality assessment are evaluated. Table~\ref{tab:rubrics}
 summarizes their criteria and default scales.
 
+% Table 1 — single-column, flushleft to avoid drifting over centre rule
 \begin{table}[htbp]
 \caption{Medical Answer Evaluation Rubrics}
 \label{tab:rubrics}
-\begin{center}
+\begin{flushleft}
 \small
-\begin{tabular}{|l|l|p{3.8cm}|}
+\begin{tabular}{|l|l|p{3.4cm}|}
 \hline
 \textbf{Rubric} & \textbf{Scale} & \textbf{Criteria} \\
 \hline
-PEMAT (R1)~\cite{shoemaker2014development} & Binary & Plain language, organized, focused; actionable steps, barriers \\
+PEMAT (R1)~\cite{shoemaker2014development}   & Binary      & Plain language, organized, focused; actionable steps, barriers \\
 \hline
-HealthBench (R2)~\cite{arora2025healthbench} & Binary & Correctness, safety, escalation, uncertainty, referral \\
+HealthBench (R2)~\cite{arora2025healthbench} & Binary      & Correctness, safety, escalation, uncertainty, referral \\
 \hline
-ClinicalEval (R3)~\cite{ho2024qualitative} & Likert 1--5 & Accuracy, safety, relevance, completeness, clarity \\
+ClinicalEval (R3)~\cite{ho2024qualitative}   & Likert 1--5 & Accuracy, safety, relevance, completeness, clarity \\
 \hline
-Prometheus (R4)~\cite{kim2024prometheus} & Likert 1--5 & Instruction-following, factuality, coherence, completeness \\
+Prometheus (R4)~\cite{kim2024prometheus}     & Likert 1--5 & Instruction-following, factuality, coherence, completeness \\
 \hline
-PEMAT-Likert (R5) & Likert 1--5 & Same as PEMAT (scale variant only) \\
+PEMAT-Likert (R5)                            & Likert 1--5 & Same criteria as PEMAT (scale variant only) \\
 \hline
 \end{tabular}
-\end{center}
+\end{flushleft}
 \end{table}
 
 PEMAT~\cite{shoemaker2014development} uses binary criteria specifically
@@ -315,10 +316,10 @@ decoding (temperature~$=0.0$, max 1024 tokens). No external API is used.}
 \hline
 \textbf{Model} & \textbf{Base Architecture} & \textbf{Params} \\
 \hline
-MedGemma-4B-IT~\cite{sellergren2025medgemma}  & Gemma-3       & 4B \\
-BioMistral-7B-DARE~\cite{labrak2024biomistral} & Mistral-DARE  & 7B \\
-Meditron-7B~\cite{chen2023meditron70b}         & LLaMA-2       & 7B \\
-MedAlpaca-7B~\cite{han2023medalpaca}           & LLaMA-2       & 7B \\
+MedGemma-4B-IT~\cite{sellergren2025medgemma}   & Gemma-3      & 4B \\
+BioMistral-7B-DARE~\cite{labrak2024biomistral} & Mistral-DARE & 7B \\
+Meditron-7B~\cite{chen2023meditron70b}         & LLaMA-2      & 7B \\
+MedAlpaca-7B~\cite{han2023medalpaca}           & LLaMA-2      & 7B \\
 \hline
 \end{tabular}
 \end{center}
@@ -343,26 +344,26 @@ Table~\ref{tab:exp1} reports mean pairwise agreement ($\mathrm{Agr}$),
 quality score ($\hat{S}$), and the distribution of routing outcomes
 for all five rubrics at their default scales.
 
-\begin{table}[htbp]
+% Table 3 (Exp1) — wide 8-column table; spans both columns to prevent overflow
+\begin{table*}[t]
 \caption{Exp1 --- Rubric comparison at default scale ($N$=100, 4-judge panel).
-Agr = mean pairwise agreement $\pm$ std. FA/MA/SP/D = count of cases
-per routing class out of 100.}
+Agr = mean pairwise agreement $\pm$ std.\ FA/MA/SP/D = number of cases per routing class out of 100.}
 \label{tab:exp1}
 \begin{center}
 \small
-\begin{tabular}{|l|l|r|r|r|r|r|r|}
-\hline
+\begin{tabular}{lllrrrrr}
+\toprule
 \textbf{Rubric} & \textbf{Scale} & \textbf{Agr\%} & \textbf{$\hat{S}$} & \textbf{FA} & \textbf{MA} & \textbf{SP} & \textbf{D} \\
-\hline
-PEMAT (R1)        & Binary & $94.1{\pm}10.5$ & $.68{\pm}.12$ & 72 & 24 &  4 & 0 \\
-HealthBench (R2)  & Binary & $91.3{\pm}9.9$  & $.75{\pm}.10$ & 51 & 38 & 10 & 1 \\
-ClinicalEval (R3) & Likert & $80.9{\pm}13.3$ & $.72{\pm}.14$ &  6 & 61 & 30 & 3 \\
-Prometheus (R4)   & Likert & $74.0{\pm}16.2$ & $.55{\pm}.18$ & 17 & 53 & 29 & 1 \\
-PEMAT-Likert (R5) & Likert & $72.2{\pm}8.9$  & $.60{\pm}.11$ &  5 & 50 & 44 & 1 \\
-\hline
+\midrule
+PEMAT (R1)        & Binary      & $94.1 \pm 10.5$ & $0.68 \pm 0.12$ & 72 & 24 &  4 & 0 \\
+HealthBench (R2)  & Binary      & $91.3 \pm 9.9$  & $0.75 \pm 0.10$ & 51 & 38 & 10 & 1 \\
+ClinicalEval (R3) & Likert 1--5 & $80.9 \pm 13.3$ & $0.72 \pm 0.14$ &  6 & 61 & 30 & 3 \\
+Prometheus (R4)   & Likert 1--5 & $74.0 \pm 16.2$ & $0.55 \pm 0.18$ & 17 & 53 & 29 & 1 \\
+PEMAT-Likert (R5) & Likert 1--5 & $72.2 \pm 8.9$  & $0.60 \pm 0.11$ &  5 & 50 & 44 & 1 \\
+\bottomrule
 \end{tabular}
 \end{center}
-\end{table}
+\end{table*}
 
 The two binary rubrics (PEMAT, HealthBench) consistently outperform
 the three Likert rubrics. PEMAT reaches 94.1\% agreement and a
@@ -417,10 +418,10 @@ Bold = highest Agr per rubric. Std in parentheses.}
 \textbf{Rubric} & \textbf{Binary} & \textbf{Likert 1--5} & \textbf{0--10} \\
 \hline
 PEMAT (R1)        & $\mathbf{94.1}_{(10.5)}$ & $71.5_{(10.6)}$ & $88.6_{(4.1)}$ \\
-HealthBench (R2)  & $91.3_{(9.9)}$ & $80.8_{(14.5)}$ & $\mathbf{92.6}_{(5.7)}$ \\
-ClinicalEval (R3) & $\mathbf{96.8}_{(9.6)}$ & $80.9_{(13.3)}$ & $92.1_{(5.5)}$ \\
-Prometheus (R4)   & $91.3_{(17.7)}$ & $74.0_{(16.2)}$ & $\mathbf{89.4}_{(6.4)}$ \\
-PEMAT-Likert (R5) & $\mathbf{94.1}_{(10.6)}$ & $72.2_{(8.9)}$ & $88.5_{(4.2)}$ \\
+HealthBench (R2)  & $91.3_{(9.9)}$           & $80.8_{(14.5)}$ & $\mathbf{92.6}_{(5.7)}$ \\
+ClinicalEval (R3) & $\mathbf{96.8}_{(9.6)}$  & $80.9_{(13.3)}$ & $92.1_{(5.5)}$ \\
+Prometheus (R4)   & $91.3_{(17.7)}$          & $74.0_{(16.2)}$ & $\mathbf{89.4}_{(6.4)}$ \\
+PEMAT-Likert (R5) & $\mathbf{94.1}_{(10.6)}$ & $72.2_{(8.9)}$  & $88.5_{(4.2)}$ \\
 \hline
 \end{tabular}
 \end{center}
