@@ -156,6 +156,15 @@ judges strongly disagree would give users a false sense of confidence.
 By checking agreement first, the framework turns judge disagreement into
 an actionable routing signal.
 
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=\columnwidth]{figures/framework.png}}
+\caption{Multi-SLMs-as-Judge pipeline. Each of the $N$ locally deployed
+SLMs scores the answer against rubric $R$. The pairwise agreement score
+$\mathrm{Agr}$ gates reporting of the quality score $\hat{S}$ and routes
+low-consensus cases to human review.}
+\label{fig:system}
+\end{figure}
+
 \subsection{Pairwise Agreement Score}
 
 Let $s_i^k$ denote the score assigned by judge $i$ to criterion $k$,
@@ -243,7 +252,7 @@ Five rubrics covering patient communication, clinical safety, and
 general quality assessment are evaluated. Table~\ref{tab:rubrics}
 summarizes their criteria and default scales.
 
-% Table 1 — single-column, flushleft to avoid drifting over centre rule
+% Table 1 -- flushleft + narrower criteria column to stay within column boundary
 \begin{table}[htbp]
 \caption{Medical Answer Evaluation Rubrics}
 \label{tab:rubrics}
@@ -344,7 +353,7 @@ Table~\ref{tab:exp1} reports mean pairwise agreement ($\mathrm{Agr}$),
 quality score ($\hat{S}$), and the distribution of routing outcomes
 for all five rubrics at their default scales.
 
-% Table 3 (Exp1) — wide 8-column table; spans both columns to prevent overflow
+% Table 3 (Exp1) -- spans both columns to prevent overflow
 \begin{table*}[t]
 \caption{Exp1 --- Rubric comparison at default scale ($N$=100, 4-judge panel).
 Agr = mean pairwise agreement $\pm$ std.\ FA/MA/SP/D = number of cases per routing class out of 100.}
