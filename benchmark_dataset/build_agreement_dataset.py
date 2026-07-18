@@ -2,14 +2,19 @@
 
 The default output is a deterministic, small-context benchmark:
 
-  - 25 rows across 5 clinical domains: Cardiology, Pharmacology, Neurology,
-    Pediatrics, Emergency
-  - 4 expected agreement classes with >=5 examples each:
+  - 25 curated rows across 5 clinical domains
+  - 4 expected agreement classes with examples in each class:
     fully_agree, majority_agree, split, full_disagree
 
-When USE_SOURCE_DATASETS=1 the script samples SAMPLE_N rows **per domain**
-(default 20) from the source CSVs — so all 5 categories are equally
-represented in the final benchmark.
+When USE_SOURCE_DATASETS=1 the script builds a larger balanced benchmark from
+all available source CSVs and aims for:
+
+  - 1,000 total rows
+  - 200 rows per domain across 5 clinical domains
+  - a mix of expected agreement classes inside each domain
+
+This keeps the domain distribution even while preserving a mix of agreement
+cases for Inter-LLM Deliberation analyses.
 
 Outputs:
     benchmark_dataset/agreement_benchmark.csv
@@ -32,6 +37,13 @@ SOURCE_DIR = ROOT / "benchmark_dataset" / "source_datasets"
 MAX_QA_TOKENS = 600
 
 VALID_CLASSES = {"fully_agree", "majority_agree", "split", "full_disagree"}
+TARGET_TOTAL_ROWS = 1000
+TARGET_DOMAIN_ROWS = 200
+FAMILY_QUOTAS = {
+    "medquad": 334,
+    "meddialog": 333,
+    "medical_meadow": 333,
+}
 
 DOMAIN_KEYWORDS: Dict[str, List[str]] = {
     "Cardiology": [
@@ -409,6 +421,219 @@ def load_source_dataset_rows(rows_per_domain: int = 20) -> List[Dict[str, str]]:
     return rows
 
 
+def _row_signature(row: Dict[str, str]) -> str:
+    return f"{row['domain']}|{row['question'].strip().lower()}|{row['reference_answer'].strip().lower()}"
+
+
+def _load_meddialog_rows() -> List[Dict[str, str]]:
+    rows: List[Dict[str, str]] = []
+    for path in [
+        ROOT / "benchmark_dataset" / "MedDialog" / "en-train.csv",
+        ROOT / "benchmark_dataset" / "MedDialog" / "en-dev.csv",
+        ROOT / "benchmark_dataset" / "MedDialog" / "en-test.csv",
+    ]:
+        if not path.exists():
+            continue
+        with open(path, encoding="utf-8", errors="ignore") as f:
+            reader = csv.DictReader(f)
+            for idx, row in enumerate(reader):
+                question = (row.get("description") or row.get("patient") or "").strip()
+                answer = (row.get("doctor") or "").strip()
+                if not question or not answer:
+                    continue
+                if _token_est(question) + _token_est(answer) > MAX_QA_TOKENS:
+                    continue
+                rows.append({
+                    "id": f"MD_{path.stem}_{idx:05d}",
+                    "domain": classify_domain(question),
+                    "question": question,
+                    "reference_answer": answer,
+                    "source": path.stem,
+                    "source_family": "meddialog",
+                    "showcase_label": "source_reference",
+                })
+    for path in [
+        ROOT / "benchmark_dataset" / "MedDialog" / "english-train.json",
+        ROOT / "benchmark_dataset" / "MedDialog" / "english-dev.json",
+        ROOT / "benchmark_dataset" / "MedDialog" / "english-test.json",
+    ]:
+        if not path.exists():
+            continue
+        import json
+        with open(path, encoding="utf-8", errors="ignore") as f:
+            data = json.load(f)
+        for idx, row in enumerate(data):
+            utt = row.get("utterances") or []
+            if len(utt) < 2:
+                continue
+            question = str(utt[0]).strip()
+            answer = str(utt[1]).strip()
+            if not question or not answer:
+                continue
+            if _token_est(question) + _token_est(answer) > MAX_QA_TOKENS:
+                continue
+            rows.append({
+                "id": f"MDJ_{path.stem}_{idx:05d}",
+                "domain": classify_domain(question),
+                "question": question,
+                "reference_answer": answer,
+                "source": path.stem,
+                "source_family": "meddialog",
+                "showcase_label": "source_reference",
+            })
+    return rows
+
+
+def _load_medmeadow_rows() -> List[Dict[str, str]]:
+    rows: List[Dict[str, str]] = []
+    path = ROOT / "benchmark_dataset" / "Medical Meadow" / "medical_meadow_health_advice.csv"
+    if not path.exists():
+        return rows
+    with open(path, newline="", encoding="utf-8", errors="ignore") as f:
+        reader = csv.DictReader(f)
+        for idx, row in enumerate(reader):
+            question = f"{(row.get('instruction') or '').strip()} {(row.get('input') or '').strip()}".strip()
+            answer = (row.get("output") or "").strip()
+            if not question or not answer:
+                continue
+            if _token_est(question) + _token_est(answer) > MAX_QA_TOKENS:
+                continue
+            rows.append({
+                "id": f"MM_{idx:06d}",
+                "domain": classify_domain(question),
+                "question": question,
+                "reference_answer": answer,
+                "source": path.stem,
+                "source_family": "medical_meadow",
+                "showcase_label": "source_reference",
+            })
+    return rows
+
+
+def load_real_source_rows() -> List[Dict[str, str]]:
+    """Load only real rows from the bundled datasets."""
+    rows: List[Dict[str, str]] = []
+    rows.extend(_load_meddialog_rows())
+    rows.extend(_load_medmeadow_rows())
+    rows.extend(_load_source_dataset_rows())  # existing real CSVs in source_datasets/
+    # Deduplicate on normalized question/answer text.
+    seen = set()
+    deduped = []
+    for row in rows:
+        sig = _row_signature(row)
+        if sig in seen:
+            continue
+        seen.add(sig)
+        row.setdefault("source_family", "medquad")
+        deduped.append(row)
+    return deduped
+
+
+def _load_source_dataset_rows() -> List[Dict[str, str]]:
+    rows: List[Dict[str, str]] = []
+    for path in sorted(SOURCE_DIR.glob("*.csv")):
+        with open(path, encoding="utf-8", errors="ignore") as f:
+            reader = csv.DictReader(f)
+            q_col, a_col = _detect_columns(reader.fieldnames or [])
+            if not q_col or not a_col:
+                continue
+            for idx, row in enumerate(reader):
+                question = (row.get(q_col) or "").strip()
+                answer = (row.get(a_col) or "").strip()
+                if not question or not answer:
+                    continue
+                if _token_est(question) + _token_est(answer) > MAX_QA_TOKENS:
+                    continue
+                rows.append({
+                    "id": f"SD_{path.stem}_{idx:05d}",
+                    "domain": row.get("domain", "") or classify_domain(question),
+                    "question": question,
+                    "reference_answer": answer,
+                    "source": path.stem,
+                    "source_family": "medquad",
+                    "showcase_label": "source_reference",
+                })
+    return rows
+
+
+def _sample_balanced_rows(rows: List[Dict[str, str]]) -> List[Dict[str, str]]:
+    buckets: Dict[str, List[Dict[str, str]]] = {d: [] for d in ALL_DOMAINS}
+    for row in rows:
+        if row["domain"] in ALL_DOMAINS:
+            buckets[row["domain"]].append(row)
+    selected: List[Dict[str, str]] = []
+    for domain in ALL_DOMAINS:
+        domain_rows = sorted(
+            buckets[domain],
+            key=lambda r: (
+                expected_agreement_class(r["question"], r["reference_answer"])[0],
+                r["source"],
+                r["id"],
+            ),
+        )
+        selected.extend(domain_rows[:TARGET_DOMAIN_ROWS])
+
+    # Trim toward family-level balance while preserving source-only rows.
+    family_rows: Dict[str, List[Dict[str, str]]] = {k: [] for k in FAMILY_QUOTAS}
+    for row in selected:
+        fam = row.get("source_family", "medquad")
+        if fam in family_rows:
+            family_rows[fam].append(row)
+
+    balanced: List[Dict[str, str]] = []
+    seen = set()
+    for family, quota in FAMILY_QUOTAS.items():
+        fam_sel = sorted(
+            family_rows[family],
+            key=lambda r: (
+                ALL_DOMAINS.index(r["domain"]),
+                expected_agreement_class(r["question"], r["reference_answer"])[0],
+                r["source"],
+                r["id"],
+            ),
+        )[:quota]
+        for row in fam_sel:
+            sig = _row_signature(row)
+            if sig in seen:
+                continue
+            balanced.append(row)
+            seen.add(sig)
+
+    # If any family came up short, top it up from the remaining real rows of
+    # that same family.
+    if len(balanced) < TARGET_TOTAL_ROWS:
+        for family, quota in FAMILY_QUOTAS.items():
+            current = sum(1 for r in balanced if r.get("source_family", "medquad") == family)
+            if current >= quota:
+                continue
+            fam_pool = sorted(
+                [r for r in rows if r.get("source_family", "medquad") == family],
+                key=lambda r: (
+                    ALL_DOMAINS.index(r["domain"]),
+                    expected_agreement_class(r["question"], r["reference_answer"])[0],
+                    r["source"],
+                    r["id"],
+                ),
+            )
+            for row in fam_pool:
+                if current >= quota or len(balanced) >= TARGET_TOTAL_ROWS:
+                    break
+                sig = _row_signature(row)
+                if sig in seen:
+                    continue
+                balanced.append(row)
+                seen.add(sig)
+                current += 1
+
+    balanced.sort(key=lambda r: (
+        ALL_DOMAINS.index(r["domain"]),
+        expected_agreement_class(r["question"], r["reference_answer"])[0],
+        r["source"],
+        r["id"],
+    ))
+    return balanced[:TARGET_TOTAL_ROWS]
+
+
 def _decorate_row(row: Dict[str, str], existing: Dict[str, Dict[str, str]]) -> Dict[str, str]:
     cls, scores, rationale = expected_agreement_class(row["question"], row["reference_answer"])
     prefix_overrides = {
@@ -429,6 +654,7 @@ def _decorate_row(row: Dict[str, str], existing: Dict[str, Dict[str, str]]) -> D
     out["observed_class"] = existing.get(row["id"], {}).get("observed_class", "")
     out["verified"] = existing.get(row["id"], {}).get("verified", "")
     out["judges_ran"] = existing.get(row["id"], {}).get("judges_ran", "")
+    out["source_family"] = row.get("source_family", "medquad")
     out["qa_token_est"] = str(total_tokens)
     for key, value in scores.items():
         out[key] = f"{value:.3f}"
@@ -437,17 +663,17 @@ def _decorate_row(row: Dict[str, str], existing: Dict[str, Dict[str, str]]) -> D
 
 def build_rows() -> List[Dict[str, str]]:
     use_sources = os.getenv("USE_SOURCE_DATASETS", "").lower() in {"1", "true", "yes"}
-    # SAMPLE_N env var = rows per domain (total = SAMPLE_N * 5 domains)
-    rows_per_domain = int(os.getenv("SAMPLE_N", "20"))
-    rows = list(BASE_ROWS)
     if use_sources:
-        source_rows = load_source_dataset_rows(rows_per_domain=rows_per_domain)
+        source_rows = load_real_source_rows()
         if source_rows:
-            rows = source_rows + rows
-            print(f"[INFO] Loaded {len(source_rows)} source rows "
-                  f"({rows_per_domain} per domain x 5 domains) + {len(BASE_ROWS)} curated rows")
+            rows = _sample_balanced_rows(source_rows)
+            print(f"[INFO] Built balanced source benchmark with {len(rows)} rows "
+                  f"(target {TARGET_TOTAL_ROWS}, {TARGET_DOMAIN_ROWS} per domain)")
         else:
-            print(f"[INFO] USE_SOURCE_DATASETS=1 but no usable CSV rows found in {SOURCE_DIR}")
+            print(f"[INFO] USE_SOURCE_DATASETS=1 but no usable CSV rows found in source datasets")
+            rows = list(BASE_ROWS)
+    else:
+        rows = list(BASE_ROWS)
     return rows
 
 
@@ -487,15 +713,24 @@ def main() -> None:
 
     counts = Counter(r["expected_class"] for r in decorated)
     domain_counts = Counter(r["domain"] for r in decorated)
+    family_counts = Counter(r.get("source_family", "medquad") for r in decorated)
+    class_by_domain = defaultdict(Counter)
+    for r in decorated:
+        class_by_domain[r["domain"]][r["expected_class"]] += 1
     print(f"\nBenchmark CSV written: {OUT}")
     print(f"  Rows written : {len(decorated)}")
     print(f"  Rows dropped : {len(dropped)} (exceeded {MAX_QA_TOKENS} token limit)")
     print("  Agreement classes:")
     for cls in sorted(VALID_CLASSES):
         print(f"    {cls:<15}: {counts.get(cls, 0)}")
-    print("  Domains (should be roughly equal for source rows):")
-    for domain, n in sorted(domain_counts.items()):
-        print(f"    {domain:<15}: {n}")
+    print("  Domains:")
+    for domain in ALL_DOMAINS:
+        print(f"    {domain:<15}: {domain_counts.get(domain, 0)}")
+        for cls in ["fully_agree", "majority_agree", "split", "full_disagree"]:
+            print(f"      - {cls:<15}: {class_by_domain[domain].get(cls, 0)}")
+    print("  Source families:")
+    for family in FAMILY_QUOTAS:
+        print(f"    {family:<15}: {family_counts.get(family, 0)}")
     if dropped:
         print("  Dropped rows (first 5):")
         for row_id, tokens in dropped[:5]:
