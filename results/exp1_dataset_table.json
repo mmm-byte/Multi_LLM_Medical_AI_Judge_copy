@@ -1,0 +1,16 @@
+{
+  "dataset_path": "/content/Multi_LLM_Medical_AI_Judge_copy/benchmark_dataset/source_datasets/benchmark_dataset_500.csv",
+  "total": 525,
+  "domain_counts": {
+    "Cardiology": 105,
+    "Emergency": 105,
+    "Neurology": 105,
+    "Pediatrics": 105,
+    "Pharmacology": 105
+  },
+  "source_counts": {
+    "MedQuAD": 325,
+    "MedDialog": 175,
+    "curated_expert": 25
+  }
+}
